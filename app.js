@@ -41,6 +41,15 @@ app.get('/', (req, res) => {
   );
 });
 
+app.get('/home-sample', (req, res) => {
+  renderPage(
+    res,
+    'home-sample',
+    'Home Sample',
+    `Modern Digital Marketing Website Sample | ${brandMetaSuffix}`,
+    'Explore an alternative premium homepage concept for Digi Web Tech featuring a modern SaaS-style layout, trust signals, case studies, and conversion-focused sections.'
+  );
+});
 app.get('/about', (req, res) => {
   renderPage(
     res,
@@ -152,5 +161,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log('Server running on port ' + PORT);
 });
+
 
 

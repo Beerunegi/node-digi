@@ -178,3 +178,21 @@ ctaGroups.forEach((group) => {
     group.appendChild(link);
   }
 });
+
+const sampleSliderTrack = document.querySelector('[data-slider-track]');
+const sampleSliderPrev = document.querySelector('[data-slider-prev]');
+const sampleSliderNext = document.querySelector('[data-slider-next]');
+
+if (sampleSliderTrack && sampleSliderPrev && sampleSliderNext) {
+  const scrollSlider = (direction) => {
+    const firstCard = sampleSliderTrack.querySelector('.sample-testimonial-card');
+    const scrollAmount = firstCard ? firstCard.getBoundingClientRect().width + 16 : 340;
+    sampleSliderTrack.scrollBy({
+      left: direction * scrollAmount,
+      behavior: reduceMotion ? 'auto' : 'smooth'
+    });
+  };
+
+  sampleSliderPrev.addEventListener('click', () => scrollSlider(-1));
+  sampleSliderNext.addEventListener('click', () => scrollSlider(1));
+}
