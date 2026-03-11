@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= metaTitle || (title + ' | Digi Web Tech') %></title>
+  <meta name="description" content="<%= metaDescription || 'Digi Web Tech is an India based Digital marketing and WebCompany offering SEO, paid ads, website design, and development services.' %>">
+  <meta name="keywords" content="Digital Marketing Company India, Web Company India, SEO Services India, Google Ads Agency India, Website Development India, Website Design India, Digi Web Tech">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="shortcut icon" href="/images/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/">
+      <img src="/images/favicon.svg" alt="Digi Web Tech Logo" class="brand-logo">
+    </a>
+    <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">Menu</button>
+    <nav class="top-nav" id="topNav">
+      <a class="<%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
+      <a class="<%= currentPath === '/about' ? 'active' : '' %>" href="/about">About Us</a>
+      <a class="<%= currentPath.startsWith('/services') ? 'active' : '' %>" href="/services">Services</a>
+      <a class="<%= currentPath === '/case-studies' ? 'active' : '' %>" href="/case-studies">Case Studies</a>
+      <a class="<%= currentPath === '/pricing' ? 'active' : '' %>" href="/pricing">Pricing</a>
+      <a class="btn btn-sm <%= currentPath === '/contact' ? 'active' : '' %>" href="/contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <%- body %>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand-block">
+      <a class="brand" href="/">
+        <img src="/images/favicon.svg" alt="Digi Web Tech Logo" class="brand-logo">
+      </a>
+      <p>Performance-driven digital marketing agency helping businesses grow through SEO, paid ads, development, and conversion optimization.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V12H8v3h2v6h3v-6h2.2l.8-3H13V9.5c0-.28.22-.5.5-.5z"/></svg></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.75 6.5a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg></a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5a1.44 1.44 0 1 1 0-2.88 1.44 1.44 0 0 1 0 2.88zM5.5 9.75h2.88V18H5.5zm4.63 0h2.76v1.12h.04a3 3 0 0 1 2.7-1.48c2.88 0 3.41 1.9 3.41 4.37V18h-2.88v-3.77c0-.9-.02-2.06-1.26-2.06s-1.45.98-1.45 1.99V18h-2.88z"/></svg></a>
+        <a href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.45-5.18a2.64 2.64 0 0 0-1.86-1.86C19.01 4.5 12 4.5 12 4.5s-7.01 0-8.69.46A2.64 2.64 0 0 0 1.45 6.82C1 8.5 1 12 1 12s0 3.5.45 5.18a2.64 2.64 0 0 0 1.86 1.86C4.99 19.5 12 19.5 12 19.5s7.01 0 8.69-.46a2.64 2.64 0 0 0 1.86-1.86C23 15.5 23 12 23 12zm-14 3V9l5 3-5 3z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Top Services</h4>
+      <a href="/services/seo-services">SEO Services</a>
+      <a href="/services/google-ads-services">Google Ads</a>
+      <a href="/services/meta-ads-management-services">Meta Ads Management</a>
+      <a href="/services/website-development-services">Website Development</a>
+      <a href="/services/website-design-services">Website Design</a>
+    </div>
+
+    <div class="footer-col footer-contact-col">
+      <h4>Contact</h4>
+      <p>3rd Floor, A-303, Sector 5, Rajendra Nagar, Ghaziabad, Uttar Pradesh 201005</p>
+      <p>Email: <a href="mailto:info@digiwebtech.co.in">info@digiwebtech.co.in</a></p>
+      <p>Mobile: <a href="tel:+919871264699">9871264699</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; 2026 Digi Web Tech. All rights reserved.</p>
+      <p>Built with Node.js + Express + EJS</p>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-sticky-bar">
+  <a class="sticky-btn sticky-call" href="tel:+919871264699">Call Now</a>
+  <a class="sticky-btn sticky-whatsapp" href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services." target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

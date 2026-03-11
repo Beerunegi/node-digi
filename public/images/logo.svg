@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="120" viewBox="0 0 520 120" role="img" aria-labelledby="title desc">
+  <title id="title">Digi Web Tech Logo</title>
+  <desc id="desc">Digi Web Tech green logo mark and wordmark</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1fb75c"/>
+      <stop offset="100%" stop-color="#0d8a42"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="120" fill="none"/>
+  <g transform="translate(8 8)">
+    <circle cx="52" cy="52" r="50" fill="none" stroke="url(#g)" stroke-width="6"/>
+    <circle cx="52" cy="52" r="34" fill="none" stroke="url(#g)" stroke-width="4" opacity="0.9"/>
+    <path d="M30 35h28v10H40v14h16v10H30z" fill="url(#g)"/>
+    <path d="M68 35h24v10H78v36H68z" fill="url(#g)"/>
+  </g>
+  <text x="126" y="68" font-family="Sora, Manrope, Arial, sans-serif" font-weight="700" font-size="54" fill="url(#g)">web</text>
+  <text x="316" y="68" font-family="Sora, Manrope, Arial, sans-serif" font-weight="600" font-size="40" fill="#0d8a42">tech</text>
+</svg>
