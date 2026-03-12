@@ -185,7 +185,7 @@ const sampleSliderNext = document.querySelector('[data-slider-next]');
 
 if (sampleSliderTrack && sampleSliderPrev && sampleSliderNext) {
   const scrollSlider = (direction) => {
-    const firstCard = sampleSliderTrack.querySelector('.sample-testimonial-card');
+    const firstCard = sampleSliderTrack.querySelector('[data-slider-card], .sample-testimonial-card, .about-testimonial-card');
     const scrollAmount = firstCard ? firstCard.getBoundingClientRect().width + 16 : 340;
     sampleSliderTrack.scrollBy({
       left: direction * scrollAmount,
@@ -196,3 +196,4 @@ if (sampleSliderTrack && sampleSliderPrev && sampleSliderNext) {
   sampleSliderPrev.addEventListener('click', () => scrollSlider(-1));
   sampleSliderNext.addEventListener('click', () => scrollSlider(1));
 }
+
