@@ -20,6 +20,49 @@
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="shortcut icon" href="/images/favicon.svg">
   <link rel="stylesheet" href="/css/style.css">
+  <% if (currentPath === '/') { %>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://digiwebtech.co.in/#organization",
+        "name":"Digi Web Tech",
+        "url":"https://digiwebtech.co.in/",
+        "logo":{
+          "@type":"ImageObject",
+          "url":"https://digiwebtech.co.in/images/favicon.svg"
+        },
+        "contactPoint":{
+          "@type":"ContactPoint",
+          "telephone":"+91-9871264699",
+          "contactType":"customer service",
+          "areaServed":"IN",
+          "availableLanguage":["English","Hindi"]
+        }
+      },
+      {
+        "@type":"LocalBusiness",
+        "@id":"https://digiwebtech.co.in/#localbusiness",
+        "name":"Digi Web Tech",
+        "url":"https://digiwebtech.co.in/",
+        "image":"https://digiwebtech.co.in/images/favicon.svg",
+        "telephone":"+91-9871264699",
+        "priceRange":"\u20B9\u20B9",
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress":"3rd Floor, A-303, Near M4U Cinema, Block 7, Sector 5, Rajendra Nagar",
+          "addressLocality":"Ghaziabad",
+          "addressRegion":"Uttar Pradesh",
+          "postalCode":"201005",
+          "addressCountry":"IN"
+        }
+      }
+    ]
+  }
+  </script>
+  <% } %>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
