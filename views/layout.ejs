@@ -32,11 +32,31 @@
     <a class="brand" href="/">
       <img src="/images/favicon.svg" alt="Digi Web Tech Logo" class="brand-logo">
     </a>
-    <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">Menu</button>
+    <a class="mobile-header-cta" href="/contact">Get Free Consultant</a>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-controls="topNav" aria-expanded="false">Menu</button>
     <nav class="top-nav" id="topNav">
       <a class="<%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
       <a class="<%= currentPath === '/about' ? 'active' : '' %>" href="/about">About Us</a>
-      <a class="<%= currentPath.startsWith('/services') ? 'active' : '' %>" href="/services">Services</a>
+      <div class="nav-dropdown <%= currentPath.startsWith('/services') ? 'active' : '' %>">
+        <a class="nav-dropdown-toggle <%= currentPath.startsWith('/services') ? 'active' : '' %>" href="/services">Services</a>
+        <div class="nav-dropdown-menu">
+          <a class="<%= currentPath === '/services' ? 'active' : '' %>" href="/services">All Services</a>
+          <a class="<%= currentPath === '/services/seo-services' ? 'active' : '' %>" href="/services/seo-services">SEO Services</a>
+          <a class="<%= currentPath === '/services/aio-optimization-services' ? 'active' : '' %>" href="/services/aio-optimization-services">AIO Optimization</a>
+          <a class="<%= currentPath === '/services/geo-optimization-services' ? 'active' : '' %>" href="/services/geo-optimization-services">GEO Optimization</a>
+          <a class="<%= currentPath === '/services/google-ads-services' ? 'active' : '' %>" href="/services/google-ads-services">Google Ads</a>
+          <a class="<%= currentPath === '/services/website-development-services' ? 'active' : '' %>" href="/services/website-development-services">Website Development</a>
+          <a class="<%= currentPath === '/services/website-design-services' ? 'active' : '' %>" href="/services/website-design-services">Website Design</a>
+          <a class="<%= currentPath === '/services/shopify-development-services' ? 'active' : '' %>" href="/services/shopify-development-services">Shopify Development</a>
+          <a class="<%= currentPath === '/services/wordpress-development-services' ? 'active' : '' %>" href="/services/wordpress-development-services">WordPress Development</a>
+          <a class="<%= currentPath === '/services/meta-ads-management-services' ? 'active' : '' %>" href="/services/meta-ads-management-services">Meta Ads Management</a>
+          <a class="<%= currentPath === '/services/content-marketing-services' ? 'active' : '' %>" href="/services/content-marketing-services">Content Marketing</a>
+          <a class="<%= currentPath === '/services/email-marketing-automation-services' ? 'active' : '' %>" href="/services/email-marketing-automation-services">Email Marketing</a>
+          <a class="<%= currentPath === '/services/conversion-rate-optimization-services' ? 'active' : '' %>" href="/services/conversion-rate-optimization-services">CRO Services</a>
+          <a class="<%= currentPath === '/services/analytics-reporting-services' ? 'active' : '' %>" href="/services/analytics-reporting-services">Analytics & Reporting</a>
+          <a class="<%= currentPath === '/services/brand-strategy-services' ? 'active' : '' %>" href="/services/brand-strategy-services">Brand Strategy</a>
+        </div>
+      </div>
       <a class="<%= currentPath === '/case-studies' ? 'active' : '' %>" href="/case-studies">Case Studies</a>
       <a class="<%= currentPath === '/pricing' ? 'active' : '' %>" href="/pricing">Pricing</a>
       <a class="btn btn-sm <%= currentPath === '/contact' ? 'active' : '' %>" href="/contact">Start a Project</a>
