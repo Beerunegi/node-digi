@@ -74,6 +74,16 @@ app.get('/services/seo-services', (req, res) => {
   renderPage(res, 'seo-services', 'SEO Services', `SEO Services in India | ${brandMetaSuffix}`);
 });
 
+app.get('/services/seo-services-sample', (req, res) => {
+  renderPage(
+    res,
+    'seo-services-sample',
+    'SEO Services Sample',
+    `SEO Services Sample Page | ${brandMetaSuffix}`,
+    'Preview a sample SEO services page concept for Digi Web Tech, adapted to the current site theme with a premium long-form layout.'
+  );
+});
+
 app.get('/services/aio-optimization-services', (req, res) => {
   renderPage(res, 'aio-optimization-services', 'AIO Optimization Services', `AIO Optimization Services in India | ${brandMetaSuffix}`);
 });
