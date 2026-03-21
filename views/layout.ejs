@@ -14,6 +14,7 @@
   <meta name="description" content="<%= metaDescription || 'Digi Web Tech is an India based Digital marketing and WebCompany offering SEO, paid ads, website design, and development services.' %>">
   <meta name="keywords" content="Digital Marketing Company India, Web Company India, SEO Services India, Google Ads Agency India, Website Development India, Website Design India, Digi Web Tech">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://digiwebtech.co.in<%= currentPath %>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -98,6 +99,17 @@
           <a class="<%= currentPath === '/services/conversion-rate-optimization-services' ? 'active' : '' %>" href="/services/conversion-rate-optimization-services">CRO Services</a>
           <a class="<%= currentPath === '/services/analytics-reporting-services' ? 'active' : '' %>" href="/services/analytics-reporting-services">Analytics & Reporting</a>
           <a class="<%= currentPath === '/services/brand-strategy-services' ? 'active' : '' %>" href="/services/brand-strategy-services">Brand Strategy</a>
+        </div>
+      </div>
+      <div class="nav-dropdown <%= currentPath.startsWith('/industries') ? 'active' : '' %>">
+        <a class="nav-dropdown-toggle <%= currentPath.startsWith('/industries') ? 'active' : '' %>" href="/industries">Industries</a>
+        <div class="nav-dropdown-menu">
+          <a class="<%= currentPath === '/industries/health' ? 'active' : '' %>" href="/industries/health">Healthcare</a>
+          <a class="<%= currentPath === '/industries/education' ? 'active' : '' %>" href="/industries/education">Education</a>
+          <a class="<%= currentPath === '/industries/ecommerce' ? 'active' : '' %>" href="/industries/ecommerce">Ecommerce</a>
+          <a class="<%= currentPath === '/industries/real-estate' ? 'active' : '' %>" href="/industries/real-estate">Real Estate</a>
+          <a class="<%= currentPath === '/industries/technology' ? 'active' : '' %>" href="/industries/technology">Technology & SaaS</a>
+          <a class="<%= currentPath === '/industries/automotive' ? 'active' : '' %>" href="/industries/automotive">Automotive</a>
         </div>
       </div>
       <a class="<%= currentPath === '/case-studies' ? 'active' : '' %>" href="/case-studies">Case Studies</a>

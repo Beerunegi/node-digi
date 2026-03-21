@@ -136,6 +136,40 @@ app.get('/services/brand-strategy-services', (req, res) => {
   renderPage(res, 'brand-strategy-services', 'Brand Strategy Services', `Brand Strategy Services in India | ${brandMetaSuffix}`);
 });
 
+app.get('/industries', (req, res) => {
+  renderPage(
+    res,
+    'industries',
+    'Industries',
+    `Industry Specific Digital Marketing Solutions | ${brandMetaSuffix}`,
+    'Explore specialized digital marketing and web solutions tailored for healthcare, education, ecommerce, real estate, technology, and automotive sectors by Digi Web Tech.'
+  );
+});
+
+app.get('/industries/health', (req, res) => {
+  renderPage(res, 'industry-health', 'Healthcare Marketing', `Healthcare Digital Marketing Services | ${brandMetaSuffix}`, 'Specialized digital marketing for health clinics, hospitals, and wellness brands including patient acquisition and medical SEO.');
+});
+
+app.get('/industries/education', (req, res) => {
+  renderPage(res, 'industry-education', 'Education Marketing', `Education Sector Marketing Services | ${brandMetaSuffix}`, 'Strategic growth marketing for schools, universities, and EdTech platforms focusing on student enrollment and brand authority.');
+});
+
+app.get('/industries/ecommerce', (req, res) => {
+  renderPage(res, 'industry-ecommerce', 'Ecommerce Growth', `Ecommerce Marketing & Development Services | ${brandMetaSuffix}`, 'End-to-end growth solutions for online stores, including Shopify mastery, D2C performance ads, and conversion optimization.');
+});
+
+app.get('/industries/real-estate', (req, res) => {
+  renderPage(res, 'industry-real-estate', 'Real Estate Marketing', `Real Estate Digital Marketing Services | ${brandMetaSuffix}`, 'Lead generation and digital branding for real estate developers, property portals, and local agents.');
+});
+
+app.get('/industries/technology', (req, res) => {
+  renderPage(res, 'industry-technology', 'Technology & SaaS Marketing', `Technology Sector Marketing Services | ${brandMetaSuffix}`, 'Growth hacking and performance marketing for SaaS, software houses, and tech startups looking to scale globally.');
+});
+
+app.get('/industries/automotive', (req, res) => {
+  renderPage(res, 'industry-automotive', 'Automotive Marketing', `Automotive Digital Marketing Services | ${brandMetaSuffix}`, 'Comprehensive digital marketing for car dealerships, auto parts brands, and automotive service centers.');
+});
+
 app.get('/case-studies', (req, res) => {
   renderPage(
     res,
@@ -163,6 +197,18 @@ app.get('/contact', (req, res) => {
     'Contact Us',
     `Contact Digi Web Tech | ${brandMetaSuffix}`,
     'Contact Digi Web Tech in India for SEO, ads, social media, website design, and web development services for your business growth.'
+  );
+});
+
+// 404 Handler - Catch-all for undefined routes
+app.use((req, res) => {
+  res.status(404);
+  renderPage(
+    res,
+    '404',
+    'Page Not Found',
+    `404 - Page Not Found | ${brandMetaSuffix}`,
+    'The page you are looking for does not exist. Explore our services or return home to grow your business.'
   );
 });
 

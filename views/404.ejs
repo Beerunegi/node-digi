@@ -1,0 +1,108 @@
+<section class="error-page section-gap">
+  <div class="container error-content-wrap">
+    <div class="error-visual reveal">
+      <div class="error-code">404</div>
+      <div class="error-glow"></div>
+    </div>
+    <div class="error-text reveal">
+      <span class="eyebrow">Lost in the Digital Space?</span>
+      <h1>Page <em>Not Found.</em></h1>
+      <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let's get you back on track to growing your business.</p>
+      <div class="error-actions">
+        <a href="/" class="btn">Back to Home</a>
+        <a href="/services" class="btn btn-secondary">Explore Services</a>
+        <a href="/contact" class="btn btn-outline">Contact Support</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .error-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .error-content-wrap {
+    max-width: 800px;
+    z-index: 2;
+  }
+
+  .error-visual {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .error-code {
+    font-size: clamp(8rem, 20vw, 15rem);
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--accent) 0%, #fff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.15;
+    letter-spacing: -0.05em;
+  }
+
+  .error-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    filter: blur(150px);
+    opacity: 0.2;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .error-text h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .error-text p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+  }
+
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .error-actions {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 1rem;
+    }
+    
+    .error-code {
+      font-size: 10rem;
+    }
+  }
+</style>

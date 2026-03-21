@@ -1,49 +1,54 @@
-<section class="hero section-gap">
-  <div class="hero-orb orb-1"></div>
-  <div class="hero-orb orb-2"></div>
-  <div class="container hero-grid">
+<!-- Single High-Impact Hero Banner -->
+<section class="hero-single section-gap">
+  <picture class="hero-bg-picture">
+    <!-- Relevant Mobile Stock Image (Professional & Result Oriented) -->
+    <source srcset="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1080&h=1920&q=80" media="(max-width: 768px)">
+    <!-- Relevant Desktop Stock Image (Modern Agency / Digital Strategy) -->
+    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1920&q=80" alt="Digi Web Tech Digital Strategy" loading="eager">
+  </picture>
+  <div class="hero-video-overlay"></div>
+  
+  <div class="container hero-left-layout">
     <div class="hero-copy">
-      <span class="eyebrow">Digital Growth Agency</span>
-      <h1 class="hero-heading">
-  <span class="hero-main-line">We Grow Your Business With</span>
-  <span class="typewriter-wrap" aria-live="polite">
-    <span id="typewriterWord" class="typewriter-text" data-words="SEO|Web Design|Digital Marketing|PPC Ads|Social Media">SEO</span>
-  </span>
-</h1>
-      <p>Modern campaigns, conversion-focused websites, and performance reporting that make every marketing dollar work harder.</p>
-      <div class="hero-actions">
+      <span class="eyebrow reveal">Elevate Your Digital Presence</span>
+      <h1 class="hero-heading reveal">
+        <span class="hero-main-line">We Engineer Hyper-Growth for</span>
+        <span class="typewriter-wrap" aria-live="polite">
+          <span id="typewriterWord" class="typewriter-text" data-words="SEO Strategy|UI/UX Design|Performance Ads|Lead Gen|Brand Authority">SEO Strategy</span>
+        </span>
+      </h1>
+      <p class="reveal">Turn your digital channels into high-performance growth engines with data-driven strategy and premium execution.</p>
+      <div class="hero-actions reveal">
         <a href="#contact" class="btn">Get Free Strategy Call</a>
-        <a href="#case-studies" class="btn btn-secondary">See Live Results</a>
       </div>
-      <div class="hero-metrics">
-        <article class="metric-card tilt" data-tilt>
-          <h3 data-counter="180">0</h3>
-          <p>Lead Growth (%)</p>
-        </article>
-        <article class="metric-card tilt" data-tilt>
-          <h3 data-counter="12">0</h3>
-          <p>Revenue Generated ($M+)</p>
-        </article>
-        <article class="metric-card tilt" data-tilt>
-          <h3 data-counter="120">0</h3>
-          <p>Campaigns Launched</p>
-        </article>
+      
+      <div class="hero-metrics-floating reveal">
+        <div class="hero-metrics">
+          <article class="metric-card tilt" data-tilt>
+            <h3 data-counter="180">0</h3>
+            <p>Lead Growth (%)</p>
+          </article>
+          <article class="metric-card tilt" data-tilt>
+            <h3 data-counter="12">0</h3>
+            <p>Revenue Generated ($M+)</p>
+          </article>
+          <article class="metric-card tilt" data-tilt>
+            <h3 data-counter="120">0</h3>
+            <p>Campaigns Launched</p>
+          </article>
+        </div>
+        <div class="hero-floating-badges" style="margin-top: 1.5rem;">
+          <div class="floating-badge">
+            <strong>6.4x ROAS</strong>
+            <span>Paid Ads Performance</span>
+          </div>
+          <div class="floating-badge">
+            <strong>+95% SEO</strong>
+            <span>Organic Traffic Growth</span>
+          </div>
+        </div>
       </div>
     </div>
-
-    <aside class="hero-media">
-      <div class="hero-image-wrap tilt" data-tilt>
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Marketing dashboard on laptop" loading="lazy">
-      </div>
-      <div class="floating-card one reveal">
-        <strong>6.4x ROAS</strong>
-        <span>Paid Ads Performance</span>
-      </div>
-      <div class="floating-card two reveal">
-        <strong>+95% SEO</strong>
-        <span>Organic Traffic Growth</span>
-      </div>
-    </aside>
   </div>
 </section>
 
@@ -213,6 +218,7 @@
     </div>
   </div>
 </section>
+
 <section id="services" class="section-gap home-services-modern">
   <div class="container">
     <div class="section-head">
@@ -328,7 +334,6 @@
   </div>
 </section>
 
-
 <section id="testimonials" class="section-gap testimonials-section">
   <div class="container">
     <div class="testimonials-head reveal">
@@ -403,6 +408,7 @@
     </div>
   </div>
 </section>
+
 <section id="pricing" class="section-gap">
   <div class="container">
     <div class="section-head">
@@ -539,6 +545,7 @@
   }
   </script>
 </section>
+
 <section id="contact" class="section-gap final-cta">
   <div class="container final-cta-inner">
     <div>
@@ -550,24 +557,179 @@
   </div>
 </section>
 
+<style>
+  /* Single Hero Styles - Mobile First Approach */
+  .hero-single {
+    position: relative;
+    overflow: hidden;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 2.5rem 0 1.5rem;
+  }
 
+  .hero-bg-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
+  .hero-bg-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
+  .hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
+  }
 
+  .container.hero-left-layout {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+  }
 
+  .hero-copy h1 {
+    font-size: 1.8rem;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.8);
+  }
 
+  .typewriter-text {
+    color: #a000ff;
+    text-shadow: 0 0 10px rgba(160, 0, 255, 0.3);
+  }
 
+  .hero-copy p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    max-width: 500px;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  }
 
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
 
+  /* Hero Metrics - Single Line on Mobile */
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
 
+  .metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
 
+  .metric-card h3 {
+    font-size: 1.2rem;
+    color: #a000ff;
+    margin-bottom: 0.1rem;
+    font-weight: 700;
+  }
 
+  .metric-card p {
+    font-size: 0.65rem;
+    margin: 0;
+    line-height: 1.1;
+    font-weight: 500;
+  }
 
+  .hero-floating-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    pointer-events: none;
+  }
 
+  .floating-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(160, 0, 255, 0.08);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(160, 0, 255, 0.2);
+    backdrop-filter: blur(5px);
+  }
 
+  .floating-badge strong {
+    color: #a000ff;
+    font-weight: 700;
+  }
 
-
-
-
-
-
+  /* Desktop Enhancements */
+  @media (min-width: 769px) {
+    .hero-single {
+      min-height: 45vh;
+      padding: 2.5rem 0;
+    }
+    .container.hero-left-layout {
+      padding: 0 2rem;
+    }
+    .hero-copy h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+    .hero-copy p {
+      font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+    }
+    .hero-actions {
+      flex-direction: row;
+      gap: 0.8rem;
+    }
+    .hero-metrics {
+      gap: 1rem;
+      max-width: 600px;
+    }
+    .metric-card {
+      padding: 0.8rem;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .metric-card h3 {
+      font-size: 1.5rem;
+    }
+    .metric-card p {
+      font-size: 0.8rem;
+    }
+    .hero-floating-badges {
+      flex-direction: row;
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+    }
+  }
+</style>
