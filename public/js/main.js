@@ -15,7 +15,14 @@ if (menuButton && topNav) {
   });
 
   topNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 760 && link.classList.contains('nav-dropdown-toggle')) {
+        e.preventDefault();
+        link.parentElement.classList.toggle('active');
+        return;
+      }
+      closeMenu();
+    });
   });
 
   document.addEventListener('click', (event) => {
