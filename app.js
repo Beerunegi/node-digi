@@ -180,6 +180,46 @@ app.get('/case-studies', (req, res) => {
   );
 });
 
+app.get('/case-studies/the-dental-port', (req, res) => {
+  renderPage(
+    res,
+    'case-study-dental-port',
+    'The Dental Port Case Study | Dental Marketing',
+    `The Dental Port Case Study - 30% Growth | ${brandMetaSuffix}`,
+    'Read how Digi Web Tech transformed The Dental Port\'s digital presence, resulting in 30% organic traffic growth and page 1 rankings for key local search terms.'
+  );
+});
+
+app.get('/case-studies/krisshna-dental', (req, res) => {
+  renderPage(
+    res,
+    'case-study-krisshna-dental',
+    'Krisshna Dental Case Study | Dental SEO',
+    `Krisshna Dental Case Study - Top rankings in 3 Months | ${brandMetaSuffix}`,
+    'Read how Digi Web Tech transformed Krisshna Dental\'s digital presence, resulting in 10 keywords in the top 10 in 3 months and a 30% traffic increase in 6 months.'
+  );
+});
+
+app.get('/case-studies/eco-luxe-decor', (req, res) => {
+  renderPage(
+    res,
+    'case-study-eco-luxe-decor',
+    'Eco Luxe Decor Case Study | Shopify SEO',
+    `Eco Luxe Decor Case Study - 0 to $3,000 Sales | ${brandMetaSuffix}`,
+    'Read how Digi Web Tech scaled Eco Luxe Decor from zero to $3,000 in monthly sales through Shopify optimization and International SEO.'
+  );
+});
+
+app.get('/case-studies/ankur-pharma', (req, res) => {
+  renderPage(
+    res,
+    'case-study-ankur-pharma',
+    'Ankur Pharmaceuticals Case Study | Pharma SEO',
+    `Ankur Pharmaceuticals Case Study - 0 to 90,000 Sales | ${brandMetaSuffix}`,
+    'Read how Digi Web Tech transformed Ankur Pharmaceuticals\' digital presence, scaling from zero to 90,000 in sales volume through WordPress/WooCommerce and International SEO.'
+  );
+});
+
 app.get('/pricing', (req, res) => {
   renderPage(
     res,
