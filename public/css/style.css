@@ -2677,6 +2677,7 @@ body.menu-open {
   padding: 1px;
   background: linear-gradient(120deg, rgba(33, 173, 163, 0.9), rgba(78, 127, 229, 0.65));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -3661,6 +3662,7 @@ h6,
   padding: 1px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(59, 130, 246, 0.12), rgba(6, 182, 212, 0.18));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -8021,6 +8023,7 @@ body {
   padding: 1px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(59, 130, 246, 0.12), rgba(6, 182, 212, 0.18));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -8140,6 +8143,7 @@ body {
   padding: 1px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(59, 130, 246, 0.12), rgba(6, 182, 212, 0.18));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
