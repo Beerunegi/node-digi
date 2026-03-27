@@ -896,8 +896,27 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 680px) {
   .footer-top {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 16px;
     padding: 40px 0 24px;
+  }
+  
+  .footer-brand-block {
+    grid-column: 1 / -1;
+  }
+  
+  .footer-brand-block p {
+    max-width: 100%;
+  }
+  
+  .footer-contact-col {
+    grid-column: 1 / -1;
+  }
+  
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
   }
 }
 
@@ -9045,5 +9064,42 @@ body {
   }
   .audit-bar-form .btn {
     width: 100%;
+  }
+}
+
+/* Case Study Responsive Classes */
+.cs-grid-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.cs-grid-tools {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .cs-grid-split {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .cs-grid-tools {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* Specific adjustment for overly large typography in mobile hero */
+@media (max-width: 760px) {
+  .case-study-hero {
+    padding-top: 90px !important;
+    padding-bottom: 60px !important;
+  }
+  .case-study-hero h1 {
+    font-size: clamp(2rem, 6vw, 2.5rem) !important;
   }
 }
