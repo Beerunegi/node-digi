@@ -45,22 +45,29 @@ if (menuButton && topNav) {
 }
 
 const revealTargets = document.querySelectorAll('.reveal');
-
+ 
 if (revealTargets.length) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
-          observer.unobserve(entry.target);
+          // Optionally unobserve if we only want one-way animation
+          // observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12 }
+    { 
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before it hits the viewport
+    }
   );
-
+ 
   revealTargets.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index * 45, 260)}ms`;
+    // Dynamic stagger based on screen position or index
+    const rect = item.getBoundingClientRect();
+    const delay = Math.min((rect.top / 10) + (index % 3 * 100), 400);
+    item.style.transitionDelay = `${delay}ms`;
     observer.observe(item);
   });
 }

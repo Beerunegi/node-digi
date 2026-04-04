@@ -242,6 +242,51 @@ app.get('/contact', (req, res) => {
   );
 });
 
+// Dynamic Sitemap Generator
+app.get('/sitemap.xml', (req, res) => {
+  const baseUrl = 'https://digiwebtech.co.in';
+  
+  // Safe extraction of GET routes
+  let paths = [];
+  try {
+    paths = app._router.stack
+      .filter(r => r.route && r.route.path && typeof r.route.path === 'string')
+      .map(r => r.route.path)
+      .filter(path => !['/sitemap.xml', '/robots.txt', '/home-sample', '/404'].includes(path));
+  } catch (err) {
+    // Fallback to core routes if router stack access fails
+    paths = ['/', '/about', '/services', '/industries', '/case-studies', '/pricing', '/contact'];
+  }
+
+  const uniquePaths = [...new Set(paths)];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${uniquePaths.map(path => `
+  <url>
+    <loc>${baseUrl}${path === '/' ? '' : path}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>${path === '/' ? 'daily' : 'weekly'}</changefreq>
+    <priority>${path === '/' ? '1.0' : '0.8'}</priority>
+  </url>`).join('')}
+</urlset>`;
+
+  res.header('Content-Type', 'application/xml');
+  res.status(200).send(sitemap);
+});
+
+// Robots.txt Generator
+app.get('/robots.txt', (req, res) => {
+  const robots = `User-agent: *
+Allow: /
+Disallow: /home-sample
+Disallow: /404
+
+Sitemap: https://digiwebtech.co.in/sitemap.xml`;
+
+  res.header('Content-Type', 'text/plain');
+  res.status(200).send(robots);
+});
+
 // 404 Handler - Catch-all for undefined routes
 app.use((req, res) => {
   res.status(404);
