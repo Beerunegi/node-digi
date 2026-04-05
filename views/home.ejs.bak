@@ -2,9 +2,9 @@
 <section class="hero-single section-gap">
   <picture class="hero-bg-picture">
     <!-- Relevant Mobile Stock Image (Professional & Result Oriented) -->
-    <source srcset="/images/home/photo-1551434678-e076c223a692.jpg" media="(max-width: 768px)">
+    <source srcset="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1080&h=1920&q=80" media="(max-width: 768px)">
     <!-- Relevant Desktop Stock Image (Modern Agency / Digital Strategy) -->
-    <img src="/images/home/photo-1542744094-3a31f272c490.jpg" alt="Digi Web Tech Digital Strategy in Delhi NCR" loading="eager" fetchpriority="high">
+    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1920&q=80" alt="Digi Web Tech Digital Strategy in Delhi NCR" loading="eager" fetchpriority="high">
   </picture>
   <div class="hero-video-overlay"></div>
   
@@ -51,51 +51,51 @@
   <div class="marquee">
     <div class="marquee-track">
       <div class="partner-pill">
-        <img src="/images/home/icon-google.svg" alt="Google logo" loading="lazy">
+        <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google logo" loading="lazy">
         <span>Google Partner</span>
       </div>
       <div class="partner-pill">
-        <img src="/images/home/icon-shopify.svg" alt="Shopify logo" loading="lazy">
+        <img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify logo" loading="lazy">
         <span>Shopify Partner</span>
       </div>
       <div class="partner-pill">
-        <img src="/images/home/icon-meta.svg" alt="Meta logo" loading="lazy">
+        <img src="https://cdn.simpleicons.org/meta/0467DF" alt="Meta logo" loading="lazy">
         <span>Meta Partner</span>
       </div>
       <div class="partner-pill">
-        <img src="/images/home/icon-hubspot.svg" alt="HubSpot logo" loading="lazy">
+        <img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot logo" loading="lazy">
         <span>HubSpot Solutions</span>
       </div>
       <div class="partner-pill">
-        <img src="/images/home/icon-semrush.svg" alt="SEMrush logo" loading="lazy">
+        <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="SEMrush logo" loading="lazy">
         <span>SEMrush Agency</span>
       </div>
       <div class="partner-pill">
-        <img src="/images/home/icon-woocommerce.svg" alt="WooCommerce logo" loading="lazy">
+        <img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="WooCommerce logo" loading="lazy">
         <span>WooCommerce Expert</span>
       </div>
       <div class="partner-pill" aria-hidden="true">
-        <img src="/images/home/icon-google.svg" alt="" loading="lazy">
+        <img src="https://cdn.simpleicons.org/google/4285F4" alt="" loading="lazy">
         <span>Google Partner</span>
       </div>
       <div class="partner-pill" aria-hidden="true">
-        <img src="/images/home/icon-shopify.svg" alt="" loading="lazy">
+        <img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="" loading="lazy">
         <span>Shopify Partner</span>
       </div>
       <div class="partner-pill" aria-hidden="true">
-        <img src="/images/home/icon-meta.svg" alt="" loading="lazy">
+        <img src="https://cdn.simpleicons.org/meta/0467DF" alt="" loading="lazy">
         <span>Meta Partner</span>
       </div>
       <div class="partner-pill" aria-hidden="true">
-        <img src="/images/home/icon-hubspot.svg" alt="" loading="lazy">
+        <img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="" loading="lazy">
         <span>HubSpot Solutions</span>
       </div>
       <div class="partner-pill" aria-hidden="true">
-        <img src="/images/home/icon-semrush.svg" alt="" loading="lazy">
+        <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="" loading="lazy">
         <span>SEMrush Agency</span>
       </div>
       <div class="partner-pill" aria-hidden="true">
-        <img src="/images/home/icon-woocommerce.svg" alt="" loading="lazy">
+        <img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="" loading="lazy">
         <span>WooCommerce Expert</span>
       </div>
     </div>
@@ -106,10 +106,10 @@
   <div class="container home-about-grid">
     <div class="home-about-image-wrapper reveal reveal-left">
       <div class="home-about-image main-image">
-        <img src="/images/home/photo-1497366216548-37526070297c.jpg" alt="Digi Web Tech Professional Agency Workspace" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Digi Web Tech Professional Agency Workspace" loading="lazy">
       </div>
       <div class="home-about-image secondary-image tilt" data-tilt>
-        <img src="/images/home/photo-1522202176988-66273c2fd55f.jpg" alt="Team Collaboration" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Team Collaboration" loading="lazy">
       </div>
       <div class="about-badge reveal reveal-right">
         <strong>10+ Years</strong>
@@ -174,22 +174,22 @@
   </div>
 
   <div class="container why-choose-cards">
-    <article class="why-card reveal tilt" data-tilt style="background-image: url('/images/home/photo-1460925895917-afdab827c52f.jpg'); background-size: cover; background-position: center;">
+    <article class="why-card reveal tilt" data-tilt style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;">
       <div class="why-icon">01</div>
       <h3>Strategy First Approach</h3>
       <p>Every campaign starts with deep business analysis, local Delhi NCR market research, and channel planning.</p>
     </article>
-    <article class="why-card reveal tilt" data-tilt style="background-image: url('/images/home/photo-1551288049-bebda4e38f71.jpg'); background-size: cover; background-position: center;">
+    <article class="why-card reveal tilt" data-tilt style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;">
       <div class="why-icon">02</div>
       <h3>Multi-Channel Expertise</h3>
       <p>From geo-targeted SEO and ads to web development, we execute integrated growth systems under one roof.</p>
     </article>
-    <article class="why-card reveal tilt" data-tilt style="background-image: url('/images/home/photo-1432888498266-38ffec3eaf0a.jpg'); background-size: cover; background-position: center;">
+    <article class="why-card reveal tilt" data-tilt style="background-image: url('https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;">
       <div class="why-icon">03</div>
       <h3>Conversion Focus</h3>
       <p>We optimize user journeys, landing pages, and funnels to turn more traffic into loyal customers.</p>
     </article>
-    <article class="why-card reveal tilt" data-tilt style="background-image: url('/images/home/photo-1551434678-e076c223a692.jpg'); background-size: cover; background-position: center;">
+    <article class="why-card reveal tilt" data-tilt style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;">
       <div class="why-icon">04</div>
       <h3>Data and Reporting</h3>
       <p>Get clear dashboards and practical insights so you always know what is working for your business.</p>
@@ -266,7 +266,7 @@
     <div class="home-services-grid">
       <article class="home-service-card reveal tilt" data-tilt>
         <a class="home-service-media" href="/services/seo-services" aria-label="SEO Services">
-          <img src="/images/home/photo-1562577309-4932fdd64cd1.jpg" alt="SEO analytics and search ranking dashboard in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=1100&q=80" alt="SEO analytics and search ranking dashboard in Delhi NCR" loading="lazy">
           <span class="home-service-chip">SEO & AIO</span>
         </a>
         <div class="home-service-body">
@@ -278,7 +278,7 @@
 
       <article class="home-service-card reveal tilt" data-tilt>
         <a class="home-service-media" href="/services/google-ads-services" aria-label="Google Ads Services">
-          <img src="/images/home/photo-1520607162513-77705c0f0d4a.jpg" alt="Paid advertising dashboard for campaign optimization in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1100&q=80" alt="Paid advertising dashboard for campaign optimization in Delhi NCR" loading="lazy">
           <span class="home-service-chip">Paid Ads</span>
         </a>
         <div class="home-service-body">
@@ -290,7 +290,7 @@
 
       <article class="home-service-card reveal tilt" data-tilt>
         <a class="home-service-media" href="/services/content-marketing-services" aria-label="Content Marketing Services">
-          <img src="/images/home/photo-1455390582262-044cdead277a.jpg" alt="Content planning and digital marketing writing workspace in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1100&q=80" alt="Content planning and digital marketing writing workspace in Delhi NCR" loading="lazy">
           <span class="home-service-chip">Content</span>
         </a>
         <div class="home-service-body">
@@ -302,7 +302,7 @@
 
       <article class="home-service-card reveal tilt" data-tilt>
         <a class="home-service-media" href="/services/website-design-services" aria-label="Website Design Services">
-          <img src="/images/home/photo-1581291518857-4e27b48ff24e.jpg" alt="Website design wireframe and user interface planning in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1100&q=80" alt="Website design wireframe and user interface planning in Delhi NCR" loading="lazy">
           <span class="home-service-chip">UI/UX</span>
         </a>
         <div class="home-service-body">
@@ -314,7 +314,7 @@
 
       <article class="home-service-card reveal tilt" data-tilt>
         <a class="home-service-media" href="/services/email-marketing-automation-services" aria-label="Email Marketing and Automation Services">
-          <img src="/images/home/photo-1557200134-90327ee9fafa.jpg" alt="Email marketing automation dashboard and flow setup in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=1100&q=80" alt="Email marketing automation dashboard and flow setup in Delhi NCR" loading="lazy">
           <span class="home-service-chip">Automation</span>
         </a>
         <div class="home-service-body">
@@ -326,7 +326,7 @@
 
       <article class="home-service-card home-service-card-cta reveal tilt" data-tilt>
         <a class="home-service-media" href="/services" aria-label="View all services">
-          <img src="/images/home/photo-1516321318423-f06f85e504b3.jpg" alt="Digital marketing planning board with multiple service channels in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=80" alt="Digital marketing planning board with multiple service channels in Delhi NCR" loading="lazy">
           <span class="home-service-chip">All Services</span>
         </a>
         <div class="home-service-body">
@@ -348,7 +348,7 @@
     <div class="case-grid">
       <article class="case-card reveal">
         <a href="/case-studies/krisshna-dental" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-          <img src="/images/home/photo-1606811841689-23dfddce3e95.jpg" alt="Krisshna Dental in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80" alt="Krisshna Dental in Delhi NCR" loading="lazy">
           <div>
             <h3>Krisshna Dental</h3>
             <p>10 keywords locked into the Top 10 in just 3 months with WordPress and Local SEO.</p>
@@ -358,7 +358,7 @@
       </article>
       <article class="case-card reveal">
         <a href="/case-studies/the-dental-port" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-          <img src="/images/home/photo-1551836022-4c4c79ecde51.jpg" alt="The Dental Port in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1200&q=80" alt="The Dental Port in Delhi NCR" loading="lazy">
           <div>
             <h3>The Dental Port</h3>
             <p>Revitalized their identity with a fast, patient-centric website and hyper-local SEO.</p>
@@ -368,7 +368,7 @@
       </article>
       <article class="case-card reveal">
         <a href="/case-studies/eco-luxe-decor" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-          <img src="/images/home/photo-1460925895917-afdab827c52f.jpg" alt="Eco Luxe Decor in Delhi NCR" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Eco Luxe Decor in Delhi NCR" loading="lazy">
           <div>
             <h3>Eco Luxe Decor</h3>
             <p>Scaled a premium home decor brand from zero to $3,000/mo sales in just 6 months.</p>

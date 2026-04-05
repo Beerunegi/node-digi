@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="services-hero-media reveal">
-      <img src="/images/services/photo-1551434678-e076c223a692.jpg" alt="Advanced growth dashboard and marketing intelligence visualization in Delhi NCR" width="1400" height="1000" loading="eager" fetchpriority="high">
+      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1400&q=80" alt="Advanced growth dashboard and marketing intelligence visualization in Delhi NCR" width="1400" height="1000" loading="eager" fetchpriority="high">
       <div class="services-hero-badge">360° Growth Intelligence</div>
     </div>
   </div>
@@ -56,7 +56,7 @@
         <div class="services-cards-grid">
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/seo-services" aria-label="SEO Services">
-              <img src="/images/services/photo-seo-dash.jpg" alt="Organic search optimization and ranking analytics in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1571721795195-a2ca2d33e0b9?auto=format&fit=crop&w=1200&q=80" alt="Organic search optimization and ranking analytics in Delhi NCR" loading="lazy">
               <span class="service-chip">Organic Growth</span>
             </a>
             <div class="service-card-body">
@@ -67,7 +67,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/meta-ads-management-services" aria-label="Meta Ads">
-              <img src="/images/services/photo-meta-ads.jpg" alt="Social media advertising and audience targeting in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80" alt="Social media advertising and audience targeting in Delhi NCR" loading="lazy">
               <span class="service-chip">Social Ads</span>
             </a>
             <div class="service-card-body">
@@ -78,7 +78,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/google-ads-services" aria-label="Google Ads">
-              <img src="/images/services/photo-1460925895917-afdab827c52f.jpg" alt="Paid search dashboard and ROAS tracking in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Paid search dashboard and ROAS tracking in Delhi NCR" loading="lazy">
               <span class="service-chip">Paid Ads</span>
             </a>
             <div class="service-card-body">
@@ -89,7 +89,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/content-marketing-services" aria-label="Content Marketing">
-              <img src="/images/services/photo-1499750310107-5fef28a66643.jpg" alt="Strategic content production and authority building in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80" alt="Strategic content production and authority building in Delhi NCR" loading="lazy">
               <span class="service-chip">Authority</span>
             </a>
             <div class="service-card-body">
@@ -100,7 +100,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/geo-optimization-services" aria-label="GEO Optimization">
-              <img src="/images/home/photo-1542744094-3a31f272c490.jpg" alt="Location-based marketing and local SEO targeting in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?auto=format&fit=crop&w=1200&q=80" alt="Location-based marketing and local SEO targeting in Delhi NCR" loading="lazy">
               <span class="service-chip">Local Reach</span>
             </a>
             <div class="service-card-body">
@@ -111,7 +111,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/aio-optimization-services" aria-label="AIO Optimization">
-              <img src="/images/services/photo-1677442136019-21780ecad995.jpg" alt="AI workflow for advanced campaign optimization in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="AI workflow for advanced campaign optimization in Delhi NCR" loading="lazy">
               <span class="service-chip">AI Powered</span>
             </a>
             <div class="service-card-body">
@@ -128,7 +128,7 @@
         <div class="services-cards-grid">
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/website-development-services" aria-label="Website Development">
-              <img src="/images/services/photo-1517694712202-14dd9538aa97.jpg" alt="Custom website code development in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80" alt="Custom website code development in Delhi NCR" loading="lazy">
               <span class="service-chip">Custom Build</span>
             </a>
             <div class="service-card-body">
@@ -139,7 +139,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/website-design-services" aria-label="Website Design">
-              <img src="/images/services/photo-1559028012-481c04fa702d.jpg" alt="UI/UX design and wireframing process in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80" alt="UI/UX design and wireframing process in Delhi NCR" loading="lazy">
               <span class="service-chip">UI and UX</span>
             </a>
             <div class="service-card-body">
@@ -150,7 +150,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/shopify-development-services" aria-label="Shopify Development">
-              <img src="/images/services/photo-1517694712202-14dd9538aa97.jpg" alt="Shopify store setup and ecommerce optimization in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1523474253046-2cd2c78a9db1?auto=format&fit=crop&w=1200&q=80" alt="Shopify store setup and ecommerce optimization in Delhi NCR" loading="lazy">
               <span class="service-chip">Ecommerce</span>
             </a>
             <div class="service-card-body">
@@ -161,7 +161,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/wordpress-development-services" aria-label="WordPress Development">
-              <img src="/images/home/photo-1581291518857-4e27b48ff24e.jpg" alt="WordPress custom site development in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1461747541859-4ee79ce78471?auto=format&fit=crop&w=1200&q=80" alt="WordPress custom site development in Delhi NCR" loading="lazy">
               <span class="service-chip">CMS Experts</span>
             </a>
             <div class="service-card-body">
@@ -178,7 +178,7 @@
         <div class="services-cards-grid">
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/email-marketing-automation-services" aria-label="Email Automation">
-              <img src="/images/services/photo-1563986768609-322da13575f3.jpg" alt="Automated email campaigns and lifecycle flows in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" alt="Automated email campaigns and lifecycle flows in Delhi NCR" loading="lazy">
               <span class="service-chip">Automation</span>
             </a>
             <div class="service-card-body">
@@ -189,7 +189,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/conversion-rate-optimization-services" aria-label="CRO Services">
-              <img src="/images/services/photo-1551288049-bebda4e38f71.jpg" alt="Website conversion optimization and behavior tracking in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Website conversion optimization and behavior tracking in Delhi NCR" loading="lazy">
               <span class="service-chip">CRO</span>
             </a>
             <div class="service-card-body">
@@ -200,7 +200,7 @@
           </article>
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/analytics-reporting-services" aria-label="Analytics Services">
-              <img src="/images/home/photo-1520607162513-77705c0f0d4a.jpg" alt="Data visualization and attribution reporting dashboards in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1551281044-8b4f3c1b0cc3?auto=format&fit=crop&w=1200&q=80" alt="Data visualization and attribution reporting dashboards in Delhi NCR" loading="lazy">
               <span class="service-chip">Data Insights</span>
             </a>
             <div class="service-card-body">
@@ -217,7 +217,7 @@
         <div class="services-cards-grid">
           <article class="service-card-modern reveal tilt" data-tilt>
             <a class="service-card-media" href="/services/brand-strategy-services" aria-label="Brand Strategy">
-              <img src="/images/home/photo-1516321318423-f06f85e504b3.jpg" alt="Brand strategy planning and market positioning workshop in Delhi NCR" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1510511459019-5dee667ff58b?auto=format&fit=crop&w=1200&q=80" alt="Brand strategy planning and market positioning workshop in Delhi NCR" loading="lazy">
               <span class="service-chip">Positioning</span>
             </a>
             <div class="service-card-body">
