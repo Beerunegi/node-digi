@@ -243,31 +243,25 @@ app.get('/contact', (req, res) => {
 });
 
 // Dynamic Sitemap Generator
-
 app.get('/sitemap.xml', (req, res) => {
   const baseUrl = 'https://digiwebtech.co.in';
   
   let paths = [];
   try {
-    const fs = require('fs');
-    const path = require('path');
-    const code = fs.readFileSync(path.join(__dirname, 'app.js'), 'utf8');
-    
-    // Extrapolate all route maps defined in this file securely
-    const matches = [...code.matchAll(/app\.get\(['"`](.*?)['"`]/g)];
-    paths = matches.map(m => m[1]);
-
-    paths = paths.filter(route => {
-      // Exclude utility paths, samples, and error pages
-      if (['/sitemap.xml', '/robots.txt', '/404'].includes(route)) return false;
-      if (route.includes('sample')) return false; // Any sample routes
-      if (route.includes('*')) return false; // Catch-all wildcard
-      return true;
-    });
+    const stack = (app.router && app.router.stack) || (app._router && app._router.stack) || [];
+    paths = stack
+      .filter(r => r.route && r.route.path && typeof r.route.path === 'string')
+      .map(r => r.route.path)
+      .filter(path => {
+        // Exclude utility paths, samples, and error pages
+        if (['/sitemap.xml', '/robots.txt', '/404'].includes(path)) return false;
+        if (path.includes('sample')) return false; // Any sample routes
+        if (path.includes('*')) return false; // Catch-all wildcard
+        return true;
+      });
   } catch (err) {
-    // Fallback to core routes if reflection extraction fails
+    // Fallback to core routes if router stack access fails
     paths = ['/', '/about', '/services', '/industries', '/case-studies', '/pricing', '/contact'];
-    console.error('Sitemap Error:', err);
   }
 
   const uniquePaths = [...new Set(paths)];
@@ -313,6 +307,15 @@ app.use((req, res) => {
 
 // Server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+/*app.listen(PORT, () => {
   console.log('Server running on port ' + PORT);
 });
+
+const req = { url: '/sitemap.xml', method: 'GET' };
+const res = {
+  header: () => {},
+  status: (code) => res,
+  send: (data) => console.log('DATA:', data)
+};
+const routeLayer = app.router.stack.find(r => r.route && r.route.path === '/sitemap.xml');
+routeLayer.route.stack[0].handle(req, res, () => {});
