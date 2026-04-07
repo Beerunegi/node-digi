@@ -1,9 +1,52 @@
 const express = require('express');
+require('dotenv').config();
 const expressLayouts = require('express-ejs-layouts');
 const compression = require('compression');
+const sequelize = require('./config/database');
+const session = require('express-session');
+const nodemailer = require('nodemailer');
 
 const app = express();
+console.log('Digi Web Tech Server - App.js Reloaded/Started');
 app.use(compression());
+
+// Request Body Parsers
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(express.json({ limit: '10mb' }));
+
+// MySQL Connection & Sync
+sequelize.authenticate()
+  .then(() => {
+    console.log('MySQL Connected correctly via Sequelize');
+    return sequelize.sync({ alter: true });
+  })
+  .then(() => console.log('Database synced successfully.'))
+  .catch(err => {
+    // Silencing database error log to focus on form delivery
+    console.log('Database (Local MySQL) not running. System using SMTP for lead delivery only.');
+  });
+
+// Express Session setup
+app.use(session({
+  secret: 'digiweb_super_secret_blog_key_2026',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 } // 24 hours
+}));
+
+// Email Transporter (SMTP)
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT),
+  secure: true, // true for 465, false for other ports
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
 
 const defaultMetaDescription =
   'Digi Web Tech is a top Digital marketing and Web Agency in Delhi NCR offering SEO, AIO, GEO, Google Ads, social media, website design, website development, and growth-focused digital services.';
@@ -33,6 +76,141 @@ app.use((req, res, next) => {
 });
 
 // Routes
+
+// Handling Free Website Audit Form (Placed at top for priority)
+app.post('/submit-audit', async (req, res) => {
+  console.log('--- RECEIVED AUDIT FORM SUBMISSION ---');
+  console.log('Body Data:', req.body);
+  const { name, website, email } = req.body;
+
+  if (!name || !email || !website) {
+    console.warn('Submission blocked: Missing fields');
+    return res.status(400).send('Missing required fields');
+  }
+
+  try {
+    // 1. Send Email to Admin
+    await transporter.sendMail({
+      from: `"Digi Web Tech Audit Bot" <${process.env.SMTP_USER}>`,
+      to: process.env.ADMIN_EMAIL,
+      subject: `🔥 New Free Audit Request from ${name}`,
+      text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nWebsite: ${website}`,
+      html: `
+        <div style="font-family: sans-serif; padding: 20px; background: #f4f7fb; border: 1px solid #e0e0e0; border-radius: 12px;">
+          <h2 style="color: #01a09d;">New Lead Alert!</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Website:</strong> <a href="${website}">${website}</a></p>
+          <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;"/>
+          <p style="font-size: 12px; color: #666;">This enquiry was submitted via the "Free Website Audit" bar on the homepage.</p>
+        </div>
+      `
+    });
+
+    // 2. Auto-reply to User
+    await transporter.sendMail({
+      from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: `Thank you for requesting an audit, ${name}!`,
+      text: `Hello ${name},\n\nThank you for reaching out to Digi Web Tech. We've received your request for a free website audit for ${website}.\n\nOur team will analyze your site's SEO, performance, and conversion metrics. You will receive a detailed report within 24-48 hours.\n\nBest Regards,\nBirendra Singh\nDigi Web Tech`,
+      html: `
+        <div style="font-family: sans-serif; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #01a09d;">Hello ${name},</h2>
+          <p>Thanks for choosing <strong>Digi Web Tech</strong> for your website audit!</p>
+          <p>We have received your request for <strong>${website}</strong>. Our SEO experts are already on it and will prepare a comprehensive audit report for you.</p>
+          <p><strong>What was analyzed?</strong></p>
+          <ul style="color: #444;">
+            <li>Site Audit (Speed, Technical SEO, AIO Readiness)</li>
+            <li>Market Competitor Analysis</li>
+            <li>Custom Growth Action Plan</li>
+          </ul>
+          <p>Expect your report in your inbox within 24-48 business hours.</p>
+          <p>Best Regards,<br/><strong>Birendra Singh</strong><br/>Founder, Digi Web Tech</p>
+        </div>
+      `
+    });
+
+    console.log('--- EMAILS SENT SUCCESSFULLY ---');
+    res.redirect('/thank-you');
+
+  } catch (error) {
+    console.error('Email Submission Error:', error);
+    res.status(500).send('Mail service unavailable. Please contact us via WhatsApp.');
+  }
+});
+
+// Handling Main Contact Form Submission
+app.post('/submit-contact', async (req, res) => {
+  console.log('--- RECEIVED CONTACT FORM SUBMISSION ---');
+  console.log('Body Data:', req.body);
+  const { name, email, phone, service, message } = req.body;
+
+  if (!name || !email || !message) {
+    console.warn('Submission blocked: Missing required fields');
+    return res.status(400).send('Missing name, email, or message.');
+  }
+
+  try {
+    // 1. Send Email to Admin
+    await transporter.sendMail({
+      from: `"Digi Web Tech Contact Bot" <${process.env.SMTP_USER}>`,
+      to: process.env.ADMIN_EMAIL,
+      subject: `📧 New Contact Inquiry from ${name}`,
+      text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nService: ${service || 'None Specified'}\nMessage: ${message}`,
+      html: `
+        <div style="font-family: sans-serif; padding: 25px; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; color: #333;">
+          <h2 style="color: #01a09d; margin-top: 0;">New Project Inquiry</h2>
+          <p style="margin-bottom: 20px;">You have received a new message via the Contact Us page.</p>
+          <div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+            <p><strong>Requested Service:</strong> ${service || 'Not specified'}</p>
+            <p><strong>Message:</strong></p>
+            <p style="white-space: pre-line; color: #555;">${message}</p>
+          </div>
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;"/>
+          <p style="font-size: 13px; color: #888;">Digi Web Tech Lead Console</p>
+        </div>
+      `
+    });
+
+    // 2. Auto-reply to User
+    await transporter.sendMail({
+      from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: `We've received your inquiry, ${name}!`,
+      text: `Hello ${name},\n\nThank you for reaching out to us. We've received your query regarding ${service || 'our services'} and Birendra Singh will get back to you shortly.\n\nSummary of your message:\n${message}\n\nBest Regards,\nDigi Web Tech`,
+      html: `
+        <div style="font-family: sans-serif; padding: 40px; border: 1px solid #eee; border-radius: 16px; max-width: 600px; margin: 0 auto; color: #444;">
+          <h2 style="color: #01a09d;">Hello ${name},</h2>
+          <p>Thank you for reaching out to <strong>Digi Web Tech</strong>. We've received your inquiry and are excited to learn more about your project.</p>
+          <p>Our founder, <strong>Birendra Singh</strong>, or one of our senior strategy experts will review your requirements and reach out to you within 24 hours.</p>
+          <p><strong>Next Steps:</strong></p>
+          <ul style="color: #555; line-height: 1.6;">
+            <li>Project Feasibility Review</li>
+            <li>Consultation Call Scheduling</li>
+            <li>Custom Proposal & Roadmap</li>
+          </ul>
+          <p style="margin-top: 25px;">Looking forward to driving hyper-growth for your brand!</p>
+          <p style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
+            Best Regards,<br/>
+            <strong>Birendra Singh</strong><br/>
+            Founder, Digi Web Tech<br/>
+            <a href="tel:+919871264699" style="color: #01a09d; text-decoration: none;">+91 98712 64699</a>
+          </p>
+        </div>
+      `
+    });
+
+    console.log('--- CONTACT FORM EMAILS SENT ---');
+    res.redirect('/thank-you');
+
+  } catch (error) {
+    console.error('Contact Email Submission Error:', error);
+    res.status(500).send('Something went wrong. Please try again later or call us.');
+  }
+});
 app.get('/', (req, res) => {
   renderPage(
     res,
@@ -242,9 +420,21 @@ app.get('/contact', (req, res) => {
   );
 });
 
+app.get('/thank-you', (req, res) => {
+  renderPage(
+    res,
+    'thank-you',
+    'Thank You!',
+    `Thank You for Your Interest | ${brandMetaSuffix}`,
+    'We have received your enquiry and our team will get back to you shortly. Thank you for choosing Digi Web Tech.'
+  );
+});
+
+
+
 // Dynamic Sitemap Generator
 
-app.get('/sitemap.xml', (req, res) => {
+app.get('/sitemap.xml', async (req, res) => {
   const baseUrl = 'https://digiwebtech.co.in';
   
   let paths = [];
@@ -264,6 +454,7 @@ app.get('/sitemap.xml', (req, res) => {
       if (route.includes('*')) return false; // Catch-all wildcard
       return true;
     });
+
   } catch (err) {
     // Fallback to core routes if reflection extraction fails
     paths = ['/', '/about', '/services', '/industries', '/case-studies', '/pricing', '/contact'];

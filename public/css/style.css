@@ -42,13 +42,13 @@ h3 {
   color: var(--text);
 }
 
-h1 { font-size: clamp(2.4rem, 8vw, 4rem); }
-h2 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; }
-h3 { font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 700; }
+h1 { font-size: clamp(2.04rem, 6.8vw, 3.4rem); }
+h2 { font-size: clamp(1.7rem, 5.1vw, 2.55rem); font-weight: 600; }
+h3 { font-size: clamp(1.19rem, 3.4vw, 1.53rem); font-weight: 600; }
 
 p {
   color: var(--muted);
-  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-size: clamp(0.85rem, 1.7vw, 0.935rem);
   line-height: 1.7;
 }
 
@@ -84,8 +84,8 @@ a {
 
 .brand {
   font-family: "Sora", sans-serif;
-  font-weight: 800;
-  font-size: 1.24rem;
+  font-weight: 600;
+  font-size: 1.054rem;
 }
 
 .top-nav {
@@ -96,7 +96,7 @@ a {
 
 .top-nav a {
   color: var(--muted);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .top-nav a:hover {
@@ -149,11 +149,11 @@ a {
 
   .seo-concept-metric strong,
   .seo-concept-metric-value {
-    font-size: clamp(1.45rem, 6vw, 1.75rem);
+    font-size: clamp(1.232rem, 5.1vw, 1.488rem);
   }
 
   .seo-concept-metric-label {
-    font-size: 0.74rem;
+    font-size: 0.629rem;
   }
 }
 
@@ -201,16 +201,16 @@ a {
 
   .seo-concept-metric-tag {
     padding: 5px 8px;
-    font-size: 0.56rem;
+    font-size: 0.476rem;
   }
 
   .seo-concept-metric strong,
   .seo-concept-metric-value {
-    font-size: clamp(1.6rem, 6.6vw, 1.95rem);
+    font-size: clamp(1.36rem, 5.61vw, 1.657rem);
   }
 
   .seo-concept-metric-label {
-    font-size: 0.78rem;
+    font-size: 0.663rem;
     max-width: none;
   }
 }
@@ -231,11 +231,11 @@ a {
 
   .seo-concept-metric strong,
   .seo-concept-metric-value {
-    font-size: clamp(1.5rem, 8vw, 1.82rem);
+    font-size: clamp(1.275rem, 6.8vw, 1.547rem);
   }
 
   .seo-concept-metric-label {
-    font-size: 0.74rem;
+    font-size: 0.629rem;
   }
 }
 
@@ -301,10 +301,10 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--brand-strong);
   font-family: "Sora", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.807rem;
   letter-spacing: 0.02em;
 }
 
@@ -322,7 +322,7 @@ a {
 }
 
 .mega-menu-list a {
-  font-size: 0.9rem;
+  font-size: 0.765rem;
   font-weight: 500;
   color: var(--muted);
   transition: color 0.2s, transform 0.2s;
@@ -342,9 +342,9 @@ a {
 }
 
 .all-services-link {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.722rem;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
@@ -360,7 +360,7 @@ a {
 .nav-dropdown-menu a {
   padding: 10px 12px;
   border-radius: 12px;
-  font-size: 0.94rem;
+  font-size: 0.799rem;
 }
 
 .nav-dropdown-menu a:hover,
@@ -375,7 +375,7 @@ a {
   border-radius: 10px;
   background: var(--surface);
   padding: 8px 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .mobile-header-cta {
@@ -389,7 +389,7 @@ a {
   padding: 16px 32px;
   border-radius: 999px;
   color: #fff;
-  font-weight: 800;
+  font-weight: 600;
   background: linear-gradient(135deg, var(--accent), #ff8c42);
   box-shadow: 0 10px 25px rgba(255, 81, 47, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -420,9 +420,9 @@ a {
   margin-bottom: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.663rem;
   color: var(--brand-strong);
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .section-head {
@@ -437,7 +437,7 @@ a {
 .section-head p {
   max-width: 600px;
   margin-top: 16px;
-  font-size: 1.15rem;
+  font-size: 0.977rem;
 }
 
 .hero {
@@ -455,7 +455,7 @@ a {
 }
 
 .hero-copy h1 {
-  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-size: clamp(1.785rem, 4.25vw, 2.975rem);
   margin-bottom: 14px;
 }
 
@@ -483,7 +483,7 @@ a {
 .metric-card h3 {
   color: var(--brand-strong);
   margin-bottom: 4px;
-  font-size: 1.6rem;
+  font-size: 1.36rem;
 }
 
 .hero-media {
@@ -524,7 +524,7 @@ a {
 }
 
 .floating-card span {
-  font-size: 0.85rem;
+  font-size: 0.722rem;
   color: var(--muted);
 }
 
@@ -606,8 +606,8 @@ a {
 .partner-pill span {
   font-family: "Sora", sans-serif;
   color: #334156;
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 0.765rem;
+  font-weight: 600;
 }
 
 .service-grid,
@@ -661,12 +661,12 @@ a {
 
 .price {
   font-family: "Sora", sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin: 8px 0 14px;
 }
 
 .price span {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--muted);
 }
 
@@ -878,7 +878,7 @@ a {
   }
 
   .mega-menu-heading {
-    font-size: 0.9rem;
+    font-size: 0.765rem;
     padding-bottom: 4px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
@@ -1020,8 +1020,8 @@ a {
   display: inline-block;
   margin-top: 10px;
   color: var(--brand-strong);
-  font-weight: 800;
-  font-size: 0.95rem;
+  font-weight: 600;
+  font-size: 0.807rem;
 }
 
 .card-link:hover {
@@ -1038,7 +1038,7 @@ a {
 
 .footer-contact a {
   color: var(--brand-strong);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .brand {
@@ -1087,7 +1087,7 @@ a {
   margin: 0 0 12px;
   color: #f3f7fb;
   font-family: "Sora", sans-serif;
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .footer-col {
@@ -1145,8 +1145,8 @@ a {
 }
 
 .footer-phone {
-  font-size: 1.1rem;
-  font-weight: 800 !important;
+  font-size: 0.935rem;
+  font-weight: 600 !important;
   color: #fff !important;
 }
 
@@ -1169,7 +1169,7 @@ a {
 }
 
 .footer-bottom-links a {
-  font-size: 0.85rem;
+  font-size: 0.722rem;
   color: #9ab1cb;
 }
 
@@ -1234,7 +1234,7 @@ a {
 
 .contact-card a {
   color: var(--brand-strong);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .contact-form-wrap {
@@ -1277,7 +1277,7 @@ a {
 
 
 .hero-copy h1 {
-  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-size: clamp(1.785rem, 4.25vw, 2.975rem);
   line-height: 1.15;
   margin-bottom: 18px;
 }
@@ -1358,7 +1358,7 @@ a {
   .sticky-btn {
     min-height: 44px;
     border-radius: 999px;
-    font-weight: 800;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1398,8 +1398,8 @@ a {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.85);
   color: var(--brand-strong);
-  font-weight: 700;
-  font-size: 0.86rem;
+  font-weight: 600;
+  font-size: 0.731rem;
 }
 
 .services-hero-media {
@@ -1426,8 +1426,8 @@ a {
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.95);
   font-family: "Sora", sans-serif;
-  font-size: 0.84rem;
-  font-weight: 700;
+  font-size: 0.714rem;
+  font-weight: 600;
 }
 
 .services-modern {
@@ -1491,10 +1491,10 @@ a {
   border-radius: 999px;
   padding: 7px 11px;
   color: #fff;
-  font-size: 0.76rem;
+  font-size: 0.646rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 600;
   background: rgba(2, 126, 122, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.24);
 }
@@ -1505,7 +1505,7 @@ a {
 
 .service-card-body h3 {
   margin-bottom: 7px;
-  font-size: 1.15rem;
+  font-size: 0.977rem;
 }
 
 .service-card-body p {
@@ -1574,7 +1574,7 @@ body.menu-open {
   .hero-copy h1,
   .about-hero h1,
   .services-hero h1 {
-    font-size: clamp(1.9rem, 5.8vw, 2.7rem);
+    font-size: clamp(1.615rem, 4.93vw, 2.295rem);
     line-height: 1.15;
   }
 
@@ -1622,7 +1622,7 @@ body.menu-open {
 
   .brand {
     gap: 8px;
-    font-size: 1.06rem;
+    font-size: 0.901rem;
   }
 
   .menu-toggle {
@@ -1633,7 +1633,7 @@ body.menu-open {
     min-width: 44px;
     padding: 10px 12px;
     border-radius: 14px;
-    font-size: 0.94rem;
+    font-size: 0.799rem;
     color: var(--text);
     box-shadow: 0 10px 24px rgba(15, 33, 58, 0.08);
   }
@@ -1650,8 +1650,8 @@ body.menu-open {
     border-radius: 999px;
     background: linear-gradient(135deg, #0a2540 0%, #3b82f6 55%, #06b6d4 100%);
     color: #fff;
-    font-size: 0.85rem;
-    font-weight: 800;
+    font-size: 0.722rem;
+    font-weight: 600;
     line-height: 1.1;
     text-align: center;
     box-shadow: 0 14px 26px rgba(59, 130, 246, 0.22);
@@ -1692,13 +1692,13 @@ body.menu-open {
   .nav-dropdown-menu a {
     padding: 11px 14px 11px 24px;
     border-radius: 12px;
-    font-size: 0.93rem;
+    font-size: 0.79rem;
   }
 
   .top-nav a {
     padding: 13px 14px;
     border-radius: 14px;
-    font-size: 0.98rem;
+    font-size: 0.833rem;
   }
 
   .top-nav a.btn {
@@ -1727,7 +1727,7 @@ body.menu-open {
   .hero-copy h1,
   .about-hero h1,
   .services-hero h1 {
-    font-size: clamp(1.78rem, 8vw, 2.2rem);
+    font-size: clamp(1.513rem, 6.8vw, 1.87rem);
     margin-bottom: 12px;
   }
 
@@ -1735,7 +1735,7 @@ body.menu-open {
   .about-hero p,
   .services-hero p,
   p {
-    font-size: 0.98rem;
+    font-size: 0.833rem;
     line-height: 1.65;
   }
 
@@ -1773,7 +1773,7 @@ body.menu-open {
   }
 
   .metric-card h3 {
-    font-size: 1.35rem;
+    font-size: 1.147rem;
   }
 
   .hero-media,
@@ -1826,7 +1826,7 @@ body.menu-open {
 
   .sticky-btn {
     min-height: 42px;
-    font-size: 0.93rem;
+    font-size: 0.79rem;
   }
 }
 
@@ -1839,11 +1839,11 @@ body.menu-open {
     max-width: 150px;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 0.75rem;
+    font-size: 0.637rem;
   }
 
   .menu-toggle {
-    font-size: 0.85rem;
+    font-size: 0.722rem;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -1851,14 +1851,14 @@ body.menu-open {
   .hero-copy h1,
   .about-hero h1,
   .services-hero h1 {
-    font-size: 1.62rem;
+    font-size: 1.377rem;
   }
 
   .btn,
   .btn-secondary,
   .btn-whatsapp {
     min-height: 44px;
-    font-size: 0.95rem;
+    font-size: 0.807rem;
   }
 
   .case-card img,
@@ -1867,7 +1867,7 @@ body.menu-open {
   }
 
   .services-points span {
-    font-size: 0.8rem;
+    font-size: 0.68rem;
     padding: 7px 10px;
   }
 }
@@ -1936,8 +1936,8 @@ body.menu-open {
   cursor: pointer;
   padding: 16px 0;
   font-family: "Sora", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--text);
   position: relative;
   padding-right: 28px;
@@ -1954,7 +1954,7 @@ body.menu-open {
   top: 50%;
   transform: translateY(-50%);
   color: var(--brand-strong);
-  font-size: 1.2rem;
+  font-size: 1.02rem;
   line-height: 1;
 }
 
@@ -1973,7 +1973,7 @@ body.menu-open {
   }
 
   .faq-item summary {
-    font-size: 0.96rem;
+    font-size: 0.816rem;
     padding: 14px 0;
   }
 
@@ -2011,8 +2011,8 @@ body.menu-open {
   border: 1px solid #c9d8ea;
   background: rgba(255, 255, 255, 0.8);
   color: #13426d;
-  font-weight: 700;
-  font-size: 0.84rem;
+  font-weight: 600;
+  font-size: 0.714rem;
 }
 
 .why-choose-side {
@@ -2067,7 +2067,7 @@ body.menu-open {
 }
 
 .flip-hint {
-  font-size: 0.9rem;
+  font-size: 0.765rem;
   color: rgba(165, 255, 241, 0.7);
   margin-top: 15px;
   font-weight: 500;
@@ -2092,7 +2092,7 @@ body.menu-open {
 .why-stat-card h3 {
   margin: 0 0 4px;
   color: #a5fff1;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .why-stat-card p {
@@ -2150,8 +2150,8 @@ body.menu-open {
   align-items: center;
   justify-content: center;
   font-family: "Sora", sans-serif;
-  font-weight: 800;
-  font-size: 0.82rem;
+  font-weight: 600;
+  font-size: 0.697rem;
   color: #fff;
   background: linear-gradient(120deg, var(--brand), #3eb4ad);
   margin-bottom: 12px;
@@ -2166,7 +2166,7 @@ body.menu-open {
 
 .why-card h3 {
   margin-bottom: 8px;
-  font-size: 1.15rem;
+  font-size: 0.977rem;
   z-index: 2;
   position: relative;
   color: #fff;
@@ -2179,7 +2179,7 @@ body.menu-open {
   z-index: 2;
   position: relative;
   color: #e2eaf5;
-  font-size: 0.95rem;
+  font-size: 0.807rem;
   transform: translateY(10px);
   opacity: 0.8;
   transition: all 0.4s ease;
@@ -2214,7 +2214,7 @@ body.menu-open {
   }
 
   .why-stat-card h3 {
-    font-size: 1.7rem;
+    font-size: 1.445rem;
   }
 }
 
@@ -2277,11 +2277,11 @@ body.menu-open {
   z-index: 1;
   border-radius: 999px;
   padding: 7px 10px;
-  font-size: 0.74rem;
+  font-size: 0.629rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #fff;
-  font-weight: 800;
+  font-weight: 600;
   background: rgba(2, 126, 122, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.24);
 }
@@ -2292,7 +2292,7 @@ body.menu-open {
 
 .home-service-body h3 {
   margin-bottom: 7px;
-  font-size: 1.1rem;
+  font-size: 0.935rem;
 }
 
 .home-service-body p {
@@ -2326,7 +2326,7 @@ body.menu-open {
 .home-service-card-cta h3 {
   margin: 0;
   color: #ffffff;
-  font-size: 1.45rem;
+  font-size: 1.232rem;
 }
 
 .home-service-card-cta p {
@@ -2397,13 +2397,13 @@ body.menu-open {
 
 .rating {
   color: #f7a321;
-  font-size: 1rem;
+  font-size: 0.85rem;
   letter-spacing: 0.05em;
 }
 
 .platform {
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.663rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--brand-strong);
@@ -2424,11 +2424,11 @@ body.menu-open {
 
 .testimonial-user strong {
   font-family: "Sora", sans-serif;
-  font-size: 0.98rem;
+  font-size: 0.833rem;
 }
 
 .testimonial-user span {
-  font-size: 0.9rem;
+  font-size: 0.765rem;
   color: #5e6d83;
 }
 
@@ -2505,19 +2505,19 @@ body.menu-open {
   border-radius: 999px;
   background: linear-gradient(120deg, var(--brand), #40b7af);
   color: #fff;
-  font-size: 0.75rem;
-  font-weight: 800;
+  font-size: 0.637rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
 }
 
 .framework-step h3 {
   margin: 10px 0 7px;
-  font-size: 1.04rem;
+  font-size: 0.884rem;
 }
 
 .framework-step p {
   margin: 0;
-  font-size: 0.94rem;
+  font-size: 0.799rem;
 }
 
 .step-tags {
@@ -2532,8 +2532,8 @@ body.menu-open {
   border: 1px solid #cfe6ef;
   background: #effcf9;
   color: #0e5e68;
-  font-size: 0.74rem;
-  font-weight: 700;
+  font-size: 0.629rem;
+  font-weight: 600;
   padding: 5px 8px;
 }
 
@@ -2542,8 +2542,8 @@ body.menu-open {
   align-items: center;
   justify-content: center;
   color: #3a5c84;
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-size: 1.36rem;
+  font-weight: 600;
   opacity: 0.65;
 }
 
@@ -2558,7 +2558,7 @@ body.menu-open {
   }
 
   .framework-arrow {
-    font-size: 1.3rem;
+    font-size: 1.105rem;
   }
 }
 
@@ -2617,8 +2617,8 @@ body.menu-open {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.063rem;
+  font-weight: 600;
   background: linear-gradient(135deg, #077e84, #00b0a6);
   box-shadow: 0 8px 18px rgba(0, 127, 122, 0.28);
   margin-bottom: 10px;
@@ -2626,7 +2626,7 @@ body.menu-open {
 
 .flow-node h3 {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.833rem;
   line-height: 1.35;
 }
 
@@ -2665,12 +2665,12 @@ body.menu-open {
   .flow-icon {
     width: 44px;
     height: 44px;
-    font-size: 1.05rem;
+    font-size: 0.892rem;
     margin-bottom: 8px;
   }
 
   .flow-node h3 {
-    font-size: 0.9rem;
+    font-size: 0.765rem;
   }
 
   .flow-connector {
@@ -2742,8 +2742,8 @@ body.menu-open {
   border-radius: 999px;
   background: linear-gradient(120deg, #077f83, #0fb0a8);
   color: #fff;
-  font-size: 0.74rem;
-  font-weight: 800;
+  font-size: 0.629rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   margin-bottom: 10px;
 }
@@ -2759,7 +2759,7 @@ body.menu-open {
 
 .dgef-step h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1.35;
 }
 
@@ -2795,7 +2795,7 @@ body.menu-open {
   }
 
   .dgef-step h3 {
-    font-size: 0.92rem;
+    font-size: 0.782rem;
   }
 
   .dgef-link {
@@ -2847,7 +2847,7 @@ body.menu-open {
 .intent-card h3,
 .intent-core h3 {
   margin: 10px 0 8px;
-  font-size: 1.08rem;
+  font-size: 0.918rem;
 }
 
 .intent-card p,
@@ -2863,8 +2863,8 @@ body.menu-open {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.663rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   background: linear-gradient(130deg, #0b7d84, #12b4aa);
 }
@@ -2899,11 +2899,11 @@ body.menu-open {
   justify-self: start;
   border-radius: 999px;
   padding: 6px 10px;
-  font-size: 0.74rem;
+  font-size: 0.629rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #0e5f68;
-  font-weight: 800;
+  font-weight: 600;
   background: #eafbf8;
   border: 1px solid #c8ece6;
 }
@@ -2966,8 +2966,8 @@ body.menu-open {
   justify-content: center;
   border-radius: 999px;
   padding: 7px 11px;
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.612rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   color: #fff;
   background: linear-gradient(120deg, #3e72e6, #4f8cf0);
@@ -3043,7 +3043,7 @@ body.menu-open {
 
   .intent-card h3,
   .intent-core h3 {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .intent-tag {
@@ -3072,8 +3072,8 @@ body.menu-open {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.663rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   background: linear-gradient(130deg, #0b7d84, #12b4aa);
   box-shadow: 0 10px 20px rgba(11, 125, 132, 0.28);
@@ -3212,7 +3212,7 @@ body.menu-open {
   }
 
   .partner-pill span {
-    font-size: 0.84rem;
+    font-size: 0.714rem;
   }
 }
 
@@ -3251,7 +3251,7 @@ h6,
 }
 
 .top-nav a {
-  font-size: 0.95rem;
+  font-size: 0.807rem;
 }
 
 .top-nav .btn {
@@ -3327,8 +3327,8 @@ h6,
   padding: 8px 14px;
   border-radius: 999px;
   color: #0a2540;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.663rem;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.76);
@@ -3348,7 +3348,7 @@ h6,
 .sample-hero-copy h1 {
   max-width: 12ch;
   margin: 18px 0 16px;
-  font-size: clamp(2.7rem, 5vw, 4.8rem);
+  font-size: clamp(2.295rem, 4.25vw, 4.08rem);
   line-height: 1.03;
   letter-spacing: -0.04em;
   color: #0a2540;
@@ -3356,7 +3356,7 @@ h6,
 
 .sample-hero-copy p {
   max-width: 600px;
-  font-size: 1.05rem;
+  font-size: 0.892rem;
   color: #4b5a6a;
 }
 
@@ -3396,7 +3396,7 @@ h6,
   background: rgba(255, 255, 255, 0.84);
   border: 1px solid rgba(10, 37, 64, 0.08);
   color: #21405f;
-  font-size: 0.9rem;
+  font-size: 0.765rem;
   font-weight: 600;
 }
 
@@ -3437,14 +3437,14 @@ h6,
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
   color: #bcecff;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.663rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .sample-panel-top strong {
-  font-size: 1.35rem;
+  font-size: 1.147rem;
 }
 
 .sample-chart-bars {
@@ -3484,13 +3484,13 @@ h6,
 .sample-panel-metrics strong {
   display: block;
   margin-bottom: 5px;
-  font-size: 1.28rem;
+  font-size: 1.088rem;
   color: #ffffff;
 }
 
 .sample-panel-metrics span {
   color: #c8dbef;
-  font-size: 0.88rem;
+  font-size: 0.748rem;
 }
 
 .sample-floating-note {
@@ -3507,11 +3507,11 @@ h6,
 
 .sample-floating-note strong {
   color: #0a2540;
-  font-size: 0.96rem;
+  font-size: 0.816rem;
 }
 
 .sample-floating-note span {
-  font-size: 0.84rem;
+  font-size: 0.714rem;
   color: #5f7081;
 }
 
@@ -3562,7 +3562,7 @@ h6,
   background: #ffffff;
   border: 1px solid rgba(10, 37, 64, 0.08);
   color: #0a2540;
-  font-weight: 700;
+  font-weight: 600;
   box-shadow: 0 10px 24px rgba(10, 37, 64, 0.06);
 }
 
@@ -3649,8 +3649,8 @@ h6,
   height: 28px;
   border-radius: 999px;
   color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.663rem;
+  font-weight: 600;
   background: linear-gradient(135deg, #0a2540, #3b82f6);
 }
 
@@ -3707,7 +3707,7 @@ h6,
 }
 
 .sample-case-header strong {
-  font-size: 1.25rem;
+  font-size: 1.063rem;
   color: #ffffff;
 }
 
@@ -3718,8 +3718,8 @@ h6,
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
   color: #bfe9ff;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.663rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -3740,7 +3740,7 @@ h6,
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  font-size: 0.86rem;
+  font-size: 0.731rem;
   font-weight: 600;
 }
 
@@ -3789,7 +3789,7 @@ h6,
   display: block;
   margin-bottom: 6px;
   color: #0a2540;
-  font-size: 1.2rem;
+  font-size: 1.02rem;
 }
 
 .sample-stats {
@@ -3808,7 +3808,7 @@ h6,
 .sample-stat-card strong {
   display: block;
   margin-bottom: 8px;
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(1.7rem, 3.4vw, 2.38rem);
   color: #0a2540;
 }
 
@@ -3880,7 +3880,7 @@ h6,
   margin-bottom: 16px;
   border-radius: 14px;
   color: #3b82f6;
-  font-weight: 700;
+  font-weight: 600;
   background: rgba(59, 130, 246, 0.1);
 }
 
@@ -3896,7 +3896,7 @@ h6,
 
 .sample-testimonial-card span:last-child {
   color: #708296;
-  font-size: 0.92rem;
+  font-size: 0.782rem;
 }
 
 .sample-audit {
@@ -3940,7 +3940,7 @@ h6,
 
 .sample-audit-form span {
   color: #0a2540;
-  font-size: 0.92rem;
+  font-size: 0.782rem;
   font-weight: 600;
 }
 
@@ -4039,7 +4039,7 @@ h6,
 
   .sample-hero-copy h1 {
     max-width: none;
-    font-size: clamp(2.1rem, 10vw, 3.2rem);
+    font-size: clamp(1.785rem, 8.5vw, 2.72rem);
   }
 
   .sample-hero-panel {
@@ -4183,8 +4183,8 @@ h6,
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   color: #0a2540;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.697rem;
+  font-weight: 600;
 }
 
 .sample-badge,
@@ -4236,8 +4236,8 @@ h6,
   border-radius: 999px;
   background: rgba(59, 130, 246, 0.1);
   color: #21538b;
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.646rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -4310,7 +4310,7 @@ h6,
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(10, 37, 64, 0.08);
   color: #0a2540;
-  font-size: 0.88rem;
+  font-size: 0.748rem;
   font-weight: 600;
 }
 
@@ -4370,7 +4370,7 @@ h6,
 
 .sample-testimonial-person span {
   color: #708296;
-  font-size: 0.9rem;
+  font-size: 0.765rem;
 }
 
 .sample-audit-form {
@@ -4758,12 +4758,12 @@ body {
   border: 1px solid rgba(59, 130, 246, 0.14);
   background: rgba(255, 255, 255, 0.88);
   color: #21538b;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .about-hero-pills span {
   padding: 9px 14px;
-  font-size: 0.86rem;
+  font-size: 0.731rem;
 }
 
 .about-hero-stack {
@@ -4830,7 +4830,7 @@ body {
 
 .about-values-list li {
   padding: 10px 12px;
-  font-size: 0.92rem;
+  font-size: 0.782rem;
 }
 
 .about-framework-flow {
@@ -4851,7 +4851,7 @@ body {
   background: linear-gradient(135deg, #0a2540, #3b82f6);
   color: #fff;
   font-family: "Sora", sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.06em;
 }
 
@@ -4862,7 +4862,7 @@ body {
 .about-team-role {
   margin-bottom: 10px;
   color: #21538b;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 @media (max-width: 1100px) {
@@ -4894,7 +4894,7 @@ body {
 
   .about-hero-pills span,
   .about-values-list li {
-    font-size: 0.84rem;
+    font-size: 0.714rem;
   }
 }
 
@@ -4994,7 +4994,7 @@ body {
 }
 
 .about-modern-copy h1 {
-  font-size: clamp(2.4rem, 5vw, 4.3rem);
+  font-size: clamp(2.04rem, 4.25vw, 3.655rem);
   line-height: 1.05;
   margin-bottom: 16px;
 }
@@ -5004,7 +5004,7 @@ body {
 .about-modern-step p,
 .about-modern-feature p,
 .about-testimonial-card p {
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .about-modern-actions {
@@ -5025,12 +5025,12 @@ body {
   border: 1px solid rgba(59, 130, 246, 0.16);
   background: rgba(255, 255, 255, 0.86);
   color: #21538b;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .about-modern-badges span {
   padding: 10px 14px;
-  font-size: 0.86rem;
+  font-size: 0.731rem;
 }
 
 .about-modern-visual {
@@ -5077,13 +5077,13 @@ body {
   background: rgba(255, 255, 255, 0.14);
   border-color: rgba(255, 255, 255, 0.16);
   color: #c9ebff;
-  font-size: 0.78rem;
+  font-size: 0.663rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .about-modern-dashboard-top strong {
-  font-size: 1.3rem;
+  font-size: 1.105rem;
 }
 
 .about-modern-bars {
@@ -5135,12 +5135,12 @@ body {
   display: block;
   margin-bottom: 4px;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.02rem;
 }
 
 .about-modern-mini-stats span {
   color: #c9dbef;
-  font-size: 0.88rem;
+  font-size: 0.748rem;
 }
 
 .about-modern-floating {
@@ -5161,7 +5161,7 @@ body {
 .about-overview-badge span,
 .about-testimonial-person span {
   color: #5f7184;
-  font-size: 0.9rem;
+  font-size: 0.765rem;
 }
 
 .float-one {
@@ -5253,13 +5253,13 @@ body {
 .about-modern-stats strong {
   display: block;
   margin-bottom: 6px;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-size: clamp(1.53rem, 3.4vw, 2.04rem);
   color: #0a2540;
 }
 
 .about-modern-stats span {
   color: #5f7184;
-  font-size: 0.92rem;
+  font-size: 0.782rem;
 }
 
 .about-modern-why,
@@ -5299,7 +5299,7 @@ body {
   color: #fff;
   background: linear-gradient(135deg, #0a2540, #3b82f6);
   font-family: "Sora", sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 14px;
 }
 
@@ -5367,7 +5367,7 @@ body {
   background: #ffffff;
   color: #0a2540;
   font: inherit;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -5446,7 +5446,7 @@ body {
   }
 
   .about-modern-copy h1 {
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: clamp(1.7rem, 8.5vw, 2.55rem);
   }
 
   .about-modern-badges,
@@ -5551,7 +5551,7 @@ body {
   gap: 8px;
   align-items: center;
   margin-bottom: 20px;
-  font-size: 0.74rem;
+  font-size: 0.629rem;
   color: rgba(232, 241, 250, 0.6);
 }
 
@@ -5591,8 +5591,8 @@ body {
   border: 1px solid rgba(124, 229, 222, 0.22);
   background: rgba(255, 255, 255, 0.06);
   color: #7ce5de;
-  font-size: 0.68rem;
-  font-weight: 700;
+  font-size: 0.578rem;
+  font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
@@ -5609,9 +5609,9 @@ body {
   max-width: 520px;
   margin-bottom: 14px;
   color: #ffffff;
-  font-size: clamp(2.3rem, 4.8vw, 4.15rem);
+  font-size: clamp(1.955rem, 4.08vw, 3.528rem);
   line-height: 1;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .seo-concept-copy h1 em {
@@ -5624,7 +5624,7 @@ body {
   max-width: 560px;
   margin-bottom: 0;
   color: rgba(232, 241, 250, 0.75);
-  font-size: 0.96rem;
+  font-size: 0.816rem;
   line-height: 1.7;
 }
 
@@ -5650,7 +5650,7 @@ body {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: rgba(232, 241, 250, 0.78);
-  font-size: 0.74rem;
+  font-size: 0.629rem;
   font-weight: 600;
 }
 
@@ -5806,7 +5806,7 @@ body {
   border: none;
   color: rgba(232, 241, 250, 0.74);
   font-family: "Sora", sans-serif;
-  font-size: 0.53rem;
+  font-size: 0.451rem;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -5817,8 +5817,8 @@ body {
   display: block;
   color: #ffffff;
   font-family: "Sora", sans-serif;
-  font-size: clamp(1.48rem, 3vw, 1.9rem);
-  font-weight: 700;
+  font-size: clamp(1.258rem, 2.55vw, 1.615rem);
+  font-weight: 600;
   line-height: 0.92;
   letter-spacing: -0.05em;
 }
@@ -5827,7 +5827,7 @@ body {
   display: inline;
   margin-left: 2px;
   color: #7ce5de;
-  font-size: 0.74em;
+  font-size: 0.629em;
   font-weight: 600;
 }
 
@@ -5835,7 +5835,7 @@ body {
   display: block;
   color: #f4f8fc;
   font-family: "Sora", sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.612rem;
   font-weight: 600;
   line-height: 1.15;
   max-width: 12ch;
@@ -5856,7 +5856,7 @@ body {
   max-width: 760px;
   margin-bottom: 10px;
   color: #102743;
-  font-size: clamp(1.9rem, 3.8vw, 2.95rem);
+  font-size: clamp(1.615rem, 3.23vw, 2.508rem);
   line-height: 1.08;
 }
 
@@ -5865,7 +5865,7 @@ body {
 .seo-concept-tools-copy p,
 .seo-concept-faq-copy p {
   max-width: 720px;
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1.8;
 }
 
@@ -5938,8 +5938,8 @@ body {
   margin-bottom: 0;
   color: var(--text);
   font-family: "Sora", sans-serif;
-  font-size: clamp(2.05rem, 4vw, 3.4rem);
-  font-weight: 700;
+  font-size: clamp(1.742rem, 3.4vw, 2.89rem);
+  font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.04em;
 }
@@ -5948,14 +5948,14 @@ body {
   display: block;
   color: var(--brand-strong);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .seo-concept-services-head p {
   max-width: 450px;
   margin: 0;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1.8;
 }
 
@@ -5994,8 +5994,8 @@ body {
   background: rgba(255, 255, 255, 0.74);
   color: var(--brand-strong);
   font-family: "Sora", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.697rem;
+  font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
@@ -6054,8 +6054,8 @@ body {
   border-radius: 999px;
   background: rgba(0, 127, 122, 0.08);
   color: var(--brand-strong);
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.612rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -6068,8 +6068,8 @@ body {
   margin-bottom: 10px;
   color: var(--text);
   font-family: "Sora", sans-serif;
-  font-size: 1.08rem;
-  font-weight: 700;
+  font-size: 0.918rem;
+  font-weight: 600;
 }
 
 .seo-concept-service-body p,
@@ -6079,7 +6079,7 @@ body {
 .seo-concept-plan p,
 .seo-concept-testimonial p {
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.799rem;
   line-height: 1.72;
 }
 
@@ -6116,7 +6116,7 @@ body {
   background: rgba(0, 127, 122, 0.06);
   border: 1px solid rgba(0, 127, 122, 0.1);
   color: #617286;
-  font-size: 0.72rem;
+  font-size: 0.612rem;
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
@@ -6153,8 +6153,8 @@ body {
   gap: 10px;
   margin-bottom: 16px;
   color: #2ce0a3;
-  font-size: 0.74rem;
-  font-weight: 800;
+  font-size: 0.629rem;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -6171,8 +6171,8 @@ body {
   margin-bottom: 0;
   color: #ffffff;
   font-family: "Sora", sans-serif;
-  font-size: clamp(2.2rem, 4.2vw, 3.7rem);
-  font-weight: 700;
+  font-size: clamp(1.87rem, 3.57vw, 3.145rem);
+  font-weight: 600;
   line-height: 1.03;
   letter-spacing: -0.04em;
 }
@@ -6181,7 +6181,7 @@ body {
   display: block;
   color: #7ce5de;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
 }
 
@@ -6189,7 +6189,7 @@ body {
   max-width: 420px;
   margin: 0;
   color: rgba(232, 241, 250, 0.58);
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1.85;
 }
 
@@ -6230,8 +6230,8 @@ body {
   background: #13243a;
   color: #2ce0a3;
   font-family: "Sora", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.697rem;
+  font-weight: 600;
   position: relative;
   z-index: 1;
 }
@@ -6240,13 +6240,13 @@ body {
   margin-bottom: 10px;
   color: #ffffff;
   font-family: "Sora", sans-serif;
-  font-size: 1.02rem;
-  font-weight: 700;
+  font-size: 0.867rem;
+  font-weight: 600;
 }
 
 .seo-concept-step p {
   color: rgba(232, 241, 250, 0.55);
-  font-size: 0.92rem;
+  font-size: 0.782rem;
   line-height: 1.75;
 }
 
@@ -6260,8 +6260,8 @@ body {
   background: rgba(44, 224, 163, 0.08);
   border: 1px solid rgba(44, 224, 163, 0.18);
   color: #2ce0a3;
-  font-size: 0.68rem;
-  font-weight: 800;
+  font-size: 0.578rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -6320,7 +6320,7 @@ body {
   padding: 6px 10px;
   background: rgba(255, 255, 255, 0.1);
   color: rgba(232, 241, 250, 0.86);
-  font-size: 0.76rem;
+  font-size: 0.646rem;
 }
 
 .seo-concept-tool-list {
@@ -6437,13 +6437,13 @@ body {
 
 .seo-concept-tool-list strong {
   color: #102743;
-  font-size: 0.98rem;
+  font-size: 0.833rem;
   line-height: 1.2;
 }
 
 .seo-concept-tool-list span {
   color: #667788;
-  font-size: 0.84rem;
+  font-size: 0.714rem;
   line-height: 1.35;
 }
 
@@ -6531,7 +6531,7 @@ body {
   display: block;
   color: #7ce5de;
   font-family: "Sora", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.275rem;
 }
 
 .seo-concept-case-stats article span {
@@ -6540,7 +6540,7 @@ body {
   padding: 0;
   background: none;
   color: rgba(232, 241, 250, 0.62);
-  font-size: 0.8rem;
+  font-size: 0.68rem;
   letter-spacing: 0;
   text-transform: none;
 }
@@ -6596,13 +6596,13 @@ body {
 .seo-concept-testimonial-proof strong {
   color: var(--brand-strong);
   font-family: "Sora", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 0.935rem;
+  font-weight: 600;
 }
 
 .seo-concept-testimonial-proof span {
   color: #607286;
-  font-size: 0.84rem;
+  font-size: 0.714rem;
   line-height: 1.5;
 }
 
@@ -6624,8 +6624,8 @@ body {
   border-radius: 999px;
   background: var(--accent);
   color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 800;
+  font-size: 0.595rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -6636,7 +6636,7 @@ body {
   margin-bottom: 12px;
   color: #102743;
   font-family: "Sora", sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 1.1;
 }
 
@@ -6651,7 +6651,7 @@ body {
   inset: 0 auto auto 0;
   color: #102743;
   font-family: "Sora", sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 1.1;
 }
 
@@ -6665,7 +6665,7 @@ body {
 
 .seo-concept-plan strong span {
   color: #697a8e;
-  font-size: 0.9rem;
+  font-size: 0.765rem;
   font-weight: 500;
 }
 
@@ -6681,7 +6681,7 @@ body {
   position: relative;
   padding-left: 20px;
   color: #59697e;
-  font-size: 0.92rem;
+  font-size: 0.782rem;
   line-height: 1.6;
 }
 
@@ -6741,7 +6741,7 @@ body {
 
 .seo-concept-stars::before {
   content: "\2605\2605\2605\2605\2605";
-  font-size: 0.88rem;
+  font-size: 0.748rem;
   letter-spacing: 0.18em;
 }
 
@@ -6752,8 +6752,8 @@ body {
   border-radius: 999px;
   background: rgba(0, 127, 122, 0.1);
   color: var(--brand-strong);
-  font-size: 0.74rem;
-  font-weight: 800;
+  font-size: 0.629rem;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -6780,8 +6780,8 @@ body {
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(0, 127, 122, 0.2), rgba(21, 120, 176, 0.18));
   color: var(--brand-strong);
-  font-size: 0.82rem;
-  font-weight: 800;
+  font-size: 0.697rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
 }
 
@@ -6793,12 +6793,12 @@ body {
 .seo-concept-author strong {
   display: block;
   color: #102743;
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .seo-concept-author span {
   color: #7a8b9f;
-  font-size: 0.84rem;
+  font-size: 0.714rem;
 }
 
 .seo-concept-faq-list {
@@ -6829,8 +6829,8 @@ body {
   background: rgba(0, 127, 122, 0.08);
   color: var(--brand-strong);
   font-family: "Sora", sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.612rem;
+  font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
@@ -6838,7 +6838,7 @@ body {
 .seo-concept-faq-cta h3 {
   margin: 14px 0 10px;
   color: #102743;
-  font-size: 1.28rem;
+  font-size: 1.088rem;
   line-height: 1.2;
 }
 
@@ -6873,8 +6873,8 @@ body {
   border-radius: 999px;
   background: rgba(16, 39, 67, 0.04);
   color: #506278;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.663rem;
+  font-weight: 600;
 }
 
 .seo-concept-faq-cta-points span::before {
@@ -6894,7 +6894,7 @@ body {
   cursor: pointer;
   padding: 20px 0;
   color: #102743;
-  font-weight: 700;
+  font-weight: 600;
   list-style: none;
 }
 
@@ -6985,7 +6985,7 @@ body {
   .seo-concept-breadcrumb {
     flex-wrap: wrap;
     margin-bottom: 14px;
-    font-size: 0.7rem;
+    font-size: 0.595rem;
   }
 
   .seo-concept-hero-grid,
@@ -7001,7 +7001,7 @@ body {
 
   .seo-concept-copy h1 {
     max-width: none;
-    font-size: clamp(1.95rem, 10vw, 2.7rem);
+    font-size: clamp(1.657rem, 8.5vw, 2.295rem);
     line-height: 1.04;
   }
 
@@ -7022,7 +7022,7 @@ body {
   .seo-concept-section-split p,
   .seo-concept-tools-copy p,
   .seo-concept-faq-copy p {
-    font-size: 0.95rem;
+    font-size: 0.807rem;
     line-height: 1.7;
   }
 
@@ -7034,7 +7034,7 @@ body {
   .seo-concept-testimonials-head h2,
   .seo-concept-faq-copy h2,
   .seo-concept-cta h2 {
-    font-size: clamp(1.78rem, 8.5vw, 2.35rem);
+    font-size: clamp(1.513rem, 7.225vw, 1.998rem);
     line-height: 1.08;
   }
 
@@ -7096,16 +7096,16 @@ body {
 
   .seo-concept-metric-tag {
     padding: 6px 9px;
-    font-size: 0.64rem;
+    font-size: 0.544rem;
   }
 
   .seo-concept-metric strong,
   .seo-concept-metric-value {
-    font-size: clamp(1.9rem, 7vw, 2.35rem);
+    font-size: clamp(1.615rem, 5.95vw, 1.998rem);
   }
 
   .seo-concept-metric-label {
-    font-size: 0.88rem;
+    font-size: 0.748rem;
     max-width: none;
   }
 
@@ -7114,7 +7114,7 @@ body {
   .seo-concept-case-content h3,
   .seo-concept-case-small-content h3,
   .seo-concept-plan h3 {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .seo-concept-service-body p,
@@ -7123,7 +7123,7 @@ body {
   .seo-concept-case-small-content p,
   .seo-concept-plan p,
   .seo-concept-testimonial p {
-    font-size: 0.9rem;
+    font-size: 0.765rem;
     line-height: 1.65;
   }
 
@@ -7255,12 +7255,12 @@ body {
   }
 
   .seo-concept-tool-list strong {
-    font-size: 0.92rem;
+    font-size: 0.782rem;
     word-break: break-word;
   }
 
   .seo-concept-tool-list span {
-    font-size: 0.8rem;
+    font-size: 0.68rem;
     line-height: 1.3;
   }
 
@@ -7277,7 +7277,7 @@ body {
   }
 
   .seo-concept-process-title h2 {
-    font-size: clamp(1.95rem, 9vw, 2.7rem);
+    font-size: clamp(1.657rem, 7.65vw, 2.295rem);
   }
 
   .seo-concept-metric {
@@ -7327,7 +7327,7 @@ body {
 
   .seo-concept-case-stats article strong,
   .seo-concept-case-small-content strong {
-    font-size: 1.28rem;
+    font-size: 1.088rem;
   }
 
   .seo-concept-faq-item {
@@ -7339,12 +7339,12 @@ body {
   }
 
   .seo-concept-faq-cta h3 {
-    font-size: 1.16rem;
+    font-size: 0.986rem;
   }
 
   .seo-concept-faq-item summary {
     padding: 18px 0;
-    font-size: 0.98rem;
+    font-size: 0.833rem;
   }
 
   .seo-concept-faq-item p {
@@ -7355,7 +7355,7 @@ body {
 
 @media (max-width: 560px) {
   .seo-concept-kicker {
-    font-size: 0.68rem;
+    font-size: 0.578rem;
   }
 
   .seo-concept-page .section-gap {
@@ -7371,7 +7371,7 @@ body {
   }
 
   .seo-concept-copy h1 {
-    font-size: clamp(1.82rem, 10vw, 2.4rem);
+    font-size: clamp(1.547rem, 8.5vw, 2.04rem);
   }
 
   .seo-concept-copy p,
@@ -7380,7 +7380,7 @@ body {
   .seo-concept-tools-copy p,
   .seo-concept-testimonials-intro p,
   .seo-concept-faq-copy p {
-    font-size: 0.9rem;
+    font-size: 0.765rem;
   }
 
   .seo-concept-card-grid {
@@ -7398,11 +7398,11 @@ body {
 
   .seo-concept-metric strong,
   .seo-concept-metric-value {
-    font-size: clamp(1.8rem, 9vw, 2.2rem);
+    font-size: clamp(1.53rem, 7.65vw, 1.87rem);
   }
 
   .seo-concept-metric-label {
-    font-size: 0.82rem;
+    font-size: 0.697rem;
   }
 
   .seo-concept-pricing-grid {
@@ -7431,7 +7431,7 @@ body {
   }
 
   .seo-concept-faq-cta-points span {
-    font-size: 0.72rem;
+    font-size: 0.612rem;
     padding: 6px 10px;
   }
 
@@ -7464,12 +7464,12 @@ body {
   }
 
   .seo-concept-tool-list strong {
-    font-size: 0.88rem;
+    font-size: 0.748rem;
     word-break: break-word;
   }
 
   .seo-concept-tool-list span {
-    font-size: 0.77rem;
+    font-size: 0.654rem;
     line-height: 1.28;
   }
 
@@ -7488,11 +7488,11 @@ body {
   }
 
   .seo-concept-testimonial-proof strong {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .seo-concept-testimonial-proof span {
-    font-size: 0.78rem;
+    font-size: 0.663rem;
   }
 
   .seo-concept-carousel-controls {
@@ -7508,7 +7508,7 @@ body {
   }
 
   .seo-concept-hero-points span {
-    font-size: 0.7rem;
+    font-size: 0.595rem;
   }
 }
 
@@ -7557,8 +7557,8 @@ body {
   border: 1px solid rgba(139, 61, 255, 0.2);
   background: rgba(56, 33, 95, 0.34);
   color: #c8a8ff;
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.646rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
@@ -7574,8 +7574,8 @@ body {
   max-width: 460px;
   margin-bottom: 16px;
   color: #f6fbff;
-  font-size: clamp(2.35rem, 4.8vw, 4.4rem);
-  font-weight: 700;
+  font-size: clamp(1.998rem, 4.08vw, 3.74rem);
+  font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.04em;
 }
@@ -7591,7 +7591,7 @@ body {
   max-width: 450px;
   margin-bottom: 0;
   color: rgba(215, 224, 236, 0.86);
-  font-size: 0.98rem;
+  font-size: 0.833rem;
   line-height: 1.7;
 }
 
@@ -7605,7 +7605,7 @@ body {
   min-width: 198px;
   min-height: 50px;
   padding: 12px 24px;
-  font-size: 1rem;
+  font-size: 0.85rem;
   background: linear-gradient(135deg, #612bff 0%, #a046ff 100%);
   box-shadow: 0 20px 40px rgba(120, 52, 228, 0.3);
 }
@@ -7654,7 +7654,7 @@ body {
 }
 
 .seo-modern-proof strong {
-  font-size: 0.9rem;
+  font-size: 0.765rem;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -7700,9 +7700,9 @@ body {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(240, 245, 252, 0.92);
-  font-size: 0.72rem;
+  font-size: 0.612rem;
   letter-spacing: 0.03em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .seo-modern-panel-media {
@@ -7787,7 +7787,7 @@ body {
   display: block;
   margin-bottom: 3px;
   color: rgba(176, 194, 216, 0.78);
-  font-size: 0.66rem;
+  font-size: 0.561rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -7795,7 +7795,7 @@ body {
 .seo-modern-mini-stats strong {
   display: block;
   color: #e9f3ff;
-  font-size: 0.94rem;
+  font-size: 0.799rem;
   line-height: 1.2;
 }
 
@@ -7814,14 +7814,14 @@ body {
 
 .seo-modern-note strong {
   color: #9b5cff;
-  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-size: clamp(1.147rem, 2.21vw, 1.615rem);
   line-height: 1;
 }
 
 .seo-modern-note span {
   color: rgba(210, 219, 230, 0.82);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.595rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -7868,7 +7868,7 @@ body {
 .seo-modern-result-card strong {
   display: block;
   margin-bottom: 8px;
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(1.7rem, 3.4vw, 2.38rem);
   color: #0a2540;
 }
 
@@ -7946,7 +7946,7 @@ body {
   }
 
   .seo-modern-copy h1 {
-    font-size: clamp(2rem, 11vw, 2.9rem);
+    font-size: clamp(1.7rem, 9.35vw, 2.465rem);
     line-height: 1;
   }
 
@@ -7957,7 +7957,7 @@ body {
 
   .seo-modern-copy p {
     max-width: none;
-    font-size: 0.95rem;
+    font-size: 0.807rem;
     line-height: 1.65;
   }
 
@@ -7998,7 +7998,7 @@ body {
 
 @media (max-width: 560px) {
   .seo-modern-kicker {
-    font-size: 0.68rem;
+    font-size: 0.578rem;
   }
 
   .seo-proof-icon {
@@ -8096,14 +8096,14 @@ body {
   display: block;
   margin-bottom: 6px;
   color: rgba(234, 243, 255, 0.72);
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.646rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .seo-process-summary-card strong {
-  font-size: 0.97rem;
+  font-size: 0.825rem;
   line-height: 1.5;
 }
 
@@ -8202,20 +8202,20 @@ body {
   align-items: center;
   margin-bottom: 8px;
   color: #3667a5;
-  font-size: 0.74rem;
-  font-weight: 800;
+  font-size: 0.629rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .seo-flow-card h3 {
   margin: 0 0 8px;
-  font-size: 1.08rem;
+  font-size: 0.918rem;
 }
 
 .seo-flow-card p {
   margin: 0 0 14px;
-  font-size: 0.93rem;
+  font-size: 0.79rem;
   line-height: 1.68;
 }
 
@@ -8227,8 +8227,8 @@ body {
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 211, 238, 0.12));
   color: #21456d;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.663rem;
+  font-weight: 600;
 }
 
 @media (max-width: 1100px) {
@@ -8465,13 +8465,13 @@ body {
 .testimonials-proof strong {
   display: block;
   margin-bottom: 6px;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.53rem, 2.55vw, 2.04rem);
   color: #0a2540;
 }
 
 .testimonials-proof span {
   color: #5f7184;
-  font-size: 0.92rem;
+  font-size: 0.782rem;
   line-height: 1.6;
 }
 
@@ -8521,13 +8521,13 @@ body {
   border-radius: 14px;
   background: linear-gradient(135deg, rgba(10, 37, 64, 0.98), rgba(59, 130, 246, 0.9));
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.19rem;
   box-shadow: 0 14px 26px rgba(15, 33, 58, 0.14);
 }
 
 .testimonial-card p {
   margin: 0 0 16px;
-  font-size: 1.02rem;
+  font-size: 0.867rem;
   line-height: 1.75;
   color: #5a6d83;
 }
@@ -8541,8 +8541,8 @@ body {
   border-radius: 999px;
   background: rgba(59, 130, 246, 0.1);
   color: #25528a;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 600;
 }
 
 .testimonial-user {
@@ -8561,8 +8561,8 @@ body {
   background: linear-gradient(135deg, #0a2540, #3b82f6);
   color: #ffffff;
   font-family: "Sora", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: 0.807rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   box-shadow: 0 12px 24px rgba(15, 33, 58, 0.14);
 }
@@ -8593,7 +8593,7 @@ body {
   }
 
   .testimonial-card p {
-    font-size: 0.98rem;
+    font-size: 0.833rem;
   }
 }
 
@@ -8669,8 +8669,8 @@ body {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
   color: #0a2540;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.697rem;
+  font-weight: 600;
   box-shadow: 0 12px 26px rgba(10, 37, 64, 0.16);
 }
 
@@ -8682,7 +8682,7 @@ body {
 
 .sample-video-head strong {
   max-width: 11ch;
-  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  font-size: clamp(1.317rem, 2.55vw, 1.87rem);
   line-height: 1.05;
   color: #ffffff;
 }
@@ -8711,13 +8711,13 @@ body {
 .sample-video-stats strong {
   display: block;
   margin-bottom: 5px;
-  font-size: 1.28rem;
+  font-size: 1.088rem;
   color: #ffffff;
 }
 
 .sample-video-stats span {
   color: #c8dbef;
-  font-size: 0.88rem;
+  font-size: 0.748rem;
 }
 
 @media (max-width: 1100px) {
@@ -8861,13 +8861,13 @@ body {
 .sample-hero-stats strong {
   display: block;
   margin-bottom: 6px;
-  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-size: clamp(1.105rem, 1.7vw, 1.445rem);
   color: #ffffff;
 }
 
 .sample-hero-stats span {
   color: rgba(221, 234, 248, 0.86);
-  font-size: 0.9rem;
+  font-size: 0.765rem;
 }
 
 .sample-hero-floating {
@@ -8976,13 +8976,13 @@ body {
 .sample-hero-copy-full h1 {
   max-width: 11ch;
   margin: 16px 0 14px;
-  font-size: clamp(2.9rem, 5vw, 5.1rem);
+  font-size: clamp(2.465rem, 4.25vw, 4.335rem);
   letter-spacing: -0.05em;
 }
 
 .sample-hero-copy-full p {
   max-width: 560px;
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: rgba(228, 238, 249, 0.78);
 }
 
@@ -9005,7 +9005,7 @@ body {
 
 .sample-hero-badges-minimal .sample-badge {
   padding: 8px 12px;
-  font-size: 0.78rem;
+  font-size: 0.663rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.05);
@@ -9031,11 +9031,11 @@ body {
 
 .sample-hero-stats strong {
   margin-bottom: 4px;
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-size: clamp(0.977rem, 1.7vw, 1.232rem);
 }
 
 .sample-hero-stats span {
-  font-size: 0.84rem;
+  font-size: 0.714rem;
   color: rgba(220, 232, 245, 0.72);
 }
 
@@ -9085,7 +9085,7 @@ body {
   }
 
   .sample-hero-copy-full h1 {
-    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    font-size: clamp(1.87rem, 8.5vw, 2.975rem);
   }
 
   .sample-floating-note-minimal {
@@ -9167,7 +9167,7 @@ body {
 
 .sample-hero-luxe-copy h1 {
   margin: 18px 0 12px;
-  font-size: clamp(3.2rem, 6vw, 6rem);
+  font-size: clamp(2.72rem, 5.1vw, 5.1rem);
   line-height: 0.96;
   letter-spacing: -0.06em;
   color: #ffffff;
@@ -9176,7 +9176,7 @@ body {
 .sample-hero-luxe-copy p {
   max-width: 560px;
   margin: 0;
-  font-size: 1.03rem;
+  font-size: 0.875rem;
   line-height: 1.7;
   color: rgba(227, 237, 248, 0.82);
 }
@@ -9213,13 +9213,13 @@ body {
 .sample-hero-proof strong {
   display: block;
   margin-bottom: 4px;
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-size: clamp(1.147rem, 1.7vw, 1.53rem);
   color: #ffffff;
 }
 
 .sample-hero-proof span {
   color: rgba(223, 235, 248, 0.74);
-  font-size: 0.9rem;
+  font-size: 0.765rem;
 }
 
 @media (max-width: 1100px) {
@@ -9247,11 +9247,11 @@ body {
   }
 
   .sample-hero-luxe-copy h1 {
-    font-size: clamp(2.4rem, 12vw, 4rem);
+    font-size: clamp(2.04rem, 10.2vw, 3.4rem);
   }
 
   .sample-hero-luxe-copy p {
-    font-size: 0.96rem;
+    font-size: 0.816rem;
   }
 
   .sample-hero-actions.sample-hero-actions-luxe {
@@ -9364,16 +9364,16 @@ body {
 
   .seo-concept-metric-tag {
     padding: 2px 0;
-    font-size: 0.49rem;
+    font-size: 0.416rem;
   }
 
   .seo-concept-metric strong,
   .seo-concept-metric-value {
-    font-size: clamp(1.18rem, 6vw, 1.46rem);
+    font-size: clamp(1.003rem, 5.1vw, 1.241rem);
   }
 
   .seo-concept-metric-label {
-    font-size: 0.65rem;
+    font-size: 0.552rem;
     line-height: 1.15;
     max-width: none;
   }
@@ -9390,11 +9390,11 @@ body {
 
   .seo-concept-metric strong,
   .seo-concept-metric-value {
-    font-size: clamp(1.08rem, 6.4vw, 1.34rem);
+    font-size: clamp(0.918rem, 5.44vw, 1.139rem);
   }
 
   .seo-concept-metric-label {
-    font-size: 0.62rem;
+    font-size: 0.527rem;
   }
 }
 
@@ -9482,13 +9482,13 @@ body {
 .audit-bar-info h3 {
   margin-bottom: 6px;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.36rem;
 }
 
 .audit-bar-info p {
   margin: 0;
   color: rgba(255, 255, 255, 0.75);
-  font-size: 0.95rem;
+  font-size: 0.807rem;
 }
 
 .audit-bar-form {
@@ -9584,7 +9584,7 @@ body {
   }
 
   .case-study-hero h1 {
-    font-size: clamp(2rem, 6vw, 2.5rem) !important;
+    font-size: clamp(1.7rem, 5.1vw, 2.125rem) !important;
   }
 }
 
@@ -9647,13 +9647,13 @@ body {
 }
 
 .about-badge strong {
-  font-size: 1.25rem;
+  font-size: 1.063rem;
   color: var(--brand-strong);
   line-height: 1;
 }
 
 .about-badge span {
-  font-size: 0.7rem;
+  font-size: 0.595rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #666;
