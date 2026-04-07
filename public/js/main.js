@@ -181,6 +181,9 @@ const whatsappHref = 'https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%
 const ctaGroups = document.querySelectorAll('.hero-actions, .final-cta-inner');
 
 ctaGroups.forEach((group) => {
+  // Prevent aggressive script from injecting WhatsApp into specific grid layouts or sections like "Why Choose"
+  if (group.closest('.why-choose-section')) return;
+  
   const hasWhatsapp = group.querySelector('.btn-whatsapp');
   if (!hasWhatsapp) {
     const link = document.createElement('a');
