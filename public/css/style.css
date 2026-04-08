@@ -9495,7 +9495,7 @@ body {
   display: flex;
   gap: 14px;
   flex: 1;
-  max-width: 1000px;
+  max-width: 1100px;
 }
 
 .audit-bar-form input {
@@ -9523,11 +9523,23 @@ body {
 .audit-bar-form .btn {
   white-space: nowrap;
   min-width: 160px;
+  flex-shrink: 0;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1240px) {
   .audit-bar {
+    flex-direction: column;
+    text-align: center;
     gap: 30px;
+    padding: 10px 0;
+  }
+  
+  .audit-bar-form {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
