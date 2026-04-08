@@ -9495,7 +9495,7 @@ body {
   display: flex;
   gap: 14px;
   flex: 1;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .audit-bar-form input {

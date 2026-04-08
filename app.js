@@ -38,13 +38,23 @@ app.use(session({
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: parseInt(process.env.SMTP_PORT),
-  secure: true, // true for 465, false for other ports
+  secure: process.env.SMTP_PORT == '465', // true for 465, false for other ports
+  pool: true, // Use connection pooling
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
   },
   tls: {
-    rejectUnauthorized: false
+    rejectUnauthorized: false // Helps with self-signed certificate issues on some servers
+  }
+});
+
+// Verify SMTP connection on startup
+transporter.verify((error, success) => {
+  if (error) {
+    console.error('SMTP Connection Error:', error);
+  } else {
+    console.log('SMTP Server is ready to take messages');
   }
 });
 
@@ -81,11 +91,12 @@ app.use((req, res, next) => {
 app.post('/submit-audit', async (req, res) => {
   console.log('--- RECEIVED AUDIT FORM SUBMISSION ---');
   console.log('Body Data:', req.body);
-  const { name, website, email } = req.body;
+  const { name, website, email, phone } = req.body;
+  console.log(`Captured: ${name}, ${email}, ${phone}, ${website}`);
 
-  if (!name || !email || !website) {
+  if (!name || !email || !website || !phone) {
     console.warn('Submission blocked: Missing fields');
-    return res.status(400).send('Missing required fields');
+    return res.status(400).send('Missing name, email, website, or mobile number');
   }
 
   try {
@@ -94,12 +105,13 @@ app.post('/submit-audit', async (req, res) => {
       from: `"Digi Web Tech Audit Bot" <${process.env.SMTP_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject: `🔥 New Free Audit Request from ${name}`,
-      text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nWebsite: ${website}`,
+      text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nWebsite: ${website}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; background: #f4f7fb; border: 1px solid #e0e0e0; border-radius: 12px;">
           <h2 style="color: #01a09d;">New Lead Alert!</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
           <p><strong>Website:</strong> <a href="${website}">${website}</a></p>
           <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;"/>
           <p style="font-size: 12px; color: #666;">This enquiry was submitted via the "Free Website Audit" bar on the homepage.</p>
@@ -130,11 +142,12 @@ app.post('/submit-audit', async (req, res) => {
       `
     });
 
-    console.log('--- EMAILS SENT SUCCESSFULLY ---');
+    console.log('--- AUDIT SUBMISSION EMAILS SENT ---');
     res.redirect('/thank-you');
 
   } catch (error) {
-    console.error('Email Submission Error:', error);
+    console.error('--- AUDIT SMTP ERROR ---');
+    console.error(error);
     res.status(500).send('Mail service unavailable. Please contact us via WhatsApp.');
   }
 });
@@ -203,11 +216,12 @@ app.post('/submit-contact', async (req, res) => {
       `
     });
 
-    console.log('--- CONTACT FORM EMAILS SENT ---');
+    console.log('--- CONTACT SUBMISSION EMAILS SENT ---');
     res.redirect('/thank-you');
 
   } catch (error) {
-    console.error('Contact Email Submission Error:', error);
+    console.error('--- CONTACT SMTP ERROR ---');
+    console.error(error);
     res.status(500).send('Something went wrong. Please try again later or call us.');
   }
 });
