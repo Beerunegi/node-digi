@@ -5,6 +5,7 @@ const compression = require('compression');
 const sequelize = require('./config/database');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
+const dns = require('dns');
 
 const app = express();
 console.log('Digi Web Tech Server - App.js Reloaded/Started');
@@ -34,29 +35,78 @@ app.use(session({
   cookie: { maxAge: 1000 * 60 * 60 * 24 } // 24 hours
 }));
 
-// Email Transporter (SMTP)
-const transporter = nodemailer.createTransport({
+const smtpPort = Number.parseInt(process.env.SMTP_PORT, 10) || 465;
+const smtpConfig = {
   host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT),
-  secure: process.env.SMTP_PORT == '465', // true for 465, false for other ports
-  pool: true, // Use connection pooling
+  port: smtpPort,
+  secure: smtpPort === 465,
+  requireTLS: smtpPort !== 465,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
   },
   tls: {
-    rejectUnauthorized: false // Helps with self-signed certificate issues on some servers
-  }
-});
+    servername: process.env.SMTP_HOST,
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: false
+  },
+  connectionTimeout: 15000,
+  greetingTimeout: 15000,
+  socketTimeout: 30000,
+  family: 4
+};
 
-// Verify SMTP connection on startup
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('SMTP Connection Error:', error);
-  } else {
-    console.log('SMTP Server is ready to take messages');
+const hasSmtpConfig = Boolean(
+  process.env.SMTP_HOST &&
+  process.env.SMTP_USER &&
+  process.env.SMTP_PASS &&
+  process.env.ADMIN_EMAIL
+);
+
+const transporter = hasSmtpConfig ? nodemailer.createTransport(smtpConfig) : null;
+
+function normalizeWebsiteUrl(value) {
+  if (!value) return '';
+  const trimmed = value.trim();
+  if (!trimmed) return '';
+  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+}
+
+async function verifySmtpConnection() {
+  if (!transporter) {
+    console.warn('SMTP disabled: missing SMTP_HOST, SMTP_USER, SMTP_PASS, or ADMIN_EMAIL.');
+    return false;
   }
-});
+
+  try {
+    await dns.promises.lookup(process.env.SMTP_HOST);
+    await transporter.verify();
+    console.log('SMTP Server is ready to take messages');
+    return true;
+  } catch (error) {
+    console.error('SMTP Connection Error:', error.message);
+    if (error.code) console.error('SMTP Error Code:', error.code);
+    if (error.command) console.error('SMTP Command:', error.command);
+    return false;
+  }
+}
+
+verifySmtpConnection();
+
+async function sendMailOrThrow(mailOptions, label) {
+  if (!transporter) {
+    throw new Error('SMTP transporter is not configured.');
+  }
+
+  try {
+    return await transporter.sendMail(mailOptions);
+  } catch (error) {
+    console.error(`${label} failed:`, error.message);
+    if (error.code) console.error(`${label} code:`, error.code);
+    if (error.command) console.error(`${label} command:`, error.command);
+    throw error;
+  }
+}
 
 const defaultMetaDescription =
   'Digi Web Tech is a top Digital marketing and Web Agency in Delhi NCR offering SEO, AIO, GEO, Google Ads, social media, website design, website development, and growth-focused digital services.';
@@ -91,7 +141,10 @@ app.use((req, res, next) => {
 app.post('/submit-audit', async (req, res) => {
   console.log('--- RECEIVED AUDIT FORM SUBMISSION ---');
   console.log('Body Data:', req.body);
-  const { name, website, email, phone } = req.body;
+  const name = req.body.name?.trim();
+  const email = req.body.email?.trim();
+  const phone = req.body.phone?.trim();
+  const website = normalizeWebsiteUrl(req.body.website);
   console.log(`Captured: ${name}, ${email}, ${phone}, ${website}`);
 
   if (!name || !email || !website || !phone) {
@@ -99,9 +152,14 @@ app.post('/submit-audit', async (req, res) => {
     return res.status(400).send('Missing name, email, website, or mobile number');
   }
 
+  if (!transporter) {
+    console.error('Audit form blocked: SMTP transporter is not configured.');
+    return res.status(500).send('Mail service is not configured right now. Please contact us via WhatsApp on +91 98712 64699');
+  }
+
   try {
     // 1. Send Email to Admin
-    await transporter.sendMail({
+    await sendMailOrThrow({
       from: `"Digi Web Tech Audit Bot" <${process.env.SMTP_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject: `🔥 New Free Audit Request from ${name}`,
@@ -117,38 +175,47 @@ app.post('/submit-audit', async (req, res) => {
           <p style="font-size: 12px; color: #666;">This enquiry was submitted via the "Free Website Audit" bar on the homepage.</p>
         </div>
       `
-    });
+    }, 'Audit admin email');
 
     // 2. Auto-reply to User
-    await transporter.sendMail({
-      from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
-      to: email,
-      subject: `Thank you for requesting an audit, ${name}!`,
-      text: `Hello ${name},\n\nThank you for reaching out to Digi Web Tech. We've received your request for a free website audit for ${website}.\n\nOur team will analyze your site's SEO, performance, and conversion metrics. You will receive a detailed report within 24-48 hours.\n\nBest Regards,\nBirendra Singh\nDigi Web Tech`,
-      html: `
-        <div style="font-family: sans-serif; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #01a09d;">Hello ${name},</h2>
-          <p>Thanks for choosing <strong>Digi Web Tech</strong> for your website audit!</p>
-          <p>We have received your request for <strong>${website}</strong>. Our SEO experts are already on it and will prepare a comprehensive audit report for you.</p>
-          <p><strong>What was analyzed?</strong></p>
-          <ul style="color: #444;">
-            <li>Site Audit (Speed, Technical SEO, AIO Readiness)</li>
-            <li>Market Competitor Analysis</li>
-            <li>Custom Growth Action Plan</li>
-          </ul>
-          <p>Expect your report in your inbox within 24-48 business hours.</p>
-          <p>Best Regards,<br/><strong>Birendra Singh</strong><br/>Founder, Digi Web Tech</p>
-        </div>
-      `
-    });
+    try {
+      await sendMailOrThrow({
+        from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
+        to: email,
+        subject: `Thank you for requesting an audit, ${name}!`,
+        text: `Hello ${name},\n\nThank you for reaching out to Digi Web Tech. We've received your request for a free website audit for ${website}.\n\nOur team will analyze your site's SEO, performance, and conversion metrics. You will receive a detailed report within 24-48 hours.\n\nBest Regards,\nBirendra Singh\nDigi Web Tech`,
+        html: `
+          <div style="font-family: sans-serif; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #01a09d;">Hello ${name},</h2>
+            <p>Thanks for choosing <strong>Digi Web Tech</strong> for your website audit!</p>
+            <p>We have received your request for <strong>${website}</strong>. Our SEO experts are already on it and will prepare a comprehensive audit report for you.</p>
+            <p><strong>What was analyzed?</strong></p>
+            <ul style="color: #444;">
+              <li>Site Audit (Speed, Technical SEO, AIO Readiness)</li>
+              <li>Market Competitor Analysis</li>
+              <li>Custom Growth Action Plan</li>
+            </ul>
+            <p>Expect your report in your inbox within 24-48 business hours.</p>
+            <p>Best Regards,<br/><strong>Birendra Singh</strong><br/>Founder, Digi Web Tech</p>
+          </div>
+        `
+      }, 'Audit auto-reply');
+    } catch (autoReplyError) {
+      console.warn('Audit form submitted, but auto-reply email could not be sent.');
+    }
 
     console.log('--- AUDIT SUBMISSION EMAILS SENT ---');
     res.redirect('/thank-you');
 
   } catch (error) {
-    console.error('--- AUDIT SMTP ERROR ---');
-    console.error(error);
-    res.status(500).send('Mail service unavailable. Please contact us via WhatsApp.');
+    console.error('--- CRITICAL SMTP ERROR (AUDIT FORM) ---');
+    console.error('Error Name:', error.name);
+    console.error('Error Message:', error.message);
+    if (error.code) console.error('Error Code:', error.code);
+    if (error.command) console.error('SMTP Command:', error.command);
+    
+    // Fallback: Notify user to use WhatsApp if mail fails
+    res.status(500).send('Mail service unavailable. Please contact us via WhatsApp on +91 98712 64699');
   }
 });
 
@@ -156,16 +223,25 @@ app.post('/submit-audit', async (req, res) => {
 app.post('/submit-contact', async (req, res) => {
   console.log('--- RECEIVED CONTACT FORM SUBMISSION ---');
   console.log('Body Data:', req.body);
-  const { name, email, phone, service, message } = req.body;
+  const name = req.body.name?.trim();
+  const email = req.body.email?.trim();
+  const phone = req.body.phone?.trim();
+  const service = req.body.service?.trim();
+  const message = req.body.message?.trim();
 
   if (!name || !email || !message) {
     console.warn('Submission blocked: Missing required fields');
     return res.status(400).send('Missing name, email, or message.');
   }
 
+  if (!transporter) {
+    console.error('Contact form blocked: SMTP transporter is not configured.');
+    return res.status(500).send('Mail service is not configured right now. Please call us at +91 98712 64699');
+  }
+
   try {
     // 1. Send Email to Admin
-    await transporter.sendMail({
+    await sendMailOrThrow({
       from: `"Digi Web Tech Contact Bot" <${process.env.SMTP_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject: `📧 New Contact Inquiry from ${name}`,
@@ -186,43 +262,50 @@ app.post('/submit-contact', async (req, res) => {
           <p style="font-size: 13px; color: #888;">Digi Web Tech Lead Console</p>
         </div>
       `
-    });
+    }, 'Contact admin email');
 
     // 2. Auto-reply to User
-    await transporter.sendMail({
-      from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
-      to: email,
-      subject: `We've received your inquiry, ${name}!`,
-      text: `Hello ${name},\n\nThank you for reaching out to us. We've received your query regarding ${service || 'our services'} and Birendra Singh will get back to you shortly.\n\nSummary of your message:\n${message}\n\nBest Regards,\nDigi Web Tech`,
-      html: `
-        <div style="font-family: sans-serif; padding: 40px; border: 1px solid #eee; border-radius: 16px; max-width: 600px; margin: 0 auto; color: #444;">
-          <h2 style="color: #01a09d;">Hello ${name},</h2>
-          <p>Thank you for reaching out to <strong>Digi Web Tech</strong>. We've received your inquiry and are excited to learn more about your project.</p>
-          <p>Our founder, <strong>Birendra Singh</strong>, or one of our senior strategy experts will review your requirements and reach out to you within 24 hours.</p>
-          <p><strong>Next Steps:</strong></p>
-          <ul style="color: #555; line-height: 1.6;">
-            <li>Project Feasibility Review</li>
-            <li>Consultation Call Scheduling</li>
-            <li>Custom Proposal & Roadmap</li>
-          </ul>
-          <p style="margin-top: 25px;">Looking forward to driving hyper-growth for your brand!</p>
-          <p style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
-            Best Regards,<br/>
-            <strong>Birendra Singh</strong><br/>
-            Founder, Digi Web Tech<br/>
-            <a href="tel:+919871264699" style="color: #01a09d; text-decoration: none;">+91 98712 64699</a>
-          </p>
-        </div>
-      `
-    });
+    try {
+      await sendMailOrThrow({
+        from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
+        to: email,
+        subject: `We've received your inquiry, ${name}!`,
+        text: `Hello ${name},\n\nThank you for reaching out to us. We've received your query regarding ${service || 'our services'} and Birendra Singh will get back to you shortly.\n\nSummary of your message:\n${message}\n\nBest Regards,\nDigi Web Tech`,
+        html: `
+          <div style="font-family: sans-serif; padding: 40px; border: 1px solid #eee; border-radius: 16px; max-width: 600px; margin: 0 auto; color: #444;">
+            <h2 style="color: #01a09d;">Hello ${name},</h2>
+            <p>Thank you for reaching out to <strong>Digi Web Tech</strong>. We've received your inquiry and are excited to learn more about your project.</p>
+            <p>Our founder, <strong>Birendra Singh</strong>, or one of our senior strategy experts will review your requirements and reach out to you within 24 hours.</p>
+            <p><strong>Next Steps:</strong></p>
+            <ul style="color: #555; line-height: 1.6;">
+              <li>Project Feasibility Review</li>
+              <li>Consultation Call Scheduling</li>
+              <li>Custom Proposal & Roadmap</li>
+            </ul>
+            <p style="margin-top: 25px;">Looking forward to driving hyper-growth for your brand!</p>
+            <p style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
+              Best Regards,<br/>
+              <strong>Birendra Singh</strong><br/>
+              Founder, Digi Web Tech<br/>
+              <a href="tel:+919871264699" style="color: #01a09d; text-decoration: none;">+91 98712 64699</a>
+            </p>
+          </div>
+        `
+      }, 'Contact auto-reply');
+    } catch (autoReplyError) {
+      console.warn('Contact form submitted, but auto-reply email could not be sent.');
+    }
 
     console.log('--- CONTACT SUBMISSION EMAILS SENT ---');
     res.redirect('/thank-you');
 
   } catch (error) {
-    console.error('--- CONTACT SMTP ERROR ---');
-    console.error(error);
-    res.status(500).send('Something went wrong. Please try again later or call us.');
+    console.error('--- CRITICAL SMTP ERROR (CONTACT FORM) ---');
+    console.error('Error Name:', error.name);
+    console.error('Error Message:', error.message);
+    if (error.code) console.error('Error Code:', error.code);
+    
+    res.status(500).send('Something went wrong with our mail server. Please try again later or call us at +91 98712 64699');
   }
 });
 app.get('/', (req, res) => {

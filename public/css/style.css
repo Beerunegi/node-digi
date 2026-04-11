@@ -9472,11 +9472,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 32px;
 }
 
 .audit-bar-info {
-  flex-shrink: 0;
+  flex: 0 0 320px;
+  max-width: 320px;
 }
 
 .audit-bar-info h3 {
@@ -9493,13 +9494,16 @@ body {
 
 .audit-bar-form {
   display: flex;
+  align-items: center;
   gap: 14px;
   flex: 1;
-  max-width: 1100px;
+  min-width: 0;
+  max-width: none;
 }
 
 .audit-bar-form input {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   padding: 14px 20px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -9526,17 +9530,33 @@ body {
   flex-shrink: 0;
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1360px) {
+  .audit-bar-form {
+    flex-wrap: wrap;
+  }
+
+  .audit-bar-form input {
+    flex: 1 1 calc(50% - 7px);
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 1120px) {
   .audit-bar {
     flex-direction: column;
     text-align: center;
     gap: 30px;
     padding: 10px 0;
   }
-  
+
+  .audit-bar-info {
+    flex: 0 1 auto;
+    max-width: 680px;
+  }
+
   .audit-bar-form {
     width: 100%;
-    max-width: 800px;
+    max-width: 920px;
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
@@ -9555,6 +9575,11 @@ body {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
+  }
+
+  .audit-bar-form input {
+    width: 100%;
+    min-width: 0;
   }
 
   .audit-bar-form .btn {
@@ -9694,4 +9719,4 @@ body {
     left: 10px;
     bottom: 20px;
   }
-}
+}

@@ -135,10 +135,10 @@
         <p>Get a detailed report of your site's SEO & performance.</p>
       </div>
       <form class="audit-bar-form" action="/submit-audit" method="post">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="url" name="website" placeholder="Website URL (https://...)" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="tel" name="phone" placeholder="Mobile Number" required>
+        <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+        <input type="url" name="website" placeholder="Website URL (https://...)" inputmode="url" autocomplete="url" required>
+        <input type="email" name="email" placeholder="Email Address" autocomplete="email" required>
+        <input type="tel" name="phone" placeholder="Mobile Number" inputmode="tel" autocomplete="tel" required>
         <button type="submit" class="btn">Get My Audit</button>
       </form>
     </div>
