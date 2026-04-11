@@ -278,23 +278,48 @@ app.post('/submit-audit', async (req, res) => {
     if (transporter) {
       try {
         await sendMailOrThrow({
-          from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
+          from: `"Arjun Rawat from Digi Web Tech" <${process.env.SMTP_USER}>`,
           to: email,
           subject: `Thank you for requesting an audit, ${name}!`,
-          text: `Hello ${name},\n\nThank you for reaching out to Digi Web Tech. We've received your request for a free website audit for ${website}.\n\nOur team will analyze your site's SEO, performance, and conversion metrics. You will receive a detailed report within 24-48 hours.\n\nBest Regards,\nBirendra Singh\nDigi Web Tech`,
+          text: `Hello ${name},\n\nThank you for reaching out to Digi Web Tech. We've received your request for a free website audit for ${website}.\n\nOur team will analyze your site's SEO, performance, and conversion metrics. You will receive a detailed report within 24-48 hours.\n\nBest Regards,\nArjun Rawat\nDigi Web Tech`,
           html: `
-            <div style="font-family: sans-serif; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #01a09d;">Hello ${name},</h2>
-              <p>Thanks for choosing <strong>Digi Web Tech</strong> for your website audit!</p>
-              <p>We have received your request for <strong>${website}</strong>. Our SEO experts are already on it and will prepare a comprehensive audit report for you.</p>
-              <p><strong>What was analyzed?</strong></p>
-              <ul style="color: #444;">
-                <li>Site Audit (Speed, Technical SEO, AIO Readiness)</li>
-                <li>Market Competitor Analysis</li>
-                <li>Custom Growth Action Plan</li>
-              </ul>
-              <p>Expect your report in your inbox within 24-48 business hours.</p>
-              <p>Best Regards,<br/><strong>Birendra Singh</strong><br/>Founder, Digi Web Tech</p>
+            <div style="margin:0; padding:24px; background:#f4f8fc; font-family:Arial,Helvetica,sans-serif; color:#16324f;">
+              <div style="max-width:640px; margin:0 auto; background:#ffffff; border:1px solid #dbe7f3; border-radius:24px; overflow:hidden; box-shadow:0 18px 44px rgba(16,39,67,0.08);">
+                <div style="padding:28px 32px; background:linear-gradient(135deg,#0f2f57 0%,#1f6fe5 55%,#19b6d2 100%); color:#ffffff;">
+                  <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.82;">Free Website Audit</div>
+                  <h2 style="margin:14px 0 8px; font-size:30px; line-height:1.15; color:#ffffff;">We’ve received your audit request.</h2>
+                  <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.88);">Hello ${name}, thanks for trusting Digi Web Tech with your website review.</p>
+                </div>
+
+                <div style="padding:30px 32px;">
+                  <div style="padding:18px 20px; background:#f7fbff; border:1px solid #d9e8f7; border-radius:18px;">
+                    <div style="font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#4c6784; margin-bottom:10px;">Website Submitted</div>
+                    <div style="font-size:16px; line-height:1.7; color:#16324f;"><a href="${website}" style="color:#1f6fe5; text-decoration:none;">${website}</a></div>
+                  </div>
+
+                  <p style="margin:22px 0 14px; font-size:15px; line-height:1.8; color:#425b76;">Our team will review your site’s search visibility, technical health, content opportunities, and conversion friction points. You can expect a clear response within 24-48 business hours.</p>
+
+                  <div style="padding:18px 20px; background:#ffffff; border:1px solid #e3edf7; border-radius:18px;">
+                    <div style="font-size:15px; font-weight:700; color:#16324f; margin-bottom:12px;">What we’ll review</div>
+                    <ul style="margin:0; padding-left:18px; color:#425b76; line-height:1.8; font-size:14px;">
+                      <li>Technical SEO and performance readiness</li>
+                      <li>Content and intent alignment opportunities</li>
+                      <li>High-impact fixes for stronger lead generation</li>
+                    </ul>
+                  </div>
+
+                  <div style="margin-top:24px; text-align:center;">
+                    <a href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20requested%20a%20website%20audit%20for%20${encodeURIComponent(website)}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
+                    <a href="tel:+919871264699" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 98712 64699</a>
+                  </div>
+
+                  <div style="margin-top:26px; padding-top:20px; border-top:1px solid #e7eef6; font-size:14px; line-height:1.8; color:#567089;">
+                    Best Regards,<br/>
+                    <strong style="color:#16324f;">Arjun Rawat</strong><br/>
+                    Founder, Digi Web Tech
+                  </div>
+                </div>
+              </div>
             </div>
           `
         }, 'Audit auto-reply');
@@ -388,29 +413,53 @@ app.post('/submit-contact', async (req, res) => {
     if (transporter) {
       try {
         await sendMailOrThrow({
-          from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
+          from: `"Arjun Rawat from Digi Web Tech" <${process.env.SMTP_USER}>`,
           to: email,
           subject: `We've received your inquiry, ${name}!`,
-          text: `Hello ${name},\n\nThank you for reaching out to us. We've received your query regarding ${service || 'our services'} and Birendra Singh will get back to you shortly.\n\nWebsite: ${website || 'Not shared'}\n\nSummary of your message:\n${message}\n\nBest Regards,\nDigi Web Tech`,
+          text: `Hello ${name},\n\nThank you for reaching out to us. We've received your query regarding ${service || 'our services'} and Arjun Rawat will get back to you shortly.\n\nWebsite: ${website || 'Not shared'}\n\nSummary of your message:\n${message}\n\nBest Regards,\nDigi Web Tech`,
           html: `
-            <div style="font-family: sans-serif; padding: 40px; border: 1px solid #eee; border-radius: 16px; max-width: 600px; margin: 0 auto; color: #444;">
-              <h2 style="color: #01a09d;">Hello ${name},</h2>
-              <p>Thank you for reaching out to <strong>Digi Web Tech</strong>. We've received your inquiry and are excited to learn more about your project.</p>
-              ${website ? `<p><strong>Website shared:</strong> <a href="${website}">${website}</a></p>` : ''}
-              <p>Our founder, <strong>Birendra Singh</strong>, or one of our senior strategy experts will review your requirements and reach out to you within 24 hours.</p>
-              <p><strong>Next Steps:</strong></p>
-              <ul style="color: #555; line-height: 1.6;">
-                <li>Project Feasibility Review</li>
-                <li>Consultation Call Scheduling</li>
-                <li>Custom Proposal & Roadmap</li>
-              </ul>
-              <p style="margin-top: 25px;">Looking forward to driving hyper-growth for your brand!</p>
-              <p style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
-                Best Regards,<br/>
-                <strong>Birendra Singh</strong><br/>
-                Founder, Digi Web Tech<br/>
-                <a href="tel:+919871264699" style="color: #01a09d; text-decoration: none;">+91 98712 64699</a>
-              </p>
+            <div style="margin:0; padding:24px; background:#f4f8fc; font-family:Arial,Helvetica,sans-serif; color:#16324f;">
+              <div style="max-width:640px; margin:0 auto; background:#ffffff; border:1px solid #dbe7f3; border-radius:24px; overflow:hidden; box-shadow:0 18px 44px rgba(16,39,67,0.08);">
+                <div style="padding:28px 32px; background:linear-gradient(135deg,#0f2f57 0%,#1f6fe5 55%,#19b6d2 100%); color:#ffffff;">
+                  <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.82;">New Enquiry Received</div>
+                  <h2 style="margin:14px 0 8px; font-size:30px; line-height:1.15; color:#ffffff;">We’ve received your message.</h2>
+                  <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.88);">Hello ${name}, thank you for reaching out to Digi Web Tech.</p>
+                </div>
+
+                <div style="padding:30px 32px;">
+                  <div style="padding:18px 20px; background:#f7fbff; border:1px solid #d9e8f7; border-radius:18px;">
+                    <div style="font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#4c6784; margin-bottom:12px;">Enquiry Snapshot</div>
+                    <div style="font-size:14px; line-height:1.85; color:#425b76;">
+                      <strong style="color:#16324f;">Service:</strong> ${service || 'General enquiry'}<br/>
+                      ${website ? `<strong style="color:#16324f;">Website:</strong> <a href="${website}" style="color:#1f6fe5; text-decoration:none;">${website}</a><br/>` : ''}
+                      <strong style="color:#16324f;">Message:</strong><br/>
+                      <span style="white-space:pre-line;">${message}</span>
+                    </div>
+                  </div>
+
+                  <p style="margin:22px 0 14px; font-size:15px; line-height:1.8; color:#425b76;">Arjun Rawat or one of our senior strategy experts will review your enquiry and reach out within 24 hours with the most relevant next steps.</p>
+
+                  <div style="padding:18px 20px; background:#ffffff; border:1px solid #e3edf7; border-radius:18px;">
+                    <div style="font-size:15px; font-weight:700; color:#16324f; margin-bottom:12px;">What happens next</div>
+                    <ul style="margin:0; padding-left:18px; color:#425b76; line-height:1.8; font-size:14px;">
+                      <li>Requirement and feasibility review</li>
+                      <li>Consultation scheduling with our team</li>
+                      <li>Practical roadmap or proposal recommendation</li>
+                    </ul>
+                  </div>
+
+                  <div style="margin-top:24px; text-align:center;">
+                    <a href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20just%20submitted%20an%20enquiry%20about%20${encodeURIComponent(service || 'your services')}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
+                    <a href="tel:+919871264699" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 98712 64699</a>
+                  </div>
+
+                  <div style="margin-top:26px; padding-top:20px; border-top:1px solid #e7eef6; font-size:14px; line-height:1.8; color:#567089;">
+                    Best Regards,<br/>
+                    <strong style="color:#16324f;">Arjun Rawat</strong><br/>
+                    Founder, Digi Web Tech
+                  </div>
+                </div>
+              </div>
             </div>
           `
         }, 'Contact auto-reply');
