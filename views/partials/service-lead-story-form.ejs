@@ -1,0 +1,44 @@
+<%
+  const serviceLabel = (title || 'Service').replace(/\s+Services?$/i, '').trim();
+  const pageSource = currentPath || '';
+%>
+<section class="section-gap seo-concept-service-lead">
+  <div class="container seo-concept-service-lead-grid">
+    <article class="seo-concept-story-card reveal">
+      <span class="eyebrow">Client Stories</span>
+      <h2>What happens when <%= serviceLabel %> meets growth intent.</h2>
+      <p>Teams come to Digi Web Tech when they want sharper execution, cleaner reporting, and a partner that can move from audit to rollout without wasting momentum.</p>
+
+      <div class="seo-concept-story-quote">
+        <div class="seo-concept-story-badge"><%= serviceLabel.slice(0, 2).toUpperCase() %></div>
+        <p>"The strategy felt specific to our market, the execution was fast, and the reporting finally made sense. We saw better leads, clearer priorities, and stronger momentum within weeks."</p>
+      </div>
+
+      <div class="seo-concept-story-proof">
+        <article>
+          <strong>48 hrs</strong>
+          <span>Typical first response window</span>
+        </article>
+        <article>
+          <strong>1 plan</strong>
+          <span>Clear roadmap aligned to business goals</span>
+        </article>
+      </div>
+    </article>
+
+    <div class="seo-concept-service-form-card reveal">
+      <span class="seo-concept-form-kicker">Request a free consultation</span>
+      <h3>Tell us about your business.</h3>
+      <form class="seo-concept-service-form" action="/submit-contact" method="post">
+        <input type="hidden" name="service" value="<%= title %>">
+        <input type="hidden" name="sourcePage" value="<%= pageSource %>">
+        <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+        <input type="email" name="email" placeholder="Your Email" autocomplete="email" required>
+        <input type="tel" name="phone" placeholder="Your Mobile Number" inputmode="tel" autocomplete="tel" required>
+        <input type="url" name="website" placeholder="Your Website / URL" inputmode="url" autocomplete="url" required>
+        <textarea name="message" rows="4" placeholder="Tell us about your goals" required></textarea>
+        <button type="submit" class="btn">Request Consultation</button>
+      </form>
+    </div>
+  </div>
+</section>

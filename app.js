@@ -115,31 +115,72 @@ async function sendLeadToGoogleSheets(payload) {
     return false;
   }
 
-  try {
+  async function postLead(body, headers) {
     const response = await fetch(googleSheetsWebhookUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
+      headers,
+      body
     });
 
+    const responseText = await response.text();
+
     if (!response.ok) {
-      const errorBody = await response.text();
-      throw new Error(`HTTP ${response.status}: ${errorBody}`);
+      throw new Error(`HTTP ${response.status}: ${responseText}`);
     }
 
-    const result = await response.json().catch(() => ({ success: true }));
+    if (!responseText) {
+      return { success: true };
+    }
+
+    try {
+      return JSON.parse(responseText);
+    } catch (parseError) {
+      return { success: true, raw: responseText };
+    }
+  }
+
+  try {
+    let result = await postLead(JSON.stringify(payload), {
+      'Content-Type': 'application/json'
+    });
 
     if (result.success === false) {
       throw new Error(result.error || 'Apps Script returned an unknown error.');
     }
 
-    console.log(`Google Sheets lead sync ok for ${payload.formType}`);
+    console.log(`Google Sheets lead sync ok for ${payload.formType} via JSON`);
     return true;
-  } catch (error) {
-    console.error(`Google Sheets lead sync failed for ${payload.formType}:`, error.message);
-    return false;
+  } catch (jsonError) {
+    console.warn(`Google Sheets JSON sync failed for ${payload.formType}: ${jsonError.message}`);
+
+    try {
+      const formBody = new URLSearchParams({
+        formType: payload.formType || '',
+        name: payload.name || '',
+        email: payload.email || '',
+        phone: payload.phone || '',
+        website: payload.website || '',
+        service: payload.service || '',
+        message: payload.message || '',
+        source: payload.source || '',
+        submittedAt: payload.submittedAt || '',
+        payload: JSON.stringify(payload)
+      }).toString();
+
+      const retryResult = await postLead(formBody, {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      });
+
+      if (retryResult.success === false) {
+        throw new Error(retryResult.error || 'Apps Script retry returned an unknown error.');
+      }
+
+      console.log(`Google Sheets lead sync ok for ${payload.formType} via form fallback`);
+      return true;
+    } catch (fallbackError) {
+      console.error(`Google Sheets lead sync failed for ${payload.formType}:`, fallbackError.message);
+      return false;
+    }
   }
 }
 
@@ -290,6 +331,8 @@ app.post('/submit-contact', async (req, res) => {
   const phone = req.body.phone?.trim();
   const service = req.body.service?.trim();
   const message = req.body.message?.trim();
+  const website = normalizeWebsiteUrl(req.body.website);
+  const sourcePage = req.body.sourcePage?.trim() || req.get('referer') || req.originalUrl;
 
   if (!name || !email || !message) {
     console.warn('Submission blocked: Missing required fields');
@@ -302,10 +345,10 @@ app.post('/submit-contact', async (req, res) => {
       name,
       email,
       phone: phone || '',
-      website: '',
+      website: website || '',
       service: service || '',
       message,
-      source: req.originalUrl,
+      source: sourcePage,
       submittedAt: new Date().toISOString()
     });
 
@@ -316,7 +359,7 @@ app.post('/submit-contact', async (req, res) => {
         from: `"Digi Web Tech Contact Bot" <${process.env.SMTP_USER}>`,
         to: process.env.ADMIN_EMAIL,
         subject: `📧 New Contact Inquiry from ${name}`,
-        text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nService: ${service || 'None Specified'}\nMessage: ${message}`,
+        text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nWebsite: ${website || 'N/A'}\nService: ${service || 'None Specified'}\nSource Page: ${sourcePage}\nMessage: ${message}`,
         html: `
           <div style="font-family: sans-serif; padding: 25px; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; color: #333;">
             <h2 style="color: #01a09d; margin-top: 0;">New Project Inquiry</h2>
@@ -325,7 +368,9 @@ app.post('/submit-contact', async (req, res) => {
               <p><strong>Name:</strong> ${name}</p>
               <p><strong>Email:</strong> ${email}</p>
               <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+              <p><strong>Website:</strong> ${website ? `<a href="${website}">${website}</a>` : 'N/A'}</p>
               <p><strong>Requested Service:</strong> ${service || 'Not specified'}</p>
+              <p><strong>Source Page:</strong> ${sourcePage}</p>
               <p><strong>Message:</strong></p>
               <p style="white-space: pre-line; color: #555;">${message}</p>
             </div>
@@ -346,11 +391,12 @@ app.post('/submit-contact', async (req, res) => {
           from: `"Birendra from Digi Web Tech" <${process.env.SMTP_USER}>`,
           to: email,
           subject: `We've received your inquiry, ${name}!`,
-          text: `Hello ${name},\n\nThank you for reaching out to us. We've received your query regarding ${service || 'our services'} and Birendra Singh will get back to you shortly.\n\nSummary of your message:\n${message}\n\nBest Regards,\nDigi Web Tech`,
+          text: `Hello ${name},\n\nThank you for reaching out to us. We've received your query regarding ${service || 'our services'} and Birendra Singh will get back to you shortly.\n\nWebsite: ${website || 'Not shared'}\n\nSummary of your message:\n${message}\n\nBest Regards,\nDigi Web Tech`,
           html: `
             <div style="font-family: sans-serif; padding: 40px; border: 1px solid #eee; border-radius: 16px; max-width: 600px; margin: 0 auto; color: #444;">
               <h2 style="color: #01a09d;">Hello ${name},</h2>
               <p>Thank you for reaching out to <strong>Digi Web Tech</strong>. We've received your inquiry and are excited to learn more about your project.</p>
+              ${website ? `<p><strong>Website shared:</strong> <a href="${website}">${website}</a></p>` : ''}
               <p>Our founder, <strong>Birendra Singh</strong>, or one of our senior strategy experts will review your requirements and reach out to you within 24 hours.</p>
               <p><strong>Next Steps:</strong></p>
               <ul style="color: #555; line-height: 1.6;">

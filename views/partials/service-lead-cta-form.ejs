@@ -1,0 +1,24 @@
+<%
+  const ctaLabel = (title || 'Service').replace(/\s+Services?$/i, '').trim();
+  const ctaSource = currentPath || '';
+%>
+<section class="section-gap final-cta seo-concept-service-cta-wrap">
+  <div class="container seo-concept-service-cta reveal">
+    <div class="seo-concept-service-cta-copy">
+      <span class="eyebrow">Start with a focused brief</span>
+      <h2>Get a practical next-step plan for <%= ctaLabel %>.</h2>
+      <p>Share your brand, website, and contact details. We’ll review the opportunity and come back with the most relevant next action instead of a generic pitch.</p>
+    </div>
+
+    <form class="seo-concept-service-cta-form" action="/submit-contact" method="post">
+      <input type="hidden" name="service" value="<%= title %>">
+      <input type="hidden" name="sourcePage" value="<%= ctaSource %>">
+      <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+      <input type="email" name="email" placeholder="Your Email" autocomplete="email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" inputmode="tel" autocomplete="tel" required>
+      <input type="url" name="website" placeholder="Website URL" inputmode="url" autocomplete="url" required>
+      <textarea name="message" rows="4" placeholder="Tell us about your goals" required></textarea>
+      <button type="submit" class="btn">Get Free Consultation</button>
+    </form>
+  </div>
+</section>
