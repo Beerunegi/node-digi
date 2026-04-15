@@ -1,6 +1,7 @@
 <%
   const ctaLabel = (title || 'Service').replace(/\s+Services?$/i, '').trim();
   const ctaSource = currentPath || '';
+  const contactLeadForm = getLeadFormMeta('contact');
 %>
 <section class="section-gap final-cta seo-concept-service-cta-wrap">
   <div class="container seo-concept-service-cta reveal">
@@ -11,6 +12,11 @@
     </div>
 
     <form class="seo-concept-service-cta-form" action="/submit-contact" method="post">
+      <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
+      <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+        <label for="cta-company">Company</label>
+        <input id="cta-company" type="text" name="company" tabindex="-1" autocomplete="off">
+      </div>
       <input type="hidden" name="service" value="<%= title %>">
       <input type="hidden" name="sourcePage" value="<%= ctaSource %>">
       <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>

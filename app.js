@@ -6,6 +6,7 @@ const sequelize = require('./config/database');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
 const dns = require('dns');
+const crypto = require('crypto');
 
 const app = express();
 console.log('Digi Web Tech Server - App.js Reloaded/Started');
@@ -65,6 +66,158 @@ const hasSmtpConfig = Boolean(
 );
 
 const transporter = hasSmtpConfig ? nodemailer.createTransport(smtpConfig) : null;
+const leadRateLimitStore = new Map();
+const LEAD_FORM_TTL_MS = 1000 * 60 * 60 * 2;
+const MIN_FORM_FILL_TIME_MS = 3000;
+const LEAD_RATE_WINDOW_MS = 1000 * 60 * 15;
+const LEAD_RATE_MAX_ATTEMPTS = 4;
+const LEAD_DAILY_WINDOW_MS = 1000 * 60 * 60 * 24;
+const LEAD_DAILY_MAX_ATTEMPTS = 12;
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function createLeadFormState(req, formType) {
+  const now = Date.now();
+  if (!req.session.leadForms) {
+    req.session.leadForms = {};
+  }
+
+  const existingState = req.session.leadForms[formType];
+  if (existingState && now - existingState.renderedAt < LEAD_FORM_TTL_MS) {
+    return existingState;
+  }
+
+  const newState = {
+    token: crypto.randomBytes(24).toString('hex'),
+    renderedAt: now
+  };
+
+  req.session.leadForms[formType] = newState;
+  return newState;
+}
+
+function clearLeadFormState(req, formType) {
+  if (req.session?.leadForms) {
+    delete req.session.leadForms[formType];
+  }
+}
+
+function getClientIp(req) {
+  const forwardedFor = req.get('x-forwarded-for');
+  if (forwardedFor) {
+    return forwardedFor.split(',')[0].trim();
+  }
+
+  return req.ip || req.socket?.remoteAddress || 'unknown';
+}
+
+function pruneLeadRateEntry(entry, now) {
+  entry.attempts = entry.attempts.filter(timestamp => now - timestamp < LEAD_RATE_WINDOW_MS);
+  entry.dailyAttempts = entry.dailyAttempts.filter(timestamp => now - timestamp < LEAD_DAILY_WINDOW_MS);
+}
+
+function isRateLimited(req, routeKey) {
+  const now = Date.now();
+  const ip = getClientIp(req);
+  const storeKey = `${routeKey}:${ip}`;
+  const entry = leadRateLimitStore.get(storeKey) || { attempts: [], dailyAttempts: [] };
+
+  pruneLeadRateEntry(entry, now);
+
+  if (
+    entry.attempts.length >= LEAD_RATE_MAX_ATTEMPTS ||
+    entry.dailyAttempts.length >= LEAD_DAILY_MAX_ATTEMPTS
+  ) {
+    leadRateLimitStore.set(storeKey, entry);
+    return true;
+  }
+
+  entry.attempts.push(now);
+  entry.dailyAttempts.push(now);
+  leadRateLimitStore.set(storeKey, entry);
+  return false;
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function isValidPhone(value) {
+  const digits = String(value || '').replace(/\D/g, '');
+  return digits.length >= 7 && digits.length <= 15;
+}
+
+function containsSpamKeywords(value) {
+  const spamPattern = /\b(crypto|bitcoin|casino|loan|forex|viagra|seo expert 100%|backlinks?|guest post|adult|whatsapp group)\b/i;
+  return spamPattern.test(value || '');
+}
+
+function countUrls(value) {
+  const matches = String(value || '').match(/https?:\/\/|www\./gi);
+  return matches ? matches.length : 0;
+}
+
+function validateLeadSubmission(req, formType, options = {}) {
+  const state = req.session?.leadForms?.[formType];
+  const submittedToken = String(req.body.formToken || '');
+  const honeypot = String(req.body.company || '').trim();
+  const now = Date.now();
+
+  if (isRateLimited(req, formType)) {
+    return { ok: false, reason: 'rate_limited' };
+  }
+
+  if (honeypot) {
+    return { ok: false, reason: 'honeypot' };
+  }
+
+  if (!state || !submittedToken || state.token !== submittedToken) {
+    return { ok: false, reason: 'token' };
+  }
+
+  if (now - state.renderedAt < MIN_FORM_FILL_TIME_MS) {
+    return { ok: false, reason: 'too_fast' };
+  }
+
+  if (now - state.renderedAt > LEAD_FORM_TTL_MS) {
+    return { ok: false, reason: 'expired' };
+  }
+
+  if (options.name && (options.name.length < 2 || options.name.length > 80)) {
+    return { ok: false, reason: 'invalid_name' };
+  }
+
+  if (options.email && !isValidEmail(options.email)) {
+    return { ok: false, reason: 'invalid_email' };
+  }
+
+  if (options.phone && !isValidPhone(options.phone)) {
+    return { ok: false, reason: 'invalid_phone' };
+  }
+
+  if (options.message) {
+    if (options.message.length < 10 || options.message.length > 2000) {
+      return { ok: false, reason: 'invalid_message' };
+    }
+
+    if (containsSpamKeywords(options.message) || countUrls(options.message) > 2) {
+      return { ok: false, reason: 'spam_message' };
+    }
+  }
+
+  if (options.website && countUrls(options.website) > 1) {
+    return { ok: false, reason: 'spam_website' };
+  }
+
+  return { ok: true };
+}
 
 function normalizeWebsiteUrl(value) {
   if (!value) return '';
@@ -216,6 +369,7 @@ app.use(express.static('public', { maxAge: '1y' }));
 // Current path for active menu link
 app.use((req, res, next) => {
   res.locals.currentPath = req.path;
+  res.locals.getLeadFormMeta = formType => createLeadFormState(req, formType);
   next();
 });
 
@@ -224,7 +378,6 @@ app.use((req, res, next) => {
 // Handling Free Website Audit Form (Placed at top for priority)
 app.post('/submit-audit', async (req, res) => {
   console.log('--- RECEIVED AUDIT FORM SUBMISSION ---');
-  console.log('Body Data:', req.body);
   const name = req.body.name?.trim();
   const email = req.body.email?.trim();
   const phone = req.body.phone?.trim();
@@ -234,6 +387,19 @@ app.post('/submit-audit', async (req, res) => {
   if (!name || !email || !website || !phone) {
     console.warn('Submission blocked: Missing fields');
     return res.status(400).send('Missing name, email, website, or mobile number');
+  }
+
+  const auditValidation = validateLeadSubmission(req, 'audit', {
+    name,
+    email,
+    phone,
+    website,
+    message: 'website audit'
+  });
+
+  if (!auditValidation.ok) {
+    console.warn(`Audit submission blocked: ${auditValidation.reason}`);
+    return res.status(400).send('We could not verify this submission. Please refresh the page and try again.');
   }
 
   try {
@@ -260,10 +426,10 @@ app.post('/submit-audit', async (req, res) => {
         html: `
           <div style="font-family: sans-serif; padding: 20px; background: #f4f7fb; border: 1px solid #e0e0e0; border-radius: 12px;">
             <h2 style="color: #01a09d;">New Lead Alert!</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Website:</strong> <a href="${website}">${website}</a></p>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+            <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
+            <p><strong>Website:</strong> <a href="${escapeHtml(website)}">${escapeHtml(website)}</a></p>
             <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;"/>
             <p style="font-size: 12px; color: #666;">This enquiry was submitted via the "Free Website Audit" bar on the homepage.</p>
           </div>
@@ -288,13 +454,13 @@ app.post('/submit-audit', async (req, res) => {
                 <div style="padding:28px 32px; background:linear-gradient(135deg,#0f2f57 0%,#1f6fe5 55%,#19b6d2 100%); color:#ffffff;">
                   <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.82;">Free Website Audit</div>
                   <h2 style="margin:14px 0 8px; font-size:30px; line-height:1.15; color:#ffffff;">We’ve received your audit request.</h2>
-                  <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.88);">Hello ${name}, thanks for trusting Digi Web Tech with your website review.</p>
+                  <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.88);">Hello ${escapeHtml(name)}, thanks for trusting Digi Web Tech with your website review.</p>
                 </div>
 
                 <div style="padding:30px 32px;">
                   <div style="padding:18px 20px; background:#f7fbff; border:1px solid #d9e8f7; border-radius:18px;">
                     <div style="font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#4c6784; margin-bottom:10px;">Website Submitted</div>
-                    <div style="font-size:16px; line-height:1.7; color:#16324f;"><a href="${website}" style="color:#1f6fe5; text-decoration:none;">${website}</a></div>
+                    <div style="font-size:16px; line-height:1.7; color:#16324f;"><a href="${escapeHtml(website)}" style="color:#1f6fe5; text-decoration:none;">${escapeHtml(website)}</a></div>
                   </div>
 
                   <p style="margin:22px 0 14px; font-size:15px; line-height:1.8; color:#425b76;">Our team will review your site’s search visibility, technical health, content opportunities, and conversion friction points. You can expect a clear response within 24-48 business hours.</p>
@@ -332,6 +498,7 @@ app.post('/submit-audit', async (req, res) => {
       return res.status(500).send(getLeadFailureMessage('audit'));
     }
 
+    clearLeadFormState(req, 'audit');
     console.log('--- AUDIT SUBMISSION EMAILS SENT ---');
     res.redirect('/thank-you');
 
@@ -350,7 +517,6 @@ app.post('/submit-audit', async (req, res) => {
 // Handling Main Contact Form Submission
 app.post('/submit-contact', async (req, res) => {
   console.log('--- RECEIVED CONTACT FORM SUBMISSION ---');
-  console.log('Body Data:', req.body);
   const name = req.body.name?.trim();
   const email = req.body.email?.trim();
   const phone = req.body.phone?.trim();
@@ -362,6 +528,19 @@ app.post('/submit-contact', async (req, res) => {
   if (!name || !email || !message) {
     console.warn('Submission blocked: Missing required fields');
     return res.status(400).send('Missing name, email, or message.');
+  }
+
+  const contactValidation = validateLeadSubmission(req, 'contact', {
+    name,
+    email,
+    phone,
+    website,
+    message
+  });
+
+  if (!contactValidation.ok) {
+    console.warn(`Contact submission blocked: ${contactValidation.reason}`);
+    return res.status(400).send('We could not verify this submission. Please refresh the page and try again.');
   }
 
   try {
@@ -390,14 +569,14 @@ app.post('/submit-contact', async (req, res) => {
             <h2 style="color: #01a09d; margin-top: 0;">New Project Inquiry</h2>
             <p style="margin-bottom: 20px;">You have received a new message via the Contact Us page.</p>
             <div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
-              <p><strong>Website:</strong> ${website ? `<a href="${website}">${website}</a>` : 'N/A'}</p>
-              <p><strong>Requested Service:</strong> ${service || 'Not specified'}</p>
-              <p><strong>Source Page:</strong> ${sourcePage}</p>
+              <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+              <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+              <p><strong>Phone:</strong> ${escapeHtml(phone || 'N/A')}</p>
+              <p><strong>Website:</strong> ${website ? `<a href="${escapeHtml(website)}">${escapeHtml(website)}</a>` : 'N/A'}</p>
+              <p><strong>Requested Service:</strong> ${escapeHtml(service || 'Not specified')}</p>
+              <p><strong>Source Page:</strong> ${escapeHtml(sourcePage)}</p>
               <p><strong>Message:</strong></p>
-              <p style="white-space: pre-line; color: #555;">${message}</p>
+              <p style="white-space: pre-line; color: #555;">${escapeHtml(message)}</p>
             </div>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;"/>
             <p style="font-size: 13px; color: #888;">Digi Web Tech Lead Console</p>
@@ -423,17 +602,17 @@ app.post('/submit-contact', async (req, res) => {
                 <div style="padding:28px 32px; background:linear-gradient(135deg,#0f2f57 0%,#1f6fe5 55%,#19b6d2 100%); color:#ffffff;">
                   <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.82;">New Enquiry Received</div>
                   <h2 style="margin:14px 0 8px; font-size:30px; line-height:1.15; color:#ffffff;">We’ve received your message.</h2>
-                  <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.88);">Hello ${name}, thank you for reaching out to Digi Web Tech.</p>
+                  <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.88);">Hello ${escapeHtml(name)}, thank you for reaching out to Digi Web Tech.</p>
                 </div>
 
                 <div style="padding:30px 32px;">
                   <div style="padding:18px 20px; background:#f7fbff; border:1px solid #d9e8f7; border-radius:18px;">
                     <div style="font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#4c6784; margin-bottom:12px;">Enquiry Snapshot</div>
                     <div style="font-size:14px; line-height:1.85; color:#425b76;">
-                      <strong style="color:#16324f;">Service:</strong> ${service || 'General enquiry'}<br/>
-                      ${website ? `<strong style="color:#16324f;">Website:</strong> <a href="${website}" style="color:#1f6fe5; text-decoration:none;">${website}</a><br/>` : ''}
+                      <strong style="color:#16324f;">Service:</strong> ${escapeHtml(service || 'General enquiry')}<br/>
+                      ${website ? `<strong style="color:#16324f;">Website:</strong> <a href="${escapeHtml(website)}" style="color:#1f6fe5; text-decoration:none;">${escapeHtml(website)}</a><br/>` : ''}
                       <strong style="color:#16324f;">Message:</strong><br/>
-                      <span style="white-space:pre-line;">${message}</span>
+                      <span style="white-space:pre-line;">${escapeHtml(message)}</span>
                     </div>
                   </div>
 
@@ -472,6 +651,7 @@ app.post('/submit-contact', async (req, res) => {
       return res.status(500).send(getLeadFailureMessage('contact'));
     }
 
+    clearLeadFormState(req, 'contact');
     console.log('--- CONTACT SUBMISSION EMAILS SENT ---');
     res.redirect('/thank-you');
 

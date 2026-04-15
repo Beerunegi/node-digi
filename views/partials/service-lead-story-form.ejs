@@ -1,6 +1,7 @@
 <%
   const serviceLabel = (title || 'Service').replace(/\s+Services?$/i, '').trim();
   const pageSource = currentPath || '';
+  const contactLeadForm = getLeadFormMeta('contact');
 %>
 <section class="section-gap seo-concept-service-lead">
   <div class="container seo-concept-service-lead-grid">
@@ -30,6 +31,11 @@
       <span class="seo-concept-form-kicker">Request a free consultation</span>
       <h3>Tell us about your business.</h3>
       <form class="seo-concept-service-form" action="/submit-contact" method="post">
+        <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="story-company">Company</label>
+          <input id="story-company" type="text" name="company" tabindex="-1" autocomplete="off">
+        </div>
         <input type="hidden" name="service" value="<%= title %>">
         <input type="hidden" name="sourcePage" value="<%= pageSource %>">
         <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
