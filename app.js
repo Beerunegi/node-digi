@@ -72,6 +72,12 @@ const LEAD_RATE_WINDOW_MS = 1000 * 60 * 15;
 const LEAD_RATE_MAX_ATTEMPTS = 4;
 const LEAD_DAILY_WINDOW_MS = 1000 * 60 * 60 * 24;
 const LEAD_DAILY_MAX_ATTEMPTS = 12;
+const TRUSTED_HOSTS = new Set([
+  'digiwebtech.co.in',
+  'www.digiwebtech.co.in',
+  'localhost',
+  '127.0.0.1'
+]);
 
 function escapeHtml(value) {
   return String(value || '')
@@ -103,9 +109,9 @@ function createLeadFormState(req, formType) {
 }
 
 function clearLeadFormState(req, formType) {
-  // We don't delete on submission to avoid "back button" invalidation
-  // tokens will naturally expire or be overwritten
-  // delete req.session.leadForms[formType];
+  if (req.session?.leadForms) {
+    delete req.session.leadForms[formType];
+  }
 }
 
 function getClientIp(req) {
@@ -153,8 +159,12 @@ function isValidPhone(value) {
   return digits.length >= 7 && digits.length <= 15;
 }
 
+function isSuspiciousText(value) {
+  return /https?:\/\/|www\.|<[^>]+>|\b(?:telegram|whatsapp group)\b/i.test(String(value || ''));
+}
+
 function containsSpamKeywords(value) {
-  const spamPattern = /\b(crypto|bitcoin|casino|loan|forex|viagra|seo expert 100%|backlinks?|guest post|adult|whatsapp group)\b/i;
+  const spamPattern = /\b(crypto|bitcoin|casino|loan|forex|viagra|seo expert 100%|backlinks?|guest post|adult|whatsapp group|betting|gambling|porn|payday loan)\b/i;
   return spamPattern.test(value || '');
 }
 
@@ -163,10 +173,31 @@ function countUrls(value) {
   return matches ? matches.length : 0;
 }
 
+function hasTrustedFormOrigin(req) {
+  const hostHeader = (req.get('host') || '').split(':')[0].toLowerCase();
+  const originHeader = req.get('origin');
+  const refererHeader = req.get('referer');
+
+  const isTrustedUrl = value => {
+    if (!value) return true;
+
+    try {
+      const parsed = new URL(value);
+      const hostname = parsed.hostname.toLowerCase();
+      return TRUSTED_HOSTS.has(hostname) || hostname === hostHeader;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  return isTrustedUrl(originHeader) && isTrustedUrl(refererHeader);
+}
+
 function validateLeadSubmission(req, formType, options = {}) {
   const state = req.session?.leadForms?.[formType];
   const submittedToken = String(req.body.formToken || '');
-  const honeypot = String(req.body.bot_field_honey || '').trim();
+  const honeypot = String(req.body.bot_field_honey || req.body.company || '').trim();
+  const submittedRenderedAt = Number.parseInt(req.body.formRenderedAt, 10);
   const now = Date.now();
 
   console.log(`[VALIDATION] formType: ${formType}`);
@@ -183,13 +214,23 @@ function validateLeadSubmission(req, formType, options = {}) {
     return { ok: false, reason: 'honeypot' };
   }
 
+  if (!hasTrustedFormOrigin(req)) {
+    console.warn(`[VALIDATION FAILED] untrusted_origin for ${formType}`);
+    return { ok: false, reason: 'origin' };
+  }
+
   // Soften the token check: auto-passed if session was completely lost/uninitialized (to prevent errors)
   if (!state || !submittedToken || state.token !== submittedToken) {
     console.warn(`[VALIDATION FAILED] Token mismatch: state=${state?.token}, submitted=${submittedToken}`);
     return { ok: false, reason: 'token' };
   }
 
-  if (now - state.renderedAt < 500) { // Reduced to 500ms
+  if (!Number.isFinite(submittedRenderedAt) || submittedRenderedAt !== state.renderedAt) {
+    console.warn(`[VALIDATION FAILED] renderedAt mismatch: state=${state?.renderedAt}, submitted=${submittedRenderedAt}`);
+    return { ok: false, reason: 'timestamp' };
+  }
+
+  if (now - state.renderedAt < MIN_FORM_FILL_TIME_MS) {
     console.warn(`[VALIDATION FAILED] too_fast. Elapsed: ${now - state.renderedAt}ms`);
     return { ok: false, reason: 'too_fast' };
   }
@@ -201,6 +242,11 @@ function validateLeadSubmission(req, formType, options = {}) {
 
   if (options.name && (options.name.length < 2 || options.name.length > 80)) {
     console.warn(`[VALIDATION FAILED] invalid_name: ${options.name}`);
+    return { ok: false, reason: 'invalid_name' };
+  }
+
+  if (options.name && isSuspiciousText(options.name)) {
+    console.warn(`[VALIDATION FAILED] suspicious_name: ${options.name}`);
     return { ok: false, reason: 'invalid_name' };
   }
 
@@ -220,10 +266,15 @@ function validateLeadSubmission(req, formType, options = {}) {
       return { ok: false, reason: 'invalid_message' };
     }
 
-    if (containsSpamKeywords(options.message) || countUrls(options.message) > 2) {
+    if (containsSpamKeywords(options.message) || countUrls(options.message) > 1) {
       console.warn(`[VALIDATION FAILED] spam_message detected`);
       return { ok: false, reason: 'spam_message' };
     }
+  }
+
+  if (options.service && isSuspiciousText(options.service)) {
+    console.warn(`[VALIDATION FAILED] suspicious_service: ${options.service}`);
+    return { ok: false, reason: 'invalid_service' };
   }
 
   if (options.website && countUrls(options.website) > 1) {
@@ -541,9 +592,9 @@ app.post('/submit-contact', async (req, res) => {
   const website = normalizeWebsiteUrl(req.body.website);
   const sourcePage = req.body.sourcePage?.trim() || req.get('referer') || req.originalUrl;
 
-  if (!name || !email || !message) {
+  if (!name || !email || !phone || !message) {
     console.warn('Submission blocked: Missing required fields');
-    return res.status(400).send('Missing name, email, or message.');
+    return res.status(400).send('Missing name, email, phone, or message.');
   }
 
   const contactValidation = validateLeadSubmission(req, 'contact', {
@@ -551,6 +602,7 @@ app.post('/submit-contact', async (req, res) => {
     email,
     phone,
     website,
+    service,
     message
   });
 

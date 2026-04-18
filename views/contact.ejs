@@ -41,9 +41,10 @@
     </div>
     <form class="contact-form" action="/submit-contact" method="post">
       <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
+      <input type="hidden" name="formRenderedAt" value="<%= contactLeadForm.renderedAt %>">
       <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-        <label for="contact-company">Company</label>
-        <input id="contact-company" type="text" name="company" tabindex="-1" autocomplete="off">
+        <label for="contact-company">Leave this field blank</label>
+        <input id="contact-company" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
       </div>
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
