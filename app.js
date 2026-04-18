@@ -2,7 +2,6 @@ const express = require('express');
 require('dotenv').config();
 const expressLayouts = require('express-ejs-layouts');
 const compression = require('compression');
-const sequelize = require('./config/database');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
 const dns = require('dns');
@@ -27,18 +26,6 @@ app.use(compression());
 // Request Body Parsers
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.json({ limit: '10mb' }));
-
-// MySQL Connection & Sync
-sequelize.authenticate()
-  .then(() => {
-    console.log('MySQL Connected correctly via Sequelize');
-    return sequelize.sync({ alter: true });
-  })
-  .then(() => console.log('Database synced successfully.'))
-  .catch(err => {
-    // Silencing database error log to focus on form delivery
-    console.log('Database (Local MySQL) not running. System using SMTP for lead delivery only.');
-  });
 
 // Express Session setup
 app.use(session({
