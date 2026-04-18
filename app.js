@@ -912,7 +912,25 @@ app.get('/thank-you', (req, res) => {
   );
 });
 
+app.get('/privacy-policy', (req, res) => {
+  renderPage(
+    res,
+    'privacy-policy',
+    'Privacy Policy',
+    `Privacy Policy | ${brandMetaSuffix}`,
+    'Read the Privacy Policy of Digi Web Tech to understand how we collect, use, and protect your personal information.'
+  );
+});
 
+app.get('/terms-of-service', (req, res) => {
+  renderPage(
+    res,
+    'terms-of-service',
+    'Terms of Service',
+    `Terms of Service | ${brandMetaSuffix}`,
+    'Read the Terms of Service for using Digi Web Tech website and services.'
+  );
+});
 
 // Dynamic Sitemap Generator
 
