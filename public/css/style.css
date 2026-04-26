@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -30,6 +31,7 @@ body {
     radial-gradient(circle at 0% 0%, #e3fffb 0%, transparent 28%),
     radial-gradient(circle at 100% 10%, #ffe9df 0%, transparent 24%),
     var(--bg);
+  overflow-x: hidden;
 }
 
 h1,
@@ -571,6 +573,7 @@ a {
 }
 
 .marquee {
+  overflow: hidden;
   width: 100%;
 }
 
@@ -1644,17 +1647,17 @@ body.menu-open {
     justify-content: center;
     justify-self: center;
     width: 100%;
-    max-width: 190px;
-    min-height: 44px;
-    padding: 10px 14px;
+    max-width: 170px;
+    min-height: 40px;
+    padding: 8px 12px;
     border-radius: 999px;
     background: linear-gradient(135deg, #0a2540 0%, #3b82f6 55%, #06b6d4 100%);
     color: #fff;
-    font-size: 0.722rem;
+    font-size: 0.68rem;
     font-weight: 600;
     line-height: 1.1;
     text-align: center;
-    box-shadow: 0 14px 26px rgba(59, 130, 246, 0.22);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
   }
 
   .top-nav {
@@ -1740,14 +1743,17 @@ body.menu-open {
   }
 
   .typewriter-wrap {
-    min-height: 1.85em;
+    min-height: 3.2em;
     margin-top: 8px;
+    display: flex;
+    align-items: center;
   }
 
   .typewriter-text {
     display: inline;
     white-space: normal;
     word-break: break-word;
+    border-right: 2px solid var(--brand-strong);
   }
 
   .hero-actions {
@@ -1821,7 +1827,8 @@ body.menu-open {
 
   .mobile-sticky-bar {
     gap: 6px;
-    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    z-index: 9999;
   }
 
   .sticky-btn {
@@ -1836,10 +1843,10 @@ body.menu-open {
   }
 
   .mobile-header-cta {
-    max-width: 150px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 0.637rem;
+    max-width: 140px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 0.6rem;
   }
 
   .menu-toggle {
@@ -9735,16 +9742,16 @@ body {
 
 .audit-bar-form {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex: 1;
   min-width: 0;
-  max-width: none;
 }
 
 .audit-bar-form input {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 1 1 200px;
+  min-width: 180px;
   padding: 14px 20px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -9787,7 +9794,7 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 30px;
-    padding: 10px 0;
+    padding: 40px 20px;
   }
 
   .audit-bar-info {

@@ -806,6 +806,25 @@
     50% { transform: translateY(-4px) rotate(0.5deg); }
   }
 
+  .typewriter-wrap {
+    display: block;
+    min-height: 1.35em;
+    margin-top: 12px;
+  }
+
+  .typewriter-text {
+    color: #a000ff;
+    text-shadow: 0 0 10px rgba(160, 0, 255, 0.3);
+    white-space: nowrap;
+    border-right: 3px solid #a000ff;
+    padding-right: 6px;
+    animation: typingCursor 0.8s step-end infinite;
+  }
+
+  @keyframes typingCursor {
+    50% { border-color: transparent; }
+  }
+
   /* Desktop Enhancements */
   @media (min-width: 769px) {
     .hero-single {
@@ -839,6 +858,25 @@
       0%, 45% { transform: translateY(0); }
       50%, 95% { transform: translateY(-52px); }
       100% { transform: translateY(0); }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .typewriter-wrap {
+      min-height: 3.5em;
+      display: flex;
+      align-items: center;
+    }
+    .typewriter-text {
+      white-space: normal !important;
+      word-break: break-word !important;
+      line-height: 1.4;
+    }
+    .hero-copy h1 {
+      font-size: 1.6rem;
+    }
+    .hero-actions .btn {
+      width: 100%;
     }
   }
 </style>
