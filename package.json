@@ -1,26 +1,30 @@
 {
   "name": "website-digi-web-tech",
   "version": "1.0.0",
-  "description": "",
+  "description": "Digi Web Tech website migrated to Next.js with blog CMS support",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "compression": "^1.8.1",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.5.1",
     "dotenv": "^17.4.1",
     "ejs": "^4.0.1",
-    "express": "^5.2.1",
-    "express-ejs-layouts": "^2.5.1",
-    "express-session": "^1.19.0",
-    "multer": "^2.1.1",
+    "jose": "^5.9.6",
+    "mysql2": "^3.15.2",
+    "next": "^15.5.2",
     "nodemailer": "^8.0.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-quill-new": "^3.6.0",
+    "sanitize-html": "^2.17.0",
     "slugify": "^1.6.9"
   },
   "devDependencies": {
