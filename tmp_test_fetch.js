@@ -1,25 +1,13 @@
 const urls = [
-  'https://digiwebtech.co.in/wp-blog/',
-  'https://digiwebtech.co.in/wp-blog/wp-login.php',
-  'https://digiwebtech.co.in/wp-blog/wp-json/wp/v2/posts'
+  'https://images.unsplash.com/photo-1576091160550-217359f4ecf8?auto=format&fit=crop&w=900&q=80',
+  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1576091160550-217359f42f8c?auto=format&fit=crop&w=1920&q=80'
 ];
 
-async function test() {
+async function check() {
   for (const url of urls) {
-    try {
-      console.log('\n----------------------------');
-      console.log('Fetching:', url);
-      const res = await fetch(url);
-      console.log('Status:', res.status);
-      const headers = Object.fromEntries(res.headers.entries());
-      console.log('Server/Platform:', headers['server'], '/', headers['platform']);
-      console.log('Content-Type:', headers['content-type']);
-      const text = await res.text();
-      console.log('Snippet:', text.slice(0, 300));
-    } catch (e) {
-      console.error('Error fetching', url, ':', e.message);
-    }
+    const res = await fetch(url);
+    console.log(res.status, url);
   }
 }
-
-test();
+check();
