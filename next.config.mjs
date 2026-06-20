@@ -7,12 +7,12 @@ const nextConfig = {
     return [
       {
         source: '/admin',
-        destination: '/wp-blog/wp-admin',
+        destination: 'https://wp.digiwebtech.co.in/wp-admin',
         permanent: false,
       },
       {
         source: '/admin/:path*',
-        destination: '/wp-blog/wp-admin/:path*',
+        destination: 'https://wp.digiwebtech.co.in/wp-admin/:path*',
         permanent: false,
       },
     ];
