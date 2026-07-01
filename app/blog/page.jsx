@@ -11,10 +11,31 @@ export const revalidate = 300;
 
 export const metadata = {
   title: `Digital Marketing Blog | ${siteConfig.name}`,
-  description:
-    'Explore SEO, AIO, GEO, paid ads, web strategy, and growth insights from Digi Web Tech.',
+  description: 'Explore SEO, AIO, GEO, paid ads, web strategy, and growth insights from Digi Web Tech.',
   alternates: {
     canonical: '/blog',
+  },
+  openGraph: {
+    title: `Digital Marketing Blog | ${siteConfig.name}`,
+    description: 'Explore SEO, AIO, GEO, paid ads, web strategy, and growth insights from Digi Web Tech.',
+    url: '/blog',
+    siteName: 'Digi Web Tech',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/images/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: `Digital Marketing Blog | ${siteConfig.name}`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Digital Marketing Blog | ${siteConfig.name}`,
+    description: 'Explore SEO, AIO, GEO, paid ads, web strategy, and growth insights from Digi Web Tech.',
+    images: ['/images/logo.svg'],
   },
 };
 

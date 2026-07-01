@@ -39,12 +39,37 @@ export async function generateMetadata({ params }) {
 
   const tag = tags.find((item) => item.slug === slug);
   const name = tag?.name || 'Tag';
+  const title = `${name} Posts | ${siteConfig.name}`;
+  const description = `Browse blog posts tagged ${name} from ${siteConfig.name}.`;
+  const canonical = `/blog/tag/${slug}`;
 
   return {
-    title: `${name} Posts | ${siteConfig.name}`,
-    description: `Browse blog posts tagged ${name} from ${siteConfig.name}.`,
+    title,
+    description,
     alternates: {
-      canonical: `/blog/tag/${slug}`,
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: 'Digi Web Tech',
+      locale: 'en_IN',
+      type: 'website',
+      images: [
+        {
+          url: '/images/logo.svg',
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/images/logo.svg'],
     },
   };
 }

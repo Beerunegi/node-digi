@@ -13,6 +13,28 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  openGraph: {
+    title: homeRoute.metaTitle,
+    description: homeRoute.metaDescription,
+    url: '/',
+    siteName: 'Digi Web Tech',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/images/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: homeRoute.metaTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: homeRoute.metaTitle,
+    description: homeRoute.metaDescription,
+    images: ['/images/logo.svg'],
+  },
 };
 
 export default async function HomePage() {

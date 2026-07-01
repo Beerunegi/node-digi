@@ -221,20 +221,34 @@ export async function generateMetadata({ params }) {
   }
 
   const canonical = `/blog/${post.slug}`;
+  const title = post.metaTitle || `${post.title} | ${siteConfig.name}`;
+  const description = post.metaDescription || post.excerpt;
+  const image = post.coverImage || '/images/logo.svg';
 
   return {
-    title: post.metaTitle || `${post.title} | ${siteConfig.name}`,
-    description: post.metaDescription || post.excerpt,
+    title,
+    description,
     alternates: {
       canonical,
     },
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
-      url: absoluteUrl(canonical),
+      url: canonical,
       type: 'article',
       publishedTime: post.publishedAt,
-      images: post.coverImage ? [{ url: post.coverImage, alt: post.coverImageAlt || post.title }] : [],
+      images: [
+        {
+          url: image,
+          alt: post.coverImageAlt || post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.excerpt,
+      images: [image],
     },
   };
 }

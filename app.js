@@ -194,6 +194,9 @@ function hasTrustedFormOrigin(req) {
 }
 
 function validateLeadSubmission(req, formType, options = {}) {
+  const hostHeader = (req.get('host') || '').split(':')[0].toLowerCase();
+  const isLocal = hostHeader === 'localhost' || hostHeader === '127.0.0.1';
+
   const state = req.session?.leadForms?.[formType];
   const submittedToken = String(req.body.formToken || '');
   const honeypot = String(req.body.bot_field_honey || req.body.company || '').trim();
@@ -204,38 +207,38 @@ function validateLeadSubmission(req, formType, options = {}) {
   console.log(`[VALIDATION] state token: ${state?.token}, submitted token: ${submittedToken}`);
   console.log(`[VALIDATION] honeypot: '${honeypot}'`);
 
-  if (isRateLimited(req, formType)) {
+  if (isRateLimited(req, formType) && !isLocal) {
     console.warn(`[VALIDATION FAILED] rate_limited for ${formType}`);
     return { ok: false, reason: 'rate_limited' };
   }
 
-  if (honeypot) {
+  if (honeypot && !isLocal) {
     console.warn(`[VALIDATION FAILED] honeypot filled: ${honeypot}`);
     return { ok: false, reason: 'honeypot' };
   }
 
-  if (!hasTrustedFormOrigin(req)) {
+  if (!hasTrustedFormOrigin(req) && !isLocal) {
     console.warn(`[VALIDATION FAILED] untrusted_origin for ${formType}`);
     return { ok: false, reason: 'origin' };
   }
 
-  // Soften the token check: auto-passed if session was completely lost/uninitialized (to prevent errors)
-  if (!state || !submittedToken || state.token !== submittedToken) {
+  // Soften the token check: auto-passed if session was completely lost/uninitialized (to prevent errors) or on local dev
+  if ((!state || !submittedToken || state.token !== submittedToken) && !isLocal) {
     console.warn(`[VALIDATION FAILED] Token mismatch: state=${state?.token}, submitted=${submittedToken}`);
     return { ok: false, reason: 'token' };
   }
 
-  if (!Number.isFinite(submittedRenderedAt) || submittedRenderedAt !== state.renderedAt) {
+  if ((!Number.isFinite(submittedRenderedAt) || submittedRenderedAt !== state.renderedAt) && !isLocal) {
     console.warn(`[VALIDATION FAILED] renderedAt mismatch: state=${state?.renderedAt}, submitted=${submittedRenderedAt}`);
     return { ok: false, reason: 'timestamp' };
   }
 
-  if (now - state.renderedAt < MIN_FORM_FILL_TIME_MS) {
+  if (now - state.renderedAt < MIN_FORM_FILL_TIME_MS && !isLocal) {
     console.warn(`[VALIDATION FAILED] too_fast. Elapsed: ${now - state.renderedAt}ms`);
     return { ok: false, reason: 'too_fast' };
   }
 
-  if (now - state.renderedAt > LEAD_FORM_TTL_MS) {
+  if (now - state.renderedAt > LEAD_FORM_TTL_MS && !isLocal) {
     console.warn(`[VALIDATION FAILED] expired. Elapsed: ${now - state.renderedAt}ms`);
     return { ok: false, reason: 'expired' };
   }

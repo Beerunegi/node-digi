@@ -17,6 +17,28 @@ export const metadata = {
     icon: '/images/favicon.svg',
     shortcut: '/images/favicon.svg',
   },
+  openGraph: {
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
+    url: '/',
+    siteName: siteConfig.name,
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/images/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: siteConfig.defaultTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
+    images: ['/images/logo.svg'],
+  },
 };
 
 export default function RootLayout({ children }) {

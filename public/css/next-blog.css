@@ -1038,7 +1038,7 @@
 }
 .related-posts-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 }
 .related-post-card {
@@ -1346,8 +1346,10 @@
 }
 
 .blog-post-author-meta {
-  flex-direction: column;
-  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 28px;
 }
@@ -1518,5 +1520,176 @@
 
   .admin-editor-grid {
     grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.9fr);
+  }
+}
+
+/* ==========================================================================
+   WordPress / Gutenberg Blocks Responsive Styling
+   ========================================================================== */
+.blog-article-content figure {
+  margin: 24px 0;
+  max-width: 100%;
+}
+.blog-article-content figcaption {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+.blog-article-content .wp-block-image {
+  margin: 24px 0;
+}
+.blog-article-content .wp-block-image img {
+  margin: 0 auto;
+  display: block;
+}
+.blog-article-content .alignleft {
+  float: left;
+  margin: 0 24px 20px 0;
+  max-width: 50%;
+}
+.blog-article-content .alignright {
+  float: right;
+  margin: 0 0 20px 24px;
+  max-width: 50%;
+}
+.blog-article-content .aligncenter {
+  display: block;
+  margin: 0 auto 24px auto;
+  text-align: center;
+}
+
+/* Clear floats for paragraphs following floated blocks */
+.blog-article-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive Embeds & Videos (WordPress standard) */
+.blog-article-content iframe,
+.blog-article-content embed,
+.blog-article-content object,
+.blog-article-content video {
+  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 12px;
+  border: none;
+  margin: 24px 0;
+}
+
+/* Table styling within blog content */
+.blog-article-content th,
+.blog-article-content td {
+  padding: 10px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  text-align: left;
+  font-size: 0.92rem;
+}
+.blog-article-content th {
+  background-color: rgba(244, 247, 251, 0.7);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Inline code tags styling */
+.blog-article-content code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  background: rgba(244, 247, 251, 0.9);
+  padding: 3px 6px;
+  border-radius: 6px;
+  color: var(--text);
+  word-break: break-word;
+}
+.blog-article-content pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  word-break: normal;
+}
+
+/* WordPress Columns Block styling */
+.blog-article-content .wp-block-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+/* ==========================================================================
+   Mobile Optimization / Extra Small Devices Breakpoint (max-width: 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .blog-article-content {
+    padding: 16px;
+  }
+  .key-takeaways-card {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  .faq-accordion-header {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  .faq-accordion-content {
+    padding: 0 16px;
+  }
+  .newsletter-widget {
+    padding: 20px 16px;
+  }
+  .author-bio-card {
+    padding: 20px 16px;
+  }
+  .blog-post-cover {
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+  .footer-cta-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-cta-actions .btn-primary,
+  .footer-cta-actions .btn-secondary {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .inline-cta-card {
+    padding: 20px 16px;
+  }
+  .inline-cta-card h3 {
+    font-size: 1.2rem !important;
+  }
+  .inline-cta-card .btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-article-content .alignleft,
+  .blog-article-content .alignright {
+    float: none;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .blog-article-content .wp-block-columns {
+    flex-direction: row;
+    gap: 24px;
+  }
+  .blog-article-content .wp-block-column {
+    flex: 1;
+    min-width: 0;
   }
 }

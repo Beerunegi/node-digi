@@ -11,6 +11,28 @@ export const metadata = {
   alternates: {
     canonical: '/terms-of-service',
   },
+  openGraph: {
+    title: route.metaTitle,
+    description: route.metaDescription,
+    url: '/terms-of-service',
+    siteName: 'Digi Web Tech',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/images/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: route.metaTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: route.metaTitle,
+    description: route.metaDescription,
+    images: ['/images/logo.svg'],
+  },
 };
 
 export default async function Page() {
