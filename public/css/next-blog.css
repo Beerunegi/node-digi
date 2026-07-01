@@ -1625,9 +1625,17 @@
   .blog-section,
   .blog-taxonomy-shell,
   .blog-post-shell {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
     box-sizing: border-box;
+  }
+
+  .blog-hero .container,
+  .blog-section .container,
+  .blog-taxonomy-shell .container,
+  .blog-post-shell .container {
+    width: 100%;
+    max-width: 100%;
   }
 
   .blog-post-shell {
