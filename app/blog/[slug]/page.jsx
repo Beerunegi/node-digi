@@ -42,6 +42,9 @@ function getAuthorBio(name) {
   if (name.toLowerCase().includes('digi web tech')) {
     return 'The Digi Web Tech Team is a group of seasoned digital marketers, search engine optimization experts, and web developers committed to helping businesses grow organic traffic and build high-converting web solutions.';
   }
+  if (name.toLowerCase().includes('arjun') || name.toLowerCase().includes('admin')) {
+    return 'Arjun Rawat is a Digital Marketing Consultant with over 15 years of experience in SEO, Google Ads, AI Marketing, Generative Engine Optimization (GEO), content strategy, and performance marketing. He has helped businesses across industries improve their online visibility, increase qualified traffic, and generate measurable growth through data-driven digital marketing strategies. Passionate about AI-powered search and emerging marketing technologies, Arjun regularly shares actionable insights, best practices, and industry trends to help brands stay ahead in the digital landscape.';
+  }
   return `${name} is a Senior Growth Specialist and Content Strategist at Digi Web Tech. With years of experience in technical SEO, conversion rate optimization, and AI Search optimization, they help brands build authoritative web footprints.`;
 }
 
@@ -430,7 +433,9 @@ export default async function BlogPostPage({ params }) {
                 </div>
                 <div className="author-bio-info">
                   <h4 className="author-bio-name">{post.authorName}</h4>
-                  <div className="author-bio-role">Senior Contributor</div>
+                  <div className="author-bio-role">
+                    {post.authorName.toLowerCase().includes('arjun') || post.authorName.toLowerCase().includes('admin') ? 'Digital Marketing Consultant' : 'Senior Contributor'}
+                  </div>
                   <p className="author-bio-desc">{getAuthorBio(post.authorName)}</p>
                 </div>
               </div>
