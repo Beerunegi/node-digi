@@ -344,9 +344,15 @@ export default async function BlogPostPage({ params }) {
   ];
 
   const primaryCategory = post.categories[0];
+  const breadcrumbItems = [
+    { label: 'Home', url: '/' },
+    { label: 'Blog', url: '/blog' },
+    ...(primaryCategory ? [{ label: primaryCategory.name, url: `/blog/category/${primaryCategory.slug}` }] : []),
+    { label: post.title }
+  ];
 
   return (
-    <SiteShell currentPath="/blog" schema={schema}>
+    <SiteShell currentPath={`/blog/${slug}`} schema={schema} customBreadcrumbs={breadcrumbItems}>
       <ReadingProgressBar />
       
       <article className="section-gap blog-post-shell">
@@ -354,20 +360,6 @@ export default async function BlogPostPage({ params }) {
           
           {/* Header Section */}
           <div className="blog-post-header">
-            <div className="blog-breadcrumbs">
-              <a href="/">Home</a>
-              <span className="sep">/</span>
-              <a href="/blog">Blog</a>
-              {primaryCategory ? (
-                <>
-                  <span className="sep">/</span>
-                  <a href={`/blog/category/${primaryCategory.slug}`}>{primaryCategory.name}</a>
-                </>
-              ) : null}
-              <span className="sep">/</span>
-              <span className="current">{post.title}</span>
-            </div>
-            
             <div className="blog-post-categories">
               {post.categories.map((category) => (
                 <a key={category.slug} href={`/blog/category/${category.slug}`} className="category-pill">

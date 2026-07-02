@@ -103,8 +103,14 @@ export default async function BlogCategoryPage({ params }) {
     url: absoluteUrl(`/blog/category/${slug}`),
   };
 
+  const breadcrumbItems = [
+    { label: 'Home', url: '/' },
+    { label: 'Blog', url: '/blog' },
+    { label: heading }
+  ];
+
   return (
-    <SiteShell currentPath="/blog" schema={schema}>
+    <SiteShell currentPath={`/blog/category/${slug}`} schema={schema} customBreadcrumbs={breadcrumbItems}>
       <section className="section-gap blog-taxonomy-shell">
         <div className="container">
           <div className="section-head">

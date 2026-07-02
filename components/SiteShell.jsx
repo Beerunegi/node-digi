@@ -1,6 +1,8 @@
+import { Fragment } from 'react';
 import Script from 'next/script';
 
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, absoluteUrl } from '@/lib/site-config';
+import { routeMap } from '@/lib/site-routes';
 
 function activeClass(condition) {
   return condition ? 'active' : '';
@@ -43,15 +45,124 @@ function homeSchema() {
           '@type': 'PostalAddress',
           ...siteConfig.address,
         },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          'ratingValue': '5.0',
+          'reviewCount': '3',
+        },
+        review: [
+          {
+            '@type': 'Review',
+            'author': {
+              '@type': 'Person',
+              'name': 'Rahul Verma',
+            },
+            'reviewRating': {
+              '@type': 'Rating',
+              'ratingValue': '5',
+            },
+            'reviewBody': 'Within 90 days, our lead volume doubled and ad cost per lead dropped significantly. Their strategy and reporting are very transparent.',
+          },
+          {
+            '@type': 'Review',
+            'author': {
+              '@type': 'Person',
+              'name': 'Priya Sethi',
+            },
+            'reviewRating': {
+              '@type': 'Rating',
+              'ratingValue': '5',
+            },
+            'reviewBody': 'They redesigned our website and improved conversion flow. Bounce rate reduced, enquiries increased, and the site feels premium now.',
+          },
+          {
+            '@type': 'Review',
+            'author': {
+              '@type': 'Person',
+              'name': 'Aman Khanna',
+            },
+            'reviewRating': {
+              '@type': 'Rating',
+              'ratingValue': '5',
+            },
+            'reviewBody': 'Best part is their execution speed. SEO, ads, and creatives all moved in sync and we saw consistent month-on-month growth.',
+          },
+        ],
       },
     ],
   };
 }
 
-export default function SiteShell({ children, currentPath, schema }) {
+function generateBreadcrumbs(pathname) {
+  if (!pathname || pathname === '/' || pathname === '/404') {
+    return [];
+  }
+
+  // Remove trailing slashes and split
+  const cleanPath = pathname.replace(/\/+$/, '');
+  const segments = cleanPath.split('/').filter(Boolean);
+
+  const items = [{ label: 'Home', url: '/' }];
+  let accumulatedPath = '';
+
+  for (let i = 0; i < segments.length; i++) {
+    const segment = segments[i];
+    accumulatedPath += `/${segment}`;
+
+    // Lookup in routeMap first
+    let label = '';
+    const route = routeMap[accumulatedPath];
+    if (route && route.title) {
+      label = route.title.split(' | ')[0].split(' - ')[0];
+    } else {
+      // Fallback: format segment slug
+      label = segment
+        .split('-')
+        .map(word => {
+          const lower = word.toLowerCase();
+          if (lower === 'seo') return 'SEO';
+          if (lower === 'aio') return 'AIO';
+          if (lower === 'geo') return 'GEO';
+          if (lower === 'cro') return 'CRO';
+          if (lower === 'ppc') return 'PPC';
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        })
+        .join(' ');
+    }
+
+    // Leaf node has no URL (current page)
+    const isLast = i === segments.length - 1;
+    items.push({
+      label,
+      url: isLast ? undefined : accumulatedPath,
+    });
+  }
+
+  return items;
+}
+
+export default function SiteShell({ children, currentPath, schema, customBreadcrumbs, hideBreadcrumbs }) {
+  const breadcrumbs = customBreadcrumbs || generateBreadcrumbs(currentPath);
+  const showBreadcrumbs = !hideBreadcrumbs && currentPath !== '/' && currentPath !== '/404' && breadcrumbs.length > 0;
+
+  // Generate breadcrumb list schema.org JSON-LD if we are showing breadcrumbs
+  const breadcrumbSchemaItem = showBreadcrumbs
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': breadcrumbs.map((item, index) => ({
+          '@type': 'ListItem',
+          'position': index + 1,
+          'name': item.label,
+          'item': absoluteUrl(item.url || currentPath),
+        })),
+      }
+    : null;
+
   const schemas = [
     currentPath === '/' ? homeSchema() : null,
     ...(Array.isArray(schema) ? schema : schema ? [schema] : []),
+    breadcrumbSchemaItem,
   ].filter(Boolean);
 
   return (
@@ -206,7 +317,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </header>
 
-      <main>{children}</main>
+      <main>
+        {showBreadcrumbs && (
+          <div className="site-breadcrumb-wrapper">
+            <div className="container">
+              <nav className="site-breadcrumbs" aria-label="Breadcrumb">
+                {breadcrumbs.map((item, index) => {
+                  const isLast = index === breadcrumbs.length - 1;
+                  return (
+                    <Fragment key={index}>
+                      {index > 0 && <span className="sep">/</span>}
+                      {isLast ? (
+                        <span className="current" aria-current="page">
+                          {item.label}
+                        </span>
+                      ) : (
+                        <a href={item.url}>
+                          {index === 0 ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="14"
+                                height="14"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ marginRight: '4px', marginTop: '-2px' }}
+                              >
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                              </svg>
+                              {item.label}
+                            </span>
+                          ) : (
+                            item.label
+                          )}
+                        </a>
+                      )}
+                    </Fragment>
+                  );
+                })}
+              </nav>
+            </div>
+          </div>
+        )}
+        {children}
+      </main>
 
       <footer className="site-footer">
         <div className="container footer-top">

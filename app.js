@@ -452,6 +452,7 @@ app.post('/submit-audit', async (req, res) => {
   const email = req.body.email?.trim();
   const phone = req.body.phone?.trim();
   const website = normalizeWebsiteUrl(req.body.website);
+  const message = req.body.message?.trim() || '';
   console.log(`Captured: ${name}, ${email}, ${phone}, ${website}`);
 
   if (!name || !email || !website || !phone) {
@@ -464,7 +465,7 @@ app.post('/submit-audit', async (req, res) => {
     email,
     phone,
     website,
-    message: 'website audit'
+    message: message || 'website audit'
   });
 
   if (!auditValidation.ok) {
@@ -480,7 +481,7 @@ app.post('/submit-audit', async (req, res) => {
       phone,
       website,
       service: '',
-      message: '',
+      message,
       source: req.originalUrl,
       submittedAt: new Date().toISOString()
     });
@@ -492,7 +493,7 @@ app.post('/submit-audit', async (req, res) => {
         from: `"Digi Web Tech Audit Bot" <${process.env.SMTP_USER}>`,
         to: process.env.ADMIN_EMAIL,
         subject: `🔥 New Free Audit Request from ${name}`,
-        text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nWebsite: ${website}`,
+        text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nWebsite: ${website}${message ? `\nMessage: ${message}` : ''}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; background: #f4f7fb; border: 1px solid #e0e0e0; border-radius: 12px;">
             <h2 style="color: #01a09d;">New Lead Alert!</h2>
@@ -500,6 +501,7 @@ app.post('/submit-audit', async (req, res) => {
             <p><strong>Email:</strong> ${escapeHtml(email)}</p>
             <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
             <p><strong>Website:</strong> <a href="${escapeHtml(website)}">${escapeHtml(website)}</a></p>
+            ${message ? `<p><strong>Message:</strong></p><p style="white-space: pre-line; color: #555;">${escapeHtml(message)}</p>` : ''}
             <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;"/>
             <p style="font-size: 12px; color: #666;">This enquiry was submitted via the "Free Website Audit" bar on the homepage.</p>
           </div>

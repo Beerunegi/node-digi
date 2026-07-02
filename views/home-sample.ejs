@@ -1,3 +1,4 @@
+<% const auditLeadForm = getLeadFormMeta('audit'); %>
 <div class="sample-home">
   <section class="sample-hero sample-hero-luxe section-gap">
     <div class="sample-hero-video-wrap" aria-hidden="true">
@@ -364,7 +365,13 @@
         </div>
       </div>
 
-      <form class="sample-audit-form reveal" action="mailto:info@digiwebtech.co.in" method="post" enctype="text/plain">
+      <form class="sample-audit-form reveal" action="/submit-audit" method="post">
+        <input type="hidden" name="formToken" value="<%= auditLeadForm.token %>">
+        <input type="hidden" name="formRenderedAt" value="<%= auditLeadForm.renderedAt %>">
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="sample-audit-company">Leave this field blank</label>
+          <input id="sample-audit-company" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
+        </div>
         <label>
           <span>Name</span>
           <input type="text" name="name" placeholder="Your full name" required>
@@ -375,7 +382,7 @@
         </label>
         <label>
           <span>Website</span>
-          <input type="url" name="website" placeholder="https://yourwebsite.com">
+          <input type="url" name="website" placeholder="https://yourwebsite.com" required>
         </label>
         <label>
           <span>Mobile Number</span>

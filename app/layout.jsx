@@ -56,8 +56,8 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/next-blog.css" />
+        <link rel="stylesheet" href="/css/style.css?v=1.0.2" />
+        <link rel="stylesheet" href="/css/next-blog.css?v=1.0.2" />
       </head>
       <body>{children}</body>
     </html>
