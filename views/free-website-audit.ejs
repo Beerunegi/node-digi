@@ -1,0 +1,196 @@
+<% const auditLeadForm = getLeadFormMeta('audit'); %>
+
+<style>
+  .audit-page-card input, .audit-page-card textarea, .audit-page-card select {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  .audit-page-card input:focus, .audit-page-card textarea:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(1, 160, 157, 0.15);
+    background: #ffffff;
+  }
+  .audit-page-card label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .about-hero-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .audit-page-card {
+      padding: 1.5rem !important;
+    }
+    .audit-page-card div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
+<section class="about-hero section-gap">
+  <div class="container about-hero-grid">
+    <div>
+      <span class="eyebrow">3-in-1 Website Audit</span>
+      <h1>Get Your Free SEO, AIO & GEO Audit Report</h1>
+      <p>Analyze your search engine visibility, AI engine citation footprint, and local map pack performance. Get actionable insights to attract and convert more customers.</p>
+      
+      <div style="margin-top: 2rem;">
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(1, 160, 157, 0.1); color: var(--brand); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
+          <div>
+            <strong style="color: var(--text); display: block; font-size: 1.05rem;">Technical & Organic SEO</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">Inspect site speed, backlinks, search rankings, and search volume opportunities.</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 81, 47, 0.1); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
+          <div>
+            <strong style="color: var(--text); display: block; font-size: 1.05rem;">AI Engine Optimization (AIO)</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">Check how conversational agents (ChatGPT, Gemini, Perplexity) cite your brand.</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(1, 160, 157, 0.1); color: var(--brand); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
+          <div>
+            <strong style="color: var(--text); display: block; font-size: 1.05rem;">Generative Engine Optimization (GEO)</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">Check brand citations, source database placement, and entity association across AI systems.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="reveal">
+      <div class="audit-page-card" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow); backdrop-filter: var(--glass);">
+        <h3 style="margin-bottom: 1.5rem; color: var(--text);">Request Audit Report</h3>
+        
+        <form class="contact-form" action="/submit-audit" method="post" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <input type="hidden" name="formToken" value="<%= auditLeadForm.token %>">
+          <input type="hidden" name="formRenderedAt" value="<%= auditLeadForm.renderedAt %>">
+          
+          <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+            <label for="audit-company-field">Leave this field blank</label>
+            <input id="audit-company-field" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; min-width: 0;">
+            <div>
+              <label for="audit-name">Your Name*</label>
+              <input type="text" id="audit-name" name="name" placeholder="E.g., Arjun Rawat" required>
+            </div>
+            <div>
+              <label for="audit-website">Website URL*</label>
+              <input type="url" id="audit-website" name="website" placeholder="E.g., digiwebtech.co.in" required>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; min-width: 0;">
+            <div>
+              <label for="audit-email">Email Address*</label>
+              <input type="email" id="audit-email" name="email" placeholder="E.g., email@company.com" required>
+            </div>
+            <div>
+              <label for="audit-phone">Mobile Number*</label>
+              <input type="tel" id="audit-phone" name="phone" placeholder="E.g., +91 9871264699" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; min-width: 0;">
+            <div>
+              <label for="audit-industry">Industry / Category</label>
+              <input type="text" id="audit-industry" name="industry" placeholder="E.g., Healthcare, SaaS">
+            </div>
+            <div>
+              <label for="audit-competitor">Competitor URL</label>
+              <input type="url" id="audit-competitor" name="competitor" placeholder="E.g., competitor.com">
+            </div>
+          </div>
+          
+          <div>
+            <label style="margin-bottom: 0.5rem;">Select Audits Needed*</label>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+              <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; font-weight: 500; cursor: pointer; color: var(--text);">
+                <input type="checkbox" name="audit_seo" value="yes" checked style="width: auto; height: auto; cursor: pointer;"> Technical & Organic SEO Audit
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; font-weight: 500; cursor: pointer; color: var(--text);">
+                <input type="checkbox" name="audit_aio" value="yes" checked style="width: auto; height: auto; cursor: pointer;"> AI Search Optimization (AIO) Audit
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; font-weight: 500; cursor: pointer; color: var(--text);">
+                <input type="checkbox" name="audit_geo" value="yes" checked style="width: auto; height: auto; cursor: pointer;"> Generative Engine Optimization (GEO) Audit
+              </label>
+            </div>
+          </div>
+          
+          <div>
+            <label for="audit-message">Additional Notes / Specific Questions</label>
+            <textarea id="audit-message" name="message" rows="3" placeholder="Tell us if you have specific pages or competitors to review..." style="resize: vertical; min-height: 80px;"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-full" style="padding: 0.9rem; border-radius: 12px; font-weight: 700; width: 100%;">Run 3-in-1 Free Audit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional section explaining details -->
+<section class="section-gap" style="background: rgba(255, 255, 255, 0.4); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container" style="max-width: 1000px;">
+    <div class="section-head" style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="eyebrow">WHAT WE DELIVER</span>
+      <h2>A Comprehensive Visibility Diagnostic</h2>
+      <p style="margin: 0 auto; max-width: 650px;">We go beyond standard keyword rank tracking to diagnose why your site is missed by Google index algorithms, conversational search systems, and Generative AI engines.</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 2rem;">
+        <h4 style="color: var(--text); font-size: 1.15rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 600;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          SEO Diagnostic
+        </h4>
+        <ul style="padding-left: 1.25rem; color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin: 0;">
+          <li style="margin-bottom: 0.5rem;">Core Web Vitals & mobile speed bottlenecks.</li>
+          <li style="margin-bottom: 0.5rem;">Indexation issues & semantic crawling barriers.</li>
+          <li style="margin-bottom: 0.5rem;">Competitor keyword gap opportunities.</li>
+          <li>Backlink health & toxicity levels.</li>
+        </ul>
+      </div>
+      
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 2rem;">
+        <h4 style="color: var(--text); font-size: 1.15rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 600;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          AIO Audit (AI Citations)
+        </h4>
+        <ul style="padding-left: 1.25rem; color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin: 0;">
+          <li style="margin-bottom: 0.5rem;">Entity mapping score in search graph models.</li>
+          <li style="margin-bottom: 0.5rem;">AI prompt simulation for brand recommendations.</li>
+          <li style="margin-bottom: 0.5rem;">Semantic keyword intent alignment.</li>
+          <li>Schema markup health check for LLM ingestion.</li>
+        </ul>
+      </div>
+      
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 2rem;">
+        <h4 style="color: var(--text); font-size: 1.15rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 600;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          GEO Audit (Generative AI)
+        </h4>
+        <ul style="padding-left: 1.25rem; color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin: 0;">
+          <li style="margin-bottom: 0.5rem;">Brand citation rate in LLM reference index.</li>
+          <li style="margin-bottom: 0.5rem;">Entity linkages inside key knowledge graphs.</li>
+          <li style="margin-bottom: 0.5rem;">Citation source verification and authority score.</li>
+          <li>Conversational brand sentiment analysis metrics.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

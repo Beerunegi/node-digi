@@ -160,7 +160,7 @@ function getCategoryFaqs(categories = [], title = '') {
       },
       {
         question: 'How do I get started with a project or request a digital audit?',
-        answer: 'You can initiate a project by clicking "Start a Project" or calling us directly at +91 98712 64699. Our technical specialists will perform an initial audit of your current digital assets and set up a free 30-minute discovery consultation to discuss the path forward.',
+        answer: 'You can initiate a project by clicking "Contact Us" or calling us directly at +91 98712 64699. Our technical specialists will perform an initial audit of your current digital assets and set up a free 30-minute discovery consultation to discuss the path forward.',
       },
     ];
   }

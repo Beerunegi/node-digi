@@ -75,19 +75,26 @@ if (revealTargets.length) {
 const counters = document.querySelectorAll('[data-counter]');
 
 const animateCounter = (el) => {
-  const target = Number(el.getAttribute('data-counter'));
+  const rawTarget = el.getAttribute('data-counter');
+  const numPart = parseFloat(rawTarget);
+  if (isNaN(numPart)) return;
+  const isDecimal = rawTarget.includes('.');
   const duration = 1100;
   const startTime = performance.now();
 
   const step = (now) => {
     const progress = Math.min((now - startTime) / duration, 1);
-    const value = Math.floor(progress * target);
-    el.textContent = value;
+    const value = progress * numPart;
+    if (isDecimal) {
+      el.textContent = value.toFixed(1);
+    } else {
+      el.textContent = Math.floor(value);
+    }
 
     if (progress < 1) {
       requestAnimationFrame(step);
     } else {
-      el.textContent = target;
+      el.textContent = rawTarget;
     }
   };
 

@@ -453,6 +453,30 @@ app.post('/submit-audit', async (req, res) => {
   const phone = req.body.phone?.trim();
   const website = normalizeWebsiteUrl(req.body.website);
   const message = req.body.message?.trim() || '';
+
+  // Extract extra fields from the dedicated audit page form
+  const competitor = req.body.competitor?.trim() || '';
+  const industry = req.body.industry?.trim() || '';
+
+  const auditTypes = [];
+  if (req.body.audit_seo === 'yes' || req.body.audit_seo === 'on') auditTypes.push('SEO');
+  if (req.body.audit_aio === 'yes' || req.body.audit_aio === 'on') auditTypes.push('AIO');
+  if (req.body.audit_geo === 'yes' || req.body.audit_geo === 'on') auditTypes.push('GEO');
+
+  const auditTypesStr = auditTypes.join(', ') || 'SEO, AIO, GEO';
+  const serviceText = `Audit: ${auditTypesStr}`;
+
+  let formattedMessage = '';
+  if (industry || competitor || req.body.audit_seo || req.body.audit_aio || req.body.audit_geo) {
+    formattedMessage = `Audit Types: ${auditTypesStr}`;
+    if (industry) formattedMessage += `\nIndustry: ${industry}`;
+    if (competitor) formattedMessage += `\nCompetitor: ${competitor}`;
+    if (message) formattedMessage += `\n\nUser Notes:\n${message}`;
+  } else {
+    formattedMessage = message || 'Free Website Audit Request';
+  }
+  const finalMessage = formattedMessage.slice(0, 1950);
+
   console.log(`Captured: ${name}, ${email}, ${phone}, ${website}`);
 
   if (!name || !email || !website || !phone) {
@@ -465,7 +489,7 @@ app.post('/submit-audit', async (req, res) => {
     email,
     phone,
     website,
-    message: message || 'website audit'
+    message: finalMessage || 'website audit'
   });
 
   if (!auditValidation.ok) {
@@ -480,8 +504,8 @@ app.post('/submit-audit', async (req, res) => {
       email,
       phone,
       website,
-      service: '',
-      message,
+      service: serviceText,
+      message: finalMessage,
       source: req.originalUrl,
       submittedAt: new Date().toISOString()
     });
@@ -493,7 +517,7 @@ app.post('/submit-audit', async (req, res) => {
         from: `"Digi Web Tech Audit Bot" <${process.env.SMTP_USER}>`,
         to: process.env.ADMIN_EMAIL,
         subject: `🔥 New Free Audit Request from ${name}`,
-        text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nWebsite: ${website}${message ? `\nMessage: ${message}` : ''}`,
+        text: `New Lead Details:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nWebsite: ${website}\nAudit Types: ${auditTypesStr}\nIndustry: ${industry || 'N/A'}\nCompetitor: ${competitor || 'N/A'}${message ? `\nMessage: ${message}` : ''}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; background: #f4f7fb; border: 1px solid #e0e0e0; border-radius: 12px;">
             <h2 style="color: #01a09d;">New Lead Alert!</h2>
@@ -501,9 +525,12 @@ app.post('/submit-audit', async (req, res) => {
             <p><strong>Email:</strong> ${escapeHtml(email)}</p>
             <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
             <p><strong>Website:</strong> <a href="${escapeHtml(website)}">${escapeHtml(website)}</a></p>
+            <p><strong>Audit Types:</strong> ${escapeHtml(auditTypesStr)}</p>
+            <p><strong>Industry:</strong> ${escapeHtml(industry || 'N/A')}</p>
+            <p><strong>Competitor:</strong> ${escapeHtml(competitor || 'N/A')}</p>
             ${message ? `<p><strong>Message:</strong></p><p style="white-space: pre-line; color: #555;">${escapeHtml(message)}</p>` : ''}
             <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;"/>
-            <p style="font-size: 12px; color: #666;">This enquiry was submitted via the "Free Website Audit" bar on the homepage.</p>
+            <p style="font-size: 12px; color: #666;">This enquiry was submitted via the "Free Website Audit" page.</p>
           </div>
         `
       }, 'Audit admin email');
@@ -795,7 +822,7 @@ app.get('/services/aio-optimization-services', (req, res) => {
 });
 
 app.get('/services/geo-optimization-services', (req, res) => {
-  renderPage(res, 'geo-optimization-services', 'GEO Optimization Services', `GEO Target Marketing & Optimization Services in Delhi NCR | ${brandMetaSuffix}`);
+  renderPage(res, 'geo-optimization-services', 'GEO Optimization Services', `Generative Engine Optimization (GEO) Services | AI Search Ranking | ${brandMetaSuffix}`);
 });
 
 app.get('/services/google-ads-services', (req, res) => {
@@ -933,6 +960,16 @@ app.get('/pricing', (req, res) => {
     'Pricing',
     `Digital Marketing Pricing Plans in Delhi NCR | ${brandMetaSuffix}`,
     'View affordable digital marketing, SEO, AIO, and web service pricing plans from Digi Web Tech, a top Digital Marketing Agency in Delhi NCR.'
+  );
+});
+
+app.get('/free-website-audit', (req, res) => {
+  renderPage(
+    res,
+    'free-website-audit',
+    'Free Website Audit',
+    `Free SEO, AIO & GEO Website Audit | ${brandMetaSuffix}`,
+    'Get a comprehensive free website SEO, AIO, and GEO audit report from Digi Web Tech. Identify optimization errors and rank higher in search engines.'
   );
 });
 
