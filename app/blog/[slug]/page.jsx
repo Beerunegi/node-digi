@@ -10,6 +10,7 @@ import {
   FaqAccordion,
   NewsletterWidget
 } from '@/components/BlogInteractive';
+import { injectDynamicCtas } from '@/lib/blogCtaGenerator';
 
 export const revalidate = 300;
 
@@ -175,24 +176,7 @@ function generateKeyTakeaways(post) {
   ];
 }
 
-function injectInlineCta(contentHtml) {
-  if (!contentHtml) return '';
-  const paragraphs = contentHtml.split('</p>');
 
-  if (paragraphs.length >= 3) {
-    const ctaHtml = `
-      <div class="inline-cta-card">
-        <h3>Accelerate Your Search Rankings & ROI</h3>
-        <p>Struggling to drive organic leads? Digi Web Tech's dedicated SEO and growth optimization team can design a performance-first strategy to scale your search visibility.</p>
-        <a href="/contact" class="btn">Get Your Free Growth Audit &rarr;</a>
-      </div>
-    `;
-    paragraphs.splice(3, 0, ctaHtml);
-    return paragraphs.join('</p>');
-  }
-
-  return contentHtml;
-}
 
 export async function generateStaticParams() {
   try {
@@ -295,7 +279,7 @@ export default async function BlogPostPage({ params }) {
 
   const faqs = getCategoryFaqs(post.categories, post.title);
   const takeaways = generateKeyTakeaways(post);
-  const contentWithCta = injectInlineCta(post.contentHtml);
+  const contentWithCta = injectDynamicCtas(post.contentHtml, post);
 
   const schema = [
     {

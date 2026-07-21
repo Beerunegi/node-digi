@@ -3,7 +3,7 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   trailingSlash: false,
-  serverExternalPackages: ['mysql2'],
+  serverExternalPackages: ['mysql2', 'ejs'],
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [

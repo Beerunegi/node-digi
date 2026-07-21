@@ -1,0 +1,64 @@
+# Digi Web Tech
+
+> Full-service digital marketing, Search Engine Optimization (SEO), Generative Engine Optimization (GEO), AI Optimization (AIO), and web development agency driving measurable organic traffic, search visibility, and revenue growth.
+
+Digi Web Tech is a performance-driven digital agency based in Delhi NCR, India, serving global clients across healthcare, e-commerce, real estate, education, technology, and automotive sectors. The agency specializes in modern organic growth strategies—combining traditional technical SEO with cutting-edge Generative Engine Optimization (GEO) and Artificial Intelligence Optimization (AIO) to secure brand citations in ChatGPT, Perplexity, and Google Gemini alongside traditional search engine rankings.
+
+## Core Pages
+
+- [Home](https://digiwebtech.co.in/): Overview of Digi Web Tech's agency capabilities, core value proposition, growth methodology, and client success portfolio.
+- [About Us](https://digiwebtech.co.in/about): Detailed company background, agency mission, technical leadership, and results-first client philosophy.
+- [Services Index](https://digiwebtech.co.in/services): Comprehensive directory of specialized digital marketing, paid media, SEO, AIO, and web engineering services.
+- [Industries Index](https://digiwebtech.co.in/industries): Hub of tailored marketing solutions for healthcare, education, e-commerce, real estate, tech, and automotive sectors.
+- [Case Studies Index](https://digiwebtech.co.in/case-studies): Real-world client case studies with verified metrics on traffic growth, keyword rankings, and sales volume.
+- [Blog](https://digiwebtech.co.in/blog): Knowledge hub containing actionable strategy articles, technical guides, and industry insights on SEO, GEO, AIO, and digital growth.
+
+## Core Services
+
+- [SEO Services](https://digiwebtech.co.in/services/seo-services): Full-funnel search engine optimization, technical audits, on-page keyword targeting, backlink acquisition, and local search dominance.
+- [AIO Optimization Services](https://digiwebtech.co.in/services/aio-optimization-services): Artificial Intelligence Optimization structuring site entities, direct answers, and schema markup for Google AI Overviews and AI search discovery.
+- [GEO Optimization Services](https://digiwebtech.co.in/services/geo-optimization-services): Generative Engine Optimization positioning content for citations and direct recommendations inside ChatGPT Search, Perplexity, and Gemini.
+- [Google Ads Services](https://digiwebtech.co.in/services/google-ads-services): High-ROAS Google Search, Display, Shopping, and YouTube paid ad campaign management engineered for high conversion value.
+- [Meta Ads Management Services](https://digiwebtech.co.in/services/meta-ads-management-services): Performance-first Facebook & Instagram advertising, custom audience segmentation, creative design, and conversion funnel optimization.
+- [Website Development Services](https://digiwebtech.co.in/services/website-development-services): Full-stack custom website development, Next.js engineering, Core Web Vitals optimization, and enterprise web applications.
+- [Website Design Services](https://digiwebtech.co.in/services/website-design-services): Modern UI/UX web design, mobile-responsive layouts, conversion rate optimization, and interactive brand design.
+- [Shopify Development Services](https://digiwebtech.co.in/services/shopify-development-services): E-Commerce store design, Shopify theme customization, app integration, speed optimization, and D2C growth setup.
+- [WordPress Development Services](https://digiwebtech.co.in/services/wordpress-development-services): Custom WordPress theme & plugin development, WooCommerce setup, security hardening, and CMS maintenance.
+- [Content Marketing Services](https://digiwebtech.co.in/services/content-marketing-services): Strategic content creation, search-intent aligned copywriting, pillar articles, and conversion-focused lead magnets.
+- [Email Marketing & Automation Services](https://digiwebtech.co.in/services/email-marketing-automation-services): Automated lifecycle drip campaigns, customer retention funnels, list segmentation, and email marketing analytics.
+- [Conversion Rate Optimization (CRO) Services](https://digiwebtech.co.in/services/conversion-rate-optimization-services): Landing page optimization, user heatmaps, A/B testing, and lead funnel conversion audits.
+- [Analytics & Reporting Services](https://digiwebtech.co.in/services/analytics-reporting-services): Google Analytics 4 (GA4) setup, custom KPI reporting dashboards, multi-touch attribution, and ROI tracking.
+- [Brand Strategy Services](https://digiwebtech.co.in/services/brand-strategy-services): Corporate identity design, brand positioning frameworks, value proposition messaging, and market differentiation.
+
+## Industry Solutions
+
+- [Healthcare Marketing](https://digiwebtech.co.in/industries/health): Specialized digital marketing for medical clinics, hospitals, and healthcare brands, focusing on patient acquisition and medical SEO.
+- [Education Marketing](https://digiwebtech.co.in/industries/education): Student enrollment marketing, lead generation, and brand building for schools, universities, and EdTech platforms.
+- [Ecommerce Growth Solutions](https://digiwebtech.co.in/industries/ecommerce): D2C scaling strategies, multi-channel performance advertising, and store conversion funnel optimization.
+- [Real Estate Marketing](https://digiwebtech.co.in/industries/real-estate): High-intent property buyer lead acquisition, landing page funnels, and digital branding for real estate developers and agents.
+- [Technology & SaaS Marketing](https://digiwebtech.co.in/industries/technology): B2B SaaS growth marketing, product positioning, and acquisition campaigns for software houses and tech startups.
+- [Automotive Marketing](https://digiwebtech.co.in/industries/automotive): Digital marketing, inventory display, and qualified lead generation for auto dealerships and service centers.
+
+## Case Studies & Proven Results
+
+- [The Dental Port Case Study](https://digiwebtech.co.in/case-studies/the-dental-port): Case study demonstrating 30% organic traffic growth and first-page local search rankings for a dental clinic in Delhi NCR.
+- [Krisshna Dental Case Study](https://digiwebtech.co.in/case-studies/krisshna-dental): Case study documenting 10 top-10 search rankings achieved within 3 months and 30% traffic growth in 6 months.
+- [Eco Luxe Decor Case Study](https://digiwebtech.co.in/case-studies/eco-luxe-decor): Case study showing D2C e-commerce growth from zero to $3,000 monthly sales via Shopify SEO and global positioning.
+- [Ankur Pharmaceuticals Case Study](https://digiwebtech.co.in/case-studies/ankur-pharma): Case study detailing growth from 0 to 90,000 sales volume through WooCommerce and international SEO optimization.
+
+## Pillar Content & Strategy Guides
+
+- [SEO Funnel vs. Traditional Marketing Funnel](https://digiwebtech.co.in/blog/seo-funnel-vs-traditional-marketing-funnel-key-differences): Comparison of organic search funnels and traditional marketing funnels for buyer journey mapping.
+- [SEO Funnel Optimization Guide](https://digiwebtech.co.in/blog/seo-funnel-optimization-improve-rankings-traffic-and-conversions): Step-by-step framework for optimizing top-of-funnel, middle-of-funnel, and bottom-of-funnel organic search stages.
+- [Search Intent in SEO](https://digiwebtech.co.in/blog/search-intent-in-seo-definition-types-and-best-practices): Comprehensive guide to mapping informational, navigational, commercial, and transactional search intents.
+
+## Audits & Pricing
+
+- [Free Website Audit](https://digiwebtech.co.in/free-website-audit): Interactive audit tool offering a free technical SEO, AIO, GEO, and website performance audit report.
+- [Pricing Plans](https://digiwebtech.co.in/pricing): Transparent digital marketing, SEO, paid media, and web development investment plans.
+
+## Contact & Governance
+
+- [Contact Us](https://digiwebtech.co.in/contact): Direct consultation scheduling, phone details (+91 98712 64699), email (info@digiwebtech.co.in), and office address.
+- [Privacy Policy](https://digiwebtech.co.in/privacy-policy): Privacy standards, data processing policy, and visitor information protection.
+- [Terms of Service](https://digiwebtech.co.in/terms-of-service): Operating terms, service agreements, and website usage policies.
