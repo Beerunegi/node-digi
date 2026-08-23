@@ -1,0 +1,36 @@
+<%
+  const ctaLabel = (title || 'Service').replace(/\s+Services?$/i, '').trim();
+  const ctaSource = currentPath || '';
+  const contactLeadForm = getLeadFormMeta('contact');
+%>
+<section class="section-gap final-cta seo-concept-service-cta-wrap">
+  <div class="container seo-concept-service-cta reveal">
+    <div class="seo-concept-service-cta-copy">
+      <span class="eyebrow">Start with a focused brief</span>
+      <h2>Get a practical next-step plan for <%= ctaLabel %>.</h2>
+      <p>Share your brand, website, and contact details. We’ll review the opportunity and come back with the most relevant next action instead of a generic pitch.</p>
+    </div>
+
+    <form class="seo-concept-service-cta-form" action="/submit-contact" method="post">
+      <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
+      <input type="hidden" name="formRenderedAt" value="<%= contactLeadForm.renderedAt %>">
+      <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+        <label for="cta-company">Leave this field blank</label>
+        <input id="cta-company" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="service" value="<%= title %>">
+      <input type="hidden" name="sourcePage" value="<%= ctaSource %>">
+      <label class="visually-hidden" for="cta-name">Your Name</label>
+      <input type="text" id="cta-name" name="name" placeholder="Your Name" autocomplete="name" required>
+      <label class="visually-hidden" for="cta-email">Your Email</label>
+      <input type="email" id="cta-email" name="email" placeholder="Your Email" autocomplete="email" required>
+      <label class="visually-hidden" for="cta-phone">Phone Number</label>
+      <input type="tel" id="cta-phone" name="phone" placeholder="Phone Number" inputmode="tel" autocomplete="tel" required>
+      <label class="visually-hidden" for="cta-website">Website URL</label>
+      <input type="url" id="cta-website" name="website" placeholder="Website URL" inputmode="url" autocomplete="url" required>
+      <label class="visually-hidden" for="cta-message">Tell us about your goals</label>
+      <textarea id="cta-message" name="message" rows="4" placeholder="Tell us about your goals" required></textarea>
+      <button type="submit" class="btn">Get Free Consultation</button>
+    </form>
+  </div>
+</section>

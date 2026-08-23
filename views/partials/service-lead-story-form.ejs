@@ -1,0 +1,59 @@
+<%
+  const serviceLabel = (title || 'Service').replace(/\s+Services?$/i, '').trim();
+  const pageSource = currentPath || '';
+  const contactLeadForm = getLeadFormMeta('contact');
+%>
+<section class="section-gap seo-concept-service-lead">
+  <div class="container seo-concept-service-lead-grid">
+    <article class="seo-concept-story-card reveal">
+      <span class="eyebrow">Client Stories</span>
+      <h2>What happens when <%= serviceLabel %> meets growth intent.</h2>
+      <p>Teams come to Digi Web Tech when they want sharper execution, cleaner reporting, and a partner that can move from audit to rollout without wasting momentum.</p>
+
+      <div class="seo-concept-story-quote" style="display: flex; gap: 15px; align-items: flex-start;">
+        <div class="seo-concept-story-badge"><%= serviceLabel.slice(0, 2).toUpperCase() %></div>
+        <div>
+          <p style="margin: 0; font-style: italic;">"The strategy felt specific to our market, the execution was fast, and the reporting finally made sense. We saw better leads, clearer priorities, and stronger momentum within weeks."</p>
+          <cite style="display: block; font-style: normal; font-size: 0.85rem; font-weight: 700; color: var(--brand); margin-top: 8px;">Marketing Lead, <%= serviceLabel %> Client</cite>
+        </div>
+      </div>
+
+      <div class="seo-concept-story-proof">
+        <article>
+          <strong>48 hrs</strong>
+          <span>Typical first response window</span>
+        </article>
+        <article>
+          <strong>1 plan</strong>
+          <span>Clear roadmap aligned to business goals</span>
+        </article>
+      </div>
+    </article>
+
+    <div class="seo-concept-service-form-card reveal">
+      <span class="seo-concept-form-kicker">Request a free consultation</span>
+      <h3>Tell us about your business.</h3>
+      <form class="seo-concept-service-form" action="/submit-contact" method="post">
+        <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
+        <input type="hidden" name="formRenderedAt" value="<%= contactLeadForm.renderedAt %>">
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="story-company">Leave this field blank</label>
+          <input id="story-company" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="service" value="<%= title %>">
+        <input type="hidden" name="sourcePage" value="<%= pageSource %>">
+        <label class="visually-hidden" for="story-name">Your Name</label>
+        <input type="text" id="story-name" name="name" placeholder="Your Name" autocomplete="name" required>
+        <label class="visually-hidden" for="story-email">Your Email</label>
+        <input type="email" id="story-email" name="email" placeholder="Your Email" autocomplete="email" required>
+        <label class="visually-hidden" for="story-phone">Your Mobile Number</label>
+        <input type="tel" id="story-phone" name="phone" placeholder="Your Mobile Number" inputmode="tel" autocomplete="tel" required>
+        <label class="visually-hidden" for="story-website">Your Website / URL</label>
+        <input type="url" id="story-website" name="website" placeholder="Your Website / URL" inputmode="url" autocomplete="url" required>
+        <label class="visually-hidden" for="story-message">Tell us about your goals</label>
+        <textarea id="story-message" name="message" rows="4" placeholder="Tell us about your goals" required></textarea>
+        <button type="submit" class="btn">Request Consultation</button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,145 @@
+<section class="thank-you-section section-gap">
+  <div class="container text-center">
+    <div class="thank-you-card reveal reveal-up">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Thank You!</h1>
+      <p class="lead-text">Your free website audit request has been received successfuly.</p>
+      <div class="thank-you-info">
+        <p>Our team at <strong>Digi Web Tech</strong> is already analyzing your site. You will receive the detailed report at your email address within 24-48 hours.</p>
+      </div>
+      
+      <div class="redirect-box">
+        <p>Redirecting you to the homepage in <span id="countdown">8</span> seconds...</p>
+        <div class="progress-bar-wrap">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <a href="/" class="btn btn-secondary">Go Home Now</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .thank-you-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 50%, rgba(1, 160, 157, 0.05) 0%, transparent 70%);
+  }
+  
+  .text-center { text-align: center; }
+  
+  .thank-you-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: var(--glass);
+  }
+  
+  .success-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--brand), #00d2ff);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 25px rgba(1, 160, 157, 0.3);
+  }
+  
+  .success-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .thank-you-card h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--brand-strong);
+  }
+  
+  .lead-text {
+    font-size: 1.25rem;
+    color: var(--brand);
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  
+  .thank-you-info {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  
+  .redirect-box {
+    background: rgba(15, 23, 42, 0.03);
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+  
+  .redirect-box p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  
+  .progress-bar-wrap {
+    width: 100%;
+    height: 6px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    width: 100%;
+    background: var(--brand);
+    transform-origin: left;
+    animation: shrinkBar 8s linear forwards;
+  }
+  
+  @keyframes shrinkBar {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+  }
+  
+  #countdown {
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  @media (max-width: 600px) {
+    .thank-you-card {
+      padding: 2rem 1.5rem;
+    }
+    .thank-you-card h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  let seconds = 8;
+  const countdownEl = document.getElementById('countdown');
+  
+  const timer = setInterval(() => {
+    seconds--;
+    countdownEl.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      window.location.href = '/';
+    }
+  }, 1000);
+</script>

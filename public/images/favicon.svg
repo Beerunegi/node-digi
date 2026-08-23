@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="DG favicon">
+  <rect width="256" height="256" fill="#f6f8f7"/>
+  <g opacity="0.25" stroke="#6aa57a" stroke-width="6" fill="none">
+    <ellipse cx="128" cy="128" rx="80" ry="38" transform="rotate(-26 128 128)"/>
+    <ellipse cx="128" cy="128" rx="78" ry="36" transform="rotate(20 128 128)"/>
+  </g>
+  <circle cx="128" cy="128" r="108" fill="none" stroke="#1c8a45" stroke-width="8"/>
+  <path d="M54 84h76v24H82v40h44v24H54z" fill="#1c8a45"/>
+  <path d="M202 84h-76v24h48v40h-48v24h76v-24h-48v-40h48z" fill="#0a1114"/>
+</svg>

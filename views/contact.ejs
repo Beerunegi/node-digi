@@ -1,0 +1,66 @@
+<% const contactLeadForm = getLeadFormMeta('contact'); %>
+<section class="about-hero section-gap">
+  <div class="container about-hero-grid">
+    <div>
+      <span class="eyebrow">Contact Us</span>
+      <h1>Let us discuss your digital growth goals.</h1>
+      <p>Reach out to Digi Web Tech for strategy, campaign planning, website development, and full digital marketing support.</p>
+      <div class="hero-actions">
+        <a href="tel:+919871264699" class="btn">Call: 9871264699</a>
+        <a href="mailto:info@digiwebtech.co.in" class="btn btn-secondary">info@digiwebtech.co.in</a>
+      </div>
+    </div>
+    <div class="about-hero-media reveal">
+      <img width="1300" height="867" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1300&q=80" alt="Contact Digi Web Tech for Expert Digital Marketing Consultation in Delhi NCR" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section-gap split-bg">
+  <div class="container contact-grid">
+    <article class="contact-card reveal">
+      <h2>Office Address</h2>
+      <p>3rd Floor, A-303, Sector 5, Rajendra Nagar, Ghaziabad, Uttar Pradesh 201005</p>
+    </article>
+    <article class="contact-card reveal">
+      <h2>Email</h2>
+      <p><a href="mailto:info@digiwebtech.co.in">info@digiwebtech.co.in</a></p>
+    </article>
+    <article class="contact-card reveal">
+      <h2>Mobile</h2>
+      <p><a href="tel:+919871264699">9871264699</a></p>
+    </article>
+  </div>
+</section>
+
+<section class="section-gap">
+  <div class="container contact-form-wrap">
+    <div class="section-head">
+      <span class="eyebrow">Send Inquiry</span>
+      <h2>Tell us about your project</h2>
+    </div>
+    <form class="contact-form" action="/submit-contact" method="post">
+      <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
+      <input type="hidden" name="formRenderedAt" value="<%= contactLeadForm.renderedAt %>">
+      <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+        <label for="contact-company">Leave this field blank</label>
+        <input id="contact-company" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
+      </div>
+      <label class="visually-hidden" for="contact-name">Your Name</label>
+      <input type="text" id="contact-name" name="name" placeholder="Your Name" autocomplete="name" required>
+
+      <label class="visually-hidden" for="contact-email">Your Email</label>
+      <input type="email" id="contact-email" name="email" placeholder="Your Email" autocomplete="email" required>
+
+      <label class="visually-hidden" for="contact-phone">Mobile Number</label>
+      <input type="tel" id="contact-phone" name="phone" placeholder="Mobile Number" autocomplete="tel" required>
+
+      <label class="visually-hidden" for="contact-service">Service Needed</label>
+      <input type="text" id="contact-service" name="service" placeholder="Service Needed (SEO, Ads, Website, etc.)">
+
+      <label class="visually-hidden" for="contact-message">Tell us about your goals</label>
+      <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your goals" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>

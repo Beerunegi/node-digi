@@ -1,0 +1,156 @@
+import SiteShell from '@/components/SiteShell';
+import { isMissingDatabaseConfigError } from '@/lib/db';
+import {
+  getAllCategories,
+  getPublishedPosts,
+} from '@/lib/blog';
+import { absoluteUrl, siteConfig } from '@/lib/site-config';
+
+export const revalidate = 300;
+
+function formatDate(value) {
+  return new Intl.DateTimeFormat('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date(value));
+}
+
+export async function generateStaticParams() {
+  try {
+    const categories = await getAllCategories();
+    return categories.map((category) => ({ slug: category.slug }));
+  } catch {
+    return [];
+  }
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  let categories = [];
+
+  try {
+    categories = await getAllCategories();
+  } catch (error) {
+    if (!isMissingDatabaseConfigError(error)) {
+      throw error;
+    }
+  }
+
+  const category = categories.find((item) => item.slug === slug);
+  const name = category?.name || 'Category';
+  const title = `${name} Articles | ${siteConfig.name}`;
+  const description = `${name} guides, tutorials, and strategy breakdowns from the ${siteConfig.name} team — practical articles on search visibility, AI search, and digital growth.`;
+  const canonical = `/blog/category/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: 'Digi Web Tech',
+      locale: 'en_IN',
+      type: 'website',
+      images: [
+        {
+          url: siteConfig.ogImage.url,
+          width: siteConfig.ogImage.width,
+          height: siteConfig.ogImage.height,
+          type: siteConfig.ogImage.type,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [siteConfig.ogImage.url],
+    },
+  };
+}
+
+export default async function BlogCategoryPage({ params }) {
+  const { slug } = await params;
+  let databaseUnavailable = false;
+  let posts = [];
+  let categories = [];
+
+  try {
+    [posts, categories] = await Promise.all([
+      getPublishedPosts({ category: slug }),
+      getAllCategories(),
+    ]);
+  } catch (error) {
+    if (!isMissingDatabaseConfigError(error)) {
+      throw error;
+    }
+
+    databaseUnavailable = true;
+  }
+
+  const category = categories.find((item) => item.slug === slug);
+  const heading = category?.name || 'Category';
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${heading} Articles`,
+    url: absoluteUrl(`/blog/category/${slug}`),
+  };
+
+  const breadcrumbItems = [
+    { label: 'Home', url: '/' },
+    { label: 'Blog', url: '/blog' },
+    { label: heading }
+  ];
+
+  return (
+    <SiteShell currentPath={`/blog/category/${slug}`} schema={schema} customBreadcrumbs={breadcrumbItems}>
+      <section className="section-gap blog-taxonomy-shell">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">Category</span>
+            <h1>{heading}</h1>
+            <p>
+              {databaseUnavailable
+                ? 'Add your MySQL connection values to load category posts.'
+                : `${posts.length} published article${posts.length === 1 ? '' : 's'} in this category.`}
+            </p>
+          </div>
+
+          <div className="blog-post-grid">
+            {posts.map((post) => (
+              <article key={post.id} className="blog-card">
+                {post.coverImage ? (
+                  <a href={`/blog/${post.slug}`} className="blog-card-media">
+                    <img
+                      src={post.coverImage}
+                      alt={post.coverImageAlt || post.title}
+                      width={post.coverImageWidth || 1200}
+                      height={post.coverImageHeight || 675}
+                      loading="lazy"
+                    />
+                  </a>
+                ) : null}
+                <div className="blog-card-body">
+                  <div className="blog-card-meta">
+                    <span>{formatDate(post.publishedAt || post.createdAt)}</span>
+                    <span>{post.readingTimeMinutes} min read</span>
+                  </div>
+                  <h2><a href={`/blog/${post.slug}`}>{post.title}</a></h2>
+                  <p>{post.excerpt}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </SiteShell>
+  );
+}
