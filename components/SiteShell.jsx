@@ -246,8 +246,15 @@ export default function SiteShell({ children, currentPath, schema, customBreadcr
   const breadcrumbs = customBreadcrumbs || generateBreadcrumbs(currentPath);
   const showBreadcrumbs = !hideBreadcrumbs && currentPath !== '/' && currentPath !== '/404' && breadcrumbs.length > 0;
 
-  // Generate breadcrumb list schema.org JSON-LD if we are showing breadcrumbs
-  const breadcrumbSchemaItem = showBreadcrumbs
+
+  // Emitted whenever the page has a real trail, not only when this component
+  // draws it. Service and industry pages render their own breadcrumb inside
+  // the hero and pass hideBreadcrumbs, which previously stripped the
+  // BreadcrumbList markup from 21 pages that visibly show a breadcrumb.
+  const hasBreadcrumbTrail =
+    currentPath !== '/' && currentPath !== '/404' && breadcrumbs.length > 0;
+
+  const breadcrumbSchemaItem = hasBreadcrumbTrail
     ? {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -560,7 +567,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {/* Versioned: /js/* is served with a one-year immutable cache header, so
           without a query string a script change would never reach a returning
           visitor. Bump this whenever main.js changes. */}
-      <Script src="/js/main.js?v=1.0.5" strategy="afterInteractive" />
+      <Script src="/js/main.js?v=1.0.6" strategy="afterInteractive" />
     </>
   );
 }

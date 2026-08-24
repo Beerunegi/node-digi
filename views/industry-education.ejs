@@ -1,147 +1,193 @@
-<section class="seo-concept-page">
-  <section class="seo-concept-hero">
-    <div class="seo-concept-hero-media" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1800&q=80"
-        alt=""
-        width="1800"
-        height="1200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      >
-    </div>
-    <div class="seo-concept-hero-overlay" aria-hidden="true"></div>
-    <div class="container seo-concept-breadcrumb reveal">
-      <a href="/">Home</a>
-      <span>/</span>
-      <a href="/industries">Industries</a>
-      <span>/</span>
-      <strong>Education Marketing</strong>
-    </div>
+<%
+const industry = {
+  shortName: 'education',
+  breadcrumb: 'Education Marketing',
+  kicker: 'Enrolment & Reputation',
+  h1Lead: 'Education marketing for',
+  h1Emphasis: 'schools, colleges and EdTech.',
+  heroIntro:
+    'Admissions run on a calendar and a shortlist. We help institutions get onto that shortlist early — through search visibility, parent-facing content, and enquiry paths that survive an admissions season.',
+  ctaPrimary: 'Request an enrolment audit',
+  heroPoints: ['Course and programme search', 'Parent research journey', 'Admissions enquiry flow'],
+  heroImage: {
+    src: '/images/home/photo-1516321318423-f06f85e504b3.jpg',
+    width: 1100,
+    height: 733,
+  },
 
-    <div class="container seo-concept-hero-grid">
-      <div class="seo-concept-copy reveal">
-        <span class="seo-concept-kicker">Enrollment & Student Success</span>
-        <h1>Growth Strategy for <em>Modern Education.</em></h1>
-        <p>We help schools, universities, and EdTech platforms scale their reach and student enrollments through performance-first SEO and strategic digital branding.</p>
-        <div class="seo-concept-actions">
-          <a href="/contact" class="btn">Get Enrollment Audit</a>
-          <a href="#industry-services" class="btn btn-secondary">Learn Our Approach</a>
-        </div>
-        <div class="seo-concept-hero-points">
-          <span>Student Intent SEO</span>
-          <span>Lead Gen for Courses</span>
-          <span>EdTech Authority Scaling</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  definition: {
+    heading: 'What is education marketing?',
+    lead:
+      'Education marketing is the work of reaching prospective students and their parents during a long, comparison-heavy decision, and converting that interest into applications and confirmed admissions.',
+    body: [
+      'It is unlike most lead generation because the buying cycle is seasonal and the decision is rarely made by one person. A parent researches, a student shortlists, and both consult reviews, alumni, and word of mouth over weeks or months. The institution that is visible early and answers real questions clearly tends to be the one still on the list at decision time.',
+      'The other difference is that enquiry volume is a poor measure of success. A hundred enquiries from outside your catchment, fee band, or eligibility criteria costs the admissions team more than it earns. Useful education marketing filters as much as it attracts.',
+    ],
+  },
 
-  <section class="seo-concept-metrics">
-    <div class="container seo-concept-metrics-grid">
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-              <path d="m7 10 5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Scaling</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="60">60</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Increase in Leads</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.8" rx="1"></rect>
-              <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.8" rx="1"></rect>
-              <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.8" rx="1"></rect>
-              <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.8" rx="1"></rect>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Expertise</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="35">35</span><span class="seo-concept-metric-suffix">+</span></strong>
-        <span class="seo-concept-metric-label">Schools Partnered</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Ad ROI</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="4">4</span><span class="seo-concept-metric-suffix">x</span></strong>
-        <span class="seo-concept-metric-label">Return on Ad Spend</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle>
-              <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Authority</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="95">95</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Trust Index Lift</span>
-      </article>
-    </div>
-  </section>
+  facts: [
+    { value: 'Seasonal', label: 'Demand concentrates around admission cycles' },
+    { value: 'Two audiences', label: 'Parents and students search differently' },
+    { value: 'Long cycle', label: 'Weeks or months between first visit and application' },
+    { value: 'Reputation-led', label: 'Reviews and alumni outcomes carry decisive weight' },
+  ],
 
-  <section class="section-gap seo-concept-services" id="industry-services">
-    <div class="container">
-      <div class="seo-concept-services-head">
-        <div class="reveal">
-          <span class="seo-concept-process-kicker">Education Solutions</span>
-          <h2>Pipelines for <span>human learning growth.</span></h2>
-        </div>
-        <div class="seo-concept-services-intro reveal">
-          <p>We combine academic prestige with creative digital execution to deliver enrollment pipelines that build student futures.</p>
-        </div>
-      </div>
+  challengesHeading: 'What usually holds an institution back',
+  challengesIntro:
+    'Recurring problems across schools, coaching institutes, colleges and EdTech platforms.',
+  challenges: [
+    {
+      title: 'One page for every course',
+      body: 'Programmes bundled into a single "Courses" page cannot rank for the specific programme names parents actually search.',
+    },
+    {
+      title: 'Peak-season scramble',
+      body: 'Marketing switched on weeks before admissions open. Organic visibility takes months to build, so the season is fought entirely on paid spend.',
+    },
+    {
+      title: 'Enquiry forms nobody answers fast enough',
+      body: 'Parents comparing three institutions choose the one that replies first. Slow follow-up loses admissions that were already won.',
+    },
+    {
+      title: 'No answers to the real questions',
+      body: 'Fees, eligibility, placement records, hostel and transport details buried or absent, so prospects leave to find them elsewhere.',
+    },
+    {
+      title: 'Reputation left unmanaged',
+      body: 'Old reviews and unanswered complaints on the profiles parents check first, with no process for surfacing genuine positive experience.',
+    },
+    {
+      title: 'Spend that cannot be traced to admissions',
+      body: 'Reporting stops at enquiries. Nobody can say which campaign produced a confirmed, fee-paying admission.',
+    },
+  ],
 
-      <div class="seo-concept-card-grid">
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" alt="Enrollment SEO and course search marketing in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Enrollment SEO</h3>
-            <p>Dominating 'best course' and 'near me' university searches to place your institution in front of prospective students.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80" alt="EdTech growth marketing and performance ads in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>EdTech Performance</h3>
-            <p>Strategic ad campaigns designed to scale learners for EdTech platforms and digital course providers globally.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=80" alt="Education brand narrative and university website design in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Academic Branding</h3>
-            <p>Crafting consistent, authoritative brand identities for modern schools that resonate with parents and students alike.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  servicesHeading: 'What we do for education clients',
+  servicesIntro:
+    'Selected against your admission calendar, so effort lands before the season rather than during it.',
+  services: [
+    {
+      title: 'Programme & course SEO',
+      body: 'A page per programme built around the terms prospects search, with fees, eligibility, duration and outcomes answered directly on the page.',
+      tags: ['Course pages', 'Long-tail intent', 'Technical SEO'],
+      icon: '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/>',
+    },
+    {
+      title: 'Admissions landing pages',
+      body: 'Season-specific pages for each intake with a short enquiry form, clear deadlines, and the documents a parent needs before applying.',
+      tags: ['Intake pages', 'Form design', 'Deadline clarity'],
+      icon: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+    },
+    {
+      title: 'Parent-intent content',
+      body: 'The comparison, eligibility and "is this right for my child" content that gets read months before an application, and keeps you on the shortlist.',
+      tags: ['Comparison guides', 'FAQs', 'Blog strategy'],
+      icon: '<path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h6"/>',
+    },
+    {
+      title: 'Paid campaigns for intake',
+      body: 'Search and social campaigns timed to your admission windows, geo-fenced to your realistic catchment, with spend pulled back once seats fill.',
+      tags: ['Google Ads', 'Meta Ads', 'Geo targeting'],
+      icon: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    },
+    {
+      title: 'Reputation & review management',
+      body: 'Monitoring the profiles parents actually check, a process for inviting genuine reviews, and considered responses to criticism.',
+      tags: ['Review flow', 'Monitoring', 'Response guidance'],
+      icon: '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9Z"/>',
+    },
+    {
+      title: 'Enquiry tracking to admission',
+      body: 'Tracking that follows an enquiry through to a confirmed admission, so budget can move to whatever is actually filling seats.',
+      tags: ['GA4', 'Call tracking', 'Attribution'],
+      icon: '<path d="M4 19h16"/><path d="M7 15V9M12 15V5M17 15v-3"/>',
+    },
+  ],
 
-  <section class="section-gap final-cta">
-    <div class="container final-cta-inner reveal">
-      <div>
-        <span class="eyebrow">Scale Your Institution</span>
-        <h2>Ready for a student enrollment surge that actually lasts?</h2>
-        <p>Book an enrollment growth audit today and get a tailored strategy for your school or platform.</p>
-      </div>
-      <a href="/contact" class="btn">Request Enrollment Audit</a>
-    </div>
-  </section>
-</section>
+  process: [
+    {
+      title: 'Audit',
+      body: 'Visibility for your programmes, competitor position, enquiry response times, and where the current admissions funnel loses people.',
+      when: 'Week 1-2',
+    },
+    {
+      title: 'Build the base',
+      body: 'Programme pages, site speed, tracking, and the technical work that has to be in place before a season starts.',
+      when: 'Week 2-6',
+    },
+    {
+      title: 'Pre-season demand',
+      body: 'Parent-intent content and organic visibility built in the quiet months, so the season opens with an audience already aware of you.',
+      when: 'Month 2-5',
+    },
+    {
+      title: 'Season and review',
+      body: 'Paid campaigns through the intake window, weekly enquiry reporting, then a post-season review of cost per admission by channel.',
+      when: 'Intake period',
+    },
+  ],
+
+  compliance: {
+    heading: 'Claims that stand up to scrutiny',
+    body:
+      'Education advertising attracts complaints faster than most sectors, and placement or ranking claims are checked by parents who will find the source. The ASCI code applies to educational advertising in India, and the DPDP Act 2023 governs the student and parent data your enquiry forms collect.',
+    points: [
+      'Placement and salary figures published only with the cohort, year, and sample they refer to',
+      'Ranking and accreditation claims tied to the awarding body and date',
+      'No guaranteed admission, score, or job outcome language',
+      'Enquiry forms collecting the minimum needed, with clear consent for follow-up',
+      'Student photography and testimonials used only with documented permission',
+    ],
+  },
+
+  outcomes: [
+    { value: 'Found earlier', label: 'Visible during research, not just at deadline' },
+    { value: 'Better matched', label: 'Enquiries that meet eligibility and catchment' },
+    { value: 'Faster follow-up', label: 'Enquiries routed to a person, not an inbox' },
+    { value: 'Traceable', label: 'Cost per admission, not just per enquiry' },
+  ],
+
+  faqHeading: 'Education marketing questions',
+  faqs: [
+    {
+      q: 'When should we start work for an admission season?',
+      a: 'Three to six months before the intake opens, if organic visibility is part of the plan. Programme pages need time to be crawled and to build authority. If you are already inside that window, paid search and admissions landing pages are the realistic levers for this cycle, with organic work started in parallel for the next one.',
+    },
+    {
+      q: 'Should we market to parents or students?',
+      a: 'Usually both, with different content. For school and undergraduate admissions the parent is generally researching fees, safety, transport and outcomes, while the student responds to campus life, subjects and peer signals. For postgraduate and professional programmes the student is normally the sole decision maker.',
+    },
+    {
+      q: 'Can you guarantee a number of admissions?',
+      a: 'No. Admissions depend on your fees, reputation, capacity, competition, and how quickly your team responds to enquiries. We can commit to the work, to reporting cost per enquiry and cost per admission honestly, and to moving spend away from what is not converting.',
+    },
+    {
+      q: 'We get plenty of enquiries but few admissions. What changes?',
+      a: 'That is usually a targeting or a speed problem rather than a volume problem. Tightening geography and eligibility filters cuts unqualified enquiries, and shortening the time to first response tends to lift conversion more than any additional spend.',
+    },
+    {
+      q: 'Do you work with EdTech platforms as well as campuses?',
+      a: 'Yes, though the work differs. A campus is a local-search and reputation problem. An EdTech platform is a content, comparison and retention problem, and usually needs course-level pages plus a much stronger organic content programme.',
+    },
+    {
+      q: 'How do you handle student data?',
+      a: 'Enquiry forms collect only what is needed to respond, submissions travel over HTTPS, and personally identifying details are kept out of analytics and advertising platforms. Where a CRM is in use, we integrate with it rather than duplicating student records into marketing tools.',
+    },
+  ],
+
+  related: [
+    { label: 'SEO Services', href: '/services/seo-services' },
+    { label: 'Google Ads Management', href: '/services/google-ads-services' },
+    { label: 'Meta Ads Management', href: '/services/meta-ads-management-services' },
+    { label: 'Content Marketing', href: '/services/content-marketing-services' },
+    { label: 'Website Design', href: '/services/website-design-services' },
+    { label: 'Analytics & Reporting', href: '/services/analytics-reporting-services' },
+  ],
+
+  ctaKicker: 'Fill your next intake',
+  ctaHeading: 'See how your programmes appear to searching parents',
+  ctaBody:
+    'We will review your visibility, programme pages, and enquiry flow, then send back what is worth fixing before your next admission cycle.',
+};
+%>
+<%- await include('partials/industry-page', { industry }) %>

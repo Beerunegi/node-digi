@@ -7,3 +7,9 @@ out/
 tmp_*.js
 *.bak
 package-lock.json
+
+# Output of npm run build:verify
+.next-verify
+
+# Last-known-good WordPress responses (see lib/blog.js)
+.wp-cache

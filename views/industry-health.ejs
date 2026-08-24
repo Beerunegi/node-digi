@@ -1,144 +1,193 @@
-<section class="seo-concept-page">
-  <section class="seo-concept-hero">
-    <div class="seo-concept-hero-media" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1800&q=80"
-        alt=""
-        width="1800"
-        height="1200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      >
-    </div>
-    <div class="seo-concept-hero-overlay" aria-hidden="true"></div>
-    <div class="container seo-concept-breadcrumb reveal">
-      <a href="/">Home</a>
-      <span>/</span>
-      <a href="/industries">Industries</a>
-      <span>/</span>
-      <strong>Healthcare Marketing</strong>
-    </div>
+<%
+const industry = {
+  shortName: 'healthcare',
+  breadcrumb: 'Healthcare Marketing',
+  kicker: 'Patient Acquisition & Trust',
+  h1Lead: 'Healthcare marketing for',
+  h1Emphasis: 'clinics, hospitals and specialists.',
+  heroIntro:
+    'Patients research before they book. We make sure your practice is the one they find, trust, and call — through medical SEO, Google Business Profile work, and websites built around how people actually choose care.',
+  ctaPrimary: 'Request a patient growth audit',
+  heroPoints: ['Near-me and symptom search', 'Google Business Profile', 'Appointment-led websites'],
+  heroImage: {
+    src: '/images/home/photo-1581291518857-4e27b48ff24e.jpg',
+    width: 1100,
+    height: 733,
+  },
 
-    <div class="container seo-concept-hero-grid">
-      <div class="seo-concept-copy reveal">
-        <span class="seo-concept-kicker">Patient Acquisition & Trust</span>
-        <h1>Growth Marketing for <em>Doctors & Hospitals.</em></h1>
-        <p>We help healthcare providers and wellness brands build patient trust and scale appointments through HIPAA-compliant SEO, performance ads, and high-conversion web experiences.</p>
-        <div class="seo-concept-actions">
-          <a href="/contact" class="btn">Get Patient Growth Audit</a>
-          <a href="#industry-services" class="btn btn-secondary">Our Health Solutions</a>
-        </div>
-        <div class="seo-concept-hero-points">
-          <span>Patient Intent SEO</span>
-          <span>Google Local Services Ads</span>
-          <span>Wellness Brand Identity</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  definition: {
+    heading: 'What is healthcare digital marketing?',
+    lead:
+      'Healthcare digital marketing is the work of making a clinic, hospital, or specialist practice easy to find and easy to trust at the moment a patient is deciding where to go — across search results, maps, AI answers, and the practice website itself.',
+    body: [
+      'It differs from ordinary lead generation in two ways. First, the intent is unusually urgent and unusually local: someone searching "dentist near me open now" or "cardiologist in Ghaziabad" will often act within hours, and rarely travels far. Second, the decision is trust-led. Patients read reviews, check credentials, and look for signs of a careful practice before they pick up the phone.',
+      'That makes the work less about volume and more about being present, credible, and easy to act on. A practice that appears in the local map pack, keeps an accurate and active Google Business Profile, and lets someone book in two taps will usually out-perform a competitor with a larger ad budget and a slower site.',
+    ],
+  },
 
-  <section class="seo-concept-metrics">
-    <div class="container seo-concept-metrics-grid">
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-              <path d="m7 10 5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Growth</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="45">45</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Avg. Patient Inquiry Lift</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Care</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="500">500</span><span class="seo-concept-metric-suffix">+</span></strong>
-        <span class="seo-concept-metric-label">Health Sites Optimized</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Efficiency</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="30">30</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Reduced Cost Per Lead</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
-              <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Trust</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="100">100</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Compliance Focus</span>
-      </article>
-    </div>
-  </section>
+  facts: [
+    { value: 'Local-first', label: 'Most patient searches carry near-me or city intent' },
+    { value: 'Trust-led', label: 'Reviews and credentials decide the shortlist' },
+    { value: 'Mobile', label: 'Symptom searches happen overwhelmingly on phones' },
+    { value: 'Regulated', label: 'Indian medical advertising rules shape what can be claimed' },
+  ],
 
-  <section class="section-gap seo-concept-services" id="industry-services">
-    <div class="container">
-      <div class="seo-concept-services-head">
-        <div class="reveal">
-          <span class="seo-concept-process-kicker">Healthcare Solutions</span>
-          <h2>Digital pipelines for <span>human medical care.</span></h2>
-        </div>
-        <div class="seo-concept-services-intro reveal">
-          <p>We combine medical ethics with elite marketing systems to deliver patient journeys that start with search and end with lifelong care.</p>
-        </div>
-      </div>
+  challengesHeading: 'What usually holds a practice back',
+  challengesIntro:
+    'Across dental, diagnostic, multi-speciality and wellness clients, the same handful of problems come up first.',
+  challenges: [
+    {
+      title: 'Invisible in the map pack',
+      body: 'The practice ranks for its own name but not for the treatments patients actually search. An incomplete or unverified Google Business Profile is usually the cause.',
+    },
+    {
+      title: 'A website that informs but never books',
+      body: 'Long service descriptions, no obvious way to request an appointment, and a phone number that is not tappable on mobile. Traffic arrives and leaves.',
+    },
+    {
+      title: 'Reviews left to chance',
+      body: 'A handful of old reviews, no process for inviting satisfied patients, and no response to negative ones. This is among the strongest local ranking and conversion signals.',
+    },
+    {
+      title: 'No separation between treatments',
+      body: 'One page covering every service means no page ranks well for any of them. Each treatment with real search demand needs a page of its own.',
+    },
+    {
+      title: 'Enquiries that go nowhere',
+      body: 'Forms landing in an unmonitored inbox, missed calls during clinic hours, and no record of which channel produced which patient.',
+    },
+    {
+      title: 'Claims that create risk',
+      body: 'Guaranteed outcomes, superlatives, and before-and-after content that sit badly with Indian medical advertising rules and can put the practice at risk.',
+    },
+  ],
 
-      <div class="seo-concept-card-grid">
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=80" alt="Specialized medical SEO and patient intent targeting in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Medical SEO</h3>
-            <p>Targeting 'near me' and 'specialist' intent keywords to ensure your clinic is the first patients see when they need help now.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Patient acquisition ads for dentists and surgeons in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Performance Ads</h3>
-            <p>High-precision Google Local Services Ads and Meta campaigns designed to drive immediate appointment bookings.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=900&q=80" alt="Healthcare website design and patient portal development in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Health Web Design</h3>
-            <p>Secure, fast, and patient-centric website interfaces that simplify booking and build institutional trust.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  servicesHeading: 'What we do for healthcare clients',
+  servicesIntro:
+    'A combination chosen from the list below, weighted to whether you need more patients, better-matched patients, or a practice that simply converts the interest it already gets.',
+  services: [
+    {
+      title: 'Medical & treatment SEO',
+      body: 'A page for each treatment with genuine search demand, written around the questions patients ask and structured so search engines and AI answers can read it cleanly.',
+      tags: ['Treatment pages', 'Symptom intent', 'Technical SEO'],
+      icon: '<circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>',
+    },
+    {
+      title: 'Google Business Profile & local',
+      body: 'Profile completion, category and service accuracy, posting, photo cadence, Q&A, and consistent name, address and phone across the directories that feed the map pack.',
+      tags: ['Map pack', 'Citations', 'Local pages'],
+      icon: '<path d="M12 20s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z"/><circle cx="12" cy="10" r="2.2"/>',
+    },
+    {
+      title: 'Reputation & review systems',
+      body: 'A repeatable way to invite reviews after a good visit, monitor what is posted, and respond appropriately — without incentivising or scripting patients.',
+      tags: ['Review flow', 'Monitoring', 'Response guidance'],
+      icon: '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9Z"/>',
+    },
+    {
+      title: 'Appointment-led websites',
+      body: 'Fast, mobile-first sites where booking or calling is never more than a tap away, with clear clinician credentials, timings, directions, and treatment detail.',
+      tags: ['Booking flow', 'Core Web Vitals', 'Accessibility'],
+      icon: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>',
+    },
+    {
+      title: 'Paid acquisition',
+      body: 'Search and Local Services campaigns for treatments where the economics work, with call tracking so you can see which spend produced which appointment.',
+      tags: ['Google Ads', 'Call tracking', 'Geo targeting'],
+      icon: '<path d="M4 19h16"/><path d="M7 15V9M12 15V5M17 15v-3"/>',
+    },
+    {
+      title: 'AI search visibility',
+      body: 'Structured data, entity consistency, and answer-first content so your practice is described correctly when a patient asks an AI assistant where to go.',
+      tags: ['Schema', 'AIO', 'Entity clarity'],
+      icon: '<path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
+    },
+  ],
 
-  <section class="section-gap final-cta">
-    <div class="container final-cta-inner reveal">
-      <div>
-        <span class="eyebrow">Scale Your Clinic</span>
-        <h2>Ready to reach more patients and grow your medical brand?</h2>
-        <p>Book a medical growth audit today and get a tailored plan for your healthcare facility.</p>
-      </div>
-      <a href="/contact" class="btn">Request Patient Audit</a>
-    </div>
-  </section>
-</section>
+  process: [
+    {
+      title: 'Audit',
+      body: 'Current visibility for your treatments, profile health, competitor position in your catchment, and where enquiries are leaking.',
+      when: 'Week 1-2',
+    },
+    {
+      title: 'Fix the base',
+      body: 'Profile accuracy, site speed, booking paths, tracking, and the technical issues stopping pages from ranking at all.',
+      when: 'Week 2-5',
+    },
+    {
+      title: 'Build demand',
+      body: 'Treatment pages, area pages where you serve more than one locality, review flow, and paid campaigns where they earn their place.',
+      when: 'Month 2-5',
+    },
+    {
+      title: 'Report and extend',
+      body: 'Monthly reporting on calls, forms and rankings, then expansion into the treatments and areas showing the most return.',
+      when: 'Ongoing',
+    },
+  ],
+
+  compliance: {
+    heading: 'Marketing that respects Indian medical advertising rules',
+    body:
+      'Healthcare promotion in India is constrained by the National Medical Commission code of conduct, the Drugs and Magic Remedies (Objectionable Advertisements) Act, and the DPDP Act 2023 for patient data. We work inside those constraints rather than around them, because the consequences of ignoring them fall on your registration, not ours.',
+    points: [
+      'No guaranteed outcomes, cure claims, or superlative language about clinicians',
+      'Patient stories and imagery used only with documented consent',
+      'Enquiry forms that collect the minimum data needed and store it lawfully',
+      'Review generation by invitation only, never incentivised or written for the patient',
+      'Clear separation between clinical information and promotional copy',
+    ],
+  },
+
+  outcomes: [
+    { value: 'More visible', label: 'Ranking for treatments, not just the practice name' },
+    { value: 'Better matched', label: 'Enquiries from your actual catchment area' },
+    { value: 'Easier to book', label: 'Fewer taps between interest and appointment' },
+    { value: 'Measurable', label: 'Calls and forms attributed to a channel' },
+  ],
+
+  faqHeading: 'Healthcare marketing questions',
+  faqs: [
+    {
+      q: 'How long before a clinic sees results?',
+      a: 'Google Business Profile and local fixes can move map pack visibility within four to eight weeks, because those changes are re-crawled quickly. Treatment pages competing on organic search usually take three to six months to establish. Paid search produces enquiries immediately but needs several weeks of data before the cost per appointment settles.',
+    },
+    {
+      q: 'Can you guarantee a number of new patients?',
+      a: 'No, and it is worth being cautious of anyone who does. Patient volume depends on your catchment, treatment mix, pricing, capacity, and how quickly your front desk responds. We commit to the work and to reporting honestly against it, not to a patient count.',
+    },
+    {
+      q: 'Is healthcare advertising in India restricted?',
+      a: 'Yes. The NMC code limits how registered practitioners may advertise, and the Drugs and Magic Remedies Act prohibits claims to cure certain conditions. In practice that rules out guaranteed outcomes, comparative superlatives, and some before-and-after content. It does not prevent you from being findable, clearly described, and easy to contact, which is where the growth actually comes from.',
+    },
+    {
+      q: 'Do you work with single-location clinics as well as hospitals?',
+      a: 'Yes. A single clinic usually needs local visibility, a working booking path, and a review process, which is a focused engagement. Multi-location groups need that per site, plus a structure that stops the locations competing with each other in search.',
+    },
+    {
+      q: 'What do you need from our side?',
+      a: 'Access to your Google Business Profile, website, and analytics; a named person who can approve copy; and someone who reliably answers enquiries. The last matters most — marketing that generates calls nobody picks up is wasted spend.',
+    },
+    {
+      q: 'How is patient data handled?',
+      a: 'Enquiry forms collect only what is needed to respond, submissions are transmitted over HTTPS, and we do not place patient-identifying information into analytics or advertising platforms. Where you use a practice management system, the marketing stack stays separate from clinical records.',
+    },
+  ],
+
+  related: [
+    { label: 'SEO Services', href: '/services/seo-services' },
+    { label: 'Google Ads Management', href: '/services/google-ads-services' },
+    { label: 'Website Design', href: '/services/website-design-services' },
+    { label: 'Website Development', href: '/services/website-development-services' },
+    { label: 'AIO Optimization', href: '/services/aio-optimization-services' },
+    { label: 'Conversion Rate Optimization', href: '/services/conversion-rate-optimization-services' },
+  ],
+
+  ctaKicker: 'Grow your practice',
+  ctaHeading: 'See what patients find when they search for your treatments',
+  ctaBody:
+    'We will review your visibility, profile, and booking path, then send back the specific things worth fixing first. No obligation.',
+};
+%>
+<%- await include('partials/industry-page', { industry }) %>

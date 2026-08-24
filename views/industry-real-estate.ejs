@@ -1,145 +1,193 @@
-<section class="seo-concept-page">
-  <section class="seo-concept-hero">
-    <div class="seo-concept-hero-media" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80"
-        alt=""
-        width="1800"
-        height="1200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      >
-    </div>
-    <div class="seo-concept-hero-overlay" aria-hidden="true"></div>
-    <div class="container seo-concept-breadcrumb reveal">
-      <a href="/">Home</a>
-      <span>/</span>
-      <a href="/industries">Industries</a>
-      <span>/</span>
-      <strong>Real Estate Marketing</strong>
-    </div>
+<%
+const industry = {
+  shortName: 'real estate',
+  breadcrumb: 'Real Estate Marketing',
+  kicker: 'Qualified Buyer Enquiries',
+  h1Lead: 'Real estate marketing for',
+  h1Emphasis: 'developers, brokers and projects.',
+  heroIntro:
+    'Property enquiries are cheap to generate and expensive to waste. We focus on the ones your sales team can actually convert — buyers in the right budget band, in the right micro-market, at the right stage.',
+  ctaPrimary: 'Request a lead quality audit',
+  heroPoints: ['Micro-market visibility', 'Project landing pages', 'Lead qualification'],
+  heroImage: {
+    src: '/images/home/photo-1497366216548-37526070297c.jpg',
+    width: 1200,
+    height: 801,
+  },
 
-    <div class="container seo-concept-hero-grid">
-      <div class="seo-concept-copy reveal">
-        <span class="seo-concept-kicker">Lead Generation & Luxury Branding</span>
-        <h1>Elevate Your <em>Property Presence.</em></h1>
-        <p>We help developers, property portal owners, and real estate agents generate high-intent leads through local SEO expertise and high-conversion landing pages.</p>
-        <div class="seo-concept-actions">
-          <a href="/contact" class="btn">Get Lead Gen Audit</a>
-          <a href="#industry-services" class="btn btn-secondary">Our Property Stack</a>
-        </div>
-        <div class="seo-concept-hero-points">
-          <span>Local Map Mastery</span>
-          <span>Lead Scoring Ads</span>
-          <span>Property Portal Dev</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  definition: {
+    heading: 'What is real estate digital marketing?',
+    lead:
+      'Real estate digital marketing is the work of putting a project or portfolio in front of buyers who are actively searching in a specific location and price band, and qualifying those enquiries before they reach a sales team.',
+    body: [
+      'The defining constraint is that property search is hyper-local and budget-bound. Someone looking for a 3BHK in Indirapuram under a set budget is not a prospect for a project in Noida Extension at twice the price, no matter how well the ad performs. Volume is easy to buy in this sector, which is precisely why volume is the wrong target.',
+      'The second constraint is sales capacity. A site team can only call so many people in a day, and unqualified enquiries crowd out real buyers. Effective marketing here narrows before it widens: location, budget, configuration and intent filtered up front, so the enquiries that arrive are worth someone picking up the phone.',
+    ],
+  },
 
-  <section class="seo-concept-metrics">
-    <div class="container seo-concept-metrics-grid">
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-              <path d="m7 10 5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Leads</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="80">80</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">More Qualified Inquiries</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle>
-              <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Rank</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="1">1</span><span class="seo-concept-metric-suffix">st</span></strong>
-        <span class="seo-concept-metric-label">In Local 3-Pack</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Cost</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="25">25</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Reduction in CPA</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
-              <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Units</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="1200">1200</span><span class="seo-concept-metric-suffix">+</span></strong>
-        <span class="seo-concept-metric-label">Inventory Sold via Ads</span>
-      </article>
-    </div>
-  </section>
+  facts: [
+    { value: 'Hyper-local', label: 'Buyers search by locality, not by city' },
+    { value: 'Budget-bound', label: 'Price band disqualifies faster than anything else' },
+    { value: 'High-value', label: 'One conversion justifies significant acquisition cost' },
+    { value: 'Regulated', label: 'RERA governs how projects may be advertised' },
+  ],
 
-  <section class="section-gap seo-concept-services" id="industry-services">
-    <div class="container">
-      <div class="seo-concept-services-head">
-        <div class="reveal">
-          <span class="seo-concept-process-kicker">Property Solutions</span>
-          <h2>A ecosystem of <span>high-authority real estate.</span></h2>
-        </div>
-        <div class="seo-concept-services-intro reveal">
-          <p>We combine high-end architectural aesthetics with creative lead magnets to deliver property journeys that convert lookers into buyers.</p>
-        </div>
-      </div>
+  challengesHeading: 'What usually holds a developer or broker back',
+  challengesIntro:
+    'The problems that come up first across project launches, resale portfolios and channel partners.',
+  challenges: [
+    {
+      title: 'Enquiries the sales team will not call',
+      body: 'High volume from broad targeting, mostly outside the budget band or the city. The team stops trusting the pipeline and works its own contacts instead.',
+    },
+    {
+      title: 'No visibility for locality searches',
+      body: 'Buyers search "3BHK in Rajendra Nagar" and find portals, never the developer. Without locality and configuration pages you are renting access to your own buyers.',
+    },
+    {
+      title: 'Total dependence on portals',
+      body: 'Every lead bought from an aggregator at rising cost, with no owned channel and no way to remarket to people who already showed interest.',
+    },
+    {
+      title: 'Project pages with no substance',
+      body: 'A render, a price on request, and a form. No floor plans, no possession timeline, no RERA number, so serious buyers move on.',
+    },
+    {
+      title: 'Slow first response',
+      body: 'Enquiries sitting for hours. In property the first credible caller usually gets the site visit, and the site visit is where sales actually happen.',
+    },
+    {
+      title: 'Advertising that risks RERA exposure',
+      body: 'Missing registration numbers, unapproved renders and possession claims that create regulatory risk on top of buyer distrust.',
+    },
+  ],
 
-      <div class="seo-concept-card-grid">
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="Local SEO for property agents and real estate brokers in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Local Property SEO</h3>
-            <p>Dominating hyper-local searches for specific neighborhoods and property types to capture ready-to-buy leads.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Lead generation ads for real estate developers in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Intent-Based Ads</h3>
-            <p>Targeted Google Search and Meta Lead Ads designed to find qualified buyers based on behavioral property data.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="MLS integrated websites and custom property portals in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Property Tech Web</h3>
-            <p>Fast, mobile-ready websites with advanced search filters and lead-capture flows built specifically for property markets.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  servicesHeading: 'What we do for real estate clients',
+  servicesIntro:
+    'Weighted to whether you need more enquiries, better enquiries, or a sales team that stops losing the ones it has.',
+  services: [
+    {
+      title: 'Locality & project SEO',
+      body: 'Pages for the localities and configurations buyers actually search, so you appear alongside the portals rather than only inside them.',
+      tags: ['Locality pages', 'Configuration intent', 'Local schema'],
+      icon: '<path d="M12 20s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z"/><circle cx="12" cy="10" r="2.2"/>',
+    },
+    {
+      title: 'Project landing pages',
+      body: 'Pages carrying floor plans, pricing bands, amenities, possession timeline and RERA details, built so a serious buyer can self-qualify before enquiring.',
+      tags: ['Floor plans', 'RERA disclosure', 'Site visit CTA'],
+      icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+    },
+    {
+      title: 'Qualified lead campaigns',
+      body: 'Search and Meta campaigns geo-fenced to realistic catchments, with budget and configuration questions in the form rather than after the call.',
+      tags: ['Geo-fencing', 'Lead forms', 'Budget filters'],
+      icon: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
+    },
+    {
+      title: 'Remarketing & nurture',
+      body: 'Sequences for the majority who enquire but do not buy this month, so you own the relationship instead of repurchasing the lead later.',
+      tags: ['Remarketing', 'WhatsApp', 'Drip sequences'],
+      icon: '<path d="M17 2v6h6"/><path d="M21 12a9 9 0 1 1-4-7.5"/>',
+    },
+    {
+      title: 'Site visit conversion',
+      body: 'Tracking that follows an enquiry through to a booked and completed site visit, since that is the step where property sales are actually won.',
+      tags: ['Call tracking', 'CRM integration', 'Visit attribution'],
+      icon: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><path d="m9 10 2 2 4-4"/>',
+    },
+    {
+      title: 'Brand and trust content',
+      body: 'Delivery record, construction updates and completed project evidence, which is what separates a developer buyers commit to from one they research and drop.',
+      tags: ['Project updates', 'Credibility content', 'Video'],
+      icon: '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9Z"/>',
+    },
+  ],
 
-  <section class="section-gap final-cta">
-    <div class="container final-cta-inner reveal">
-      <div>
-        <span class="eyebrow">Scale Your Inventory</span>
-        <h2>Ready for a real estate lead pipeline that actually delivers?</h2>
-        <p>Book a property growth audit today and get a tailored strategy for your real estate brand.</p>
-      </div>
-      <a href="/contact" class="btn">Request Property Audit</a>
-    </div>
-  </section>
-</section>
+  process: [
+    {
+      title: 'Audit',
+      body: 'Current lead sources and their true cost per site visit, locality visibility, and where the sales team is losing enquiries.',
+      when: 'Week 1-2',
+    },
+    {
+      title: 'Build owned assets',
+      body: 'Project and locality pages with real detail, tracking that reaches the CRM, and qualification built into the enquiry form.',
+      when: 'Week 2-6',
+    },
+    {
+      title: 'Drive qualified demand',
+      body: 'Campaigns tightened to catchment and budget band, plus organic locality visibility that reduces portal dependence over time.',
+      when: 'Month 2-5',
+    },
+    {
+      title: 'Optimise to site visits',
+      body: 'Reporting on cost per qualified enquiry and per completed site visit, with spend moved toward the sources producing walk-ins.',
+      when: 'Ongoing',
+    },
+  ],
+
+  compliance: {
+    heading: 'Advertising within RERA',
+    body:
+      'The Real Estate (Regulation and Development) Act requires registered projects to carry their registration number in every advertisement, and restricts what may be promised about a project before approval. Non-compliant advertising is a penalty risk for the promoter, and buyers increasingly check. We build these requirements into the creative rather than treating them as legal small print.',
+    points: [
+      'RERA registration number and authority website shown on project advertising',
+      'Carpet area used where the regulation requires it, not super built-up',
+      'Renders and walkthroughs labelled as artist impressions',
+      'Possession timelines stated as per the registered project declaration',
+      'Enquirer data collected with consent and handled under the DPDP Act 2023',
+    ],
+  },
+
+  outcomes: [
+    { value: 'Better qualified', label: 'Enquiries inside the real budget band' },
+    { value: 'Less portal spend', label: 'Owned channels reducing aggregator dependence' },
+    { value: 'More site visits', label: 'The step that actually predicts a sale' },
+    { value: 'Traceable', label: 'Cost per visit, not just per lead' },
+  ],
+
+  faqHeading: 'Real estate marketing questions',
+  faqs: [
+    {
+      q: 'We get plenty of leads but the sales team says they are junk. What fixes that?',
+      a: 'Almost always targeting and form design. Broad geographic targeting and a two-field form maximise volume and minimise quality. Narrowing to a realistic catchment, adding budget and configuration questions to the form, and optimising campaigns towards qualified enquiries rather than raw submissions typically cuts volume substantially while increasing the number your team can actually work.',
+    },
+    {
+      q: 'Can we reduce dependence on property portals?',
+      a: 'Over time, yes, though rarely completely. Locality and configuration pages that rank organically give you enquiries you do not pay per-lead for, and remarketing lets you re-reach interested buyers directly. Most developers we work with keep portals in the mix but shift the balance so they are not the only source.',
+    },
+    {
+      q: 'What does RERA require in our advertising?',
+      a: 'For a registered project, the registration number must appear in advertisements along with the authority website. Areas must be stated as carpet area where the regulation applies, renders should be identified as artist impressions, and possession timelines should match the registered declaration. Requirements vary by state authority, so we work to your specific registration.',
+    },
+    {
+      q: 'How quickly can a new project launch generate enquiries?',
+      a: 'Paid campaigns can produce enquiries within days of going live, which is why launches lean on them. Organic locality visibility takes three to six months, so for a launch it functions as the channel that reduces cost later in the cycle rather than at the start.',
+    },
+    {
+      q: 'Do you work with brokers and channel partners, not just developers?',
+      a: 'Yes, though the work differs. A developer markets one project deeply with RERA obligations attached. A broker or channel partner needs locality authority across a portfolio, faster lead routing, and content that establishes them as the person who knows the micro-market.',
+    },
+    {
+      q: 'What should we measure?',
+      a: 'Cost per qualified enquiry and cost per completed site visit, not cost per lead. Lead cost rewards volume, which is the thing already damaging your pipeline. Site visits correlate with bookings, so that is the metric worth optimising campaigns against.',
+    },
+  ],
+
+  related: [
+    { label: 'SEO Services', href: '/services/seo-services' },
+    { label: 'Google Ads Management', href: '/services/google-ads-services' },
+    { label: 'Meta Ads Management', href: '/services/meta-ads-management-services' },
+    { label: 'Website Design', href: '/services/website-design-services' },
+    { label: 'Conversion Rate Optimization', href: '/services/conversion-rate-optimization-services' },
+    { label: 'Analytics & Reporting', href: '/services/analytics-reporting-services' },
+  ],
+
+  ctaKicker: 'Fill your pipeline',
+  ctaHeading: 'Find out what your enquiries are really costing you',
+  ctaBody:
+    'We will review your lead sources, project pages and qualification flow, then send back where the waste is and what to fix first.',
+};
+%>
+<%- await include('partials/industry-page', { industry }) %>

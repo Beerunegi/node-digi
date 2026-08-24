@@ -1,0 +1,205 @@
+<%
+  // Shared template for every /industries/* page. Each industry view builds an
+  // `industry` object and includes this partial, so a structural or SEO change
+  // is made once rather than six times.
+  const ind = industry;
+  const leadForm = getLeadFormMeta('contact');
+%>
+<section class="seo-concept-page">
+  <section class="seo-concept-hero">
+    <div class="seo-concept-hero-media" aria-hidden="true">
+      <img
+        src="<%= ind.heroImage.src %>"
+        alt=""
+        width="<%= ind.heroImage.width %>"
+        height="<%= ind.heroImage.height %>"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      >
+    </div>
+    <div class="seo-concept-hero-overlay" aria-hidden="true"></div>
+    <div class="container seo-concept-breadcrumb reveal">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/industries">Industries</a>
+      <span>/</span>
+      <strong><%= ind.breadcrumb %></strong>
+    </div>
+
+    <div class="container seo-concept-hero-grid">
+      <div class="seo-concept-copy reveal">
+        <span class="seo-concept-kicker"><%= ind.kicker %></span>
+        <h1><%= ind.h1Lead %> <em><%= ind.h1Emphasis %></em></h1>
+        <p><%= ind.heroIntro %></p>
+        <div class="seo-concept-actions">
+          <a href="/contact" class="btn"><%= ind.ctaPrimary %></a>
+          <a href="#industry-services" class="btn btn-secondary">See what we do</a>
+        </div>
+        <div class="seo-concept-hero-points">
+          <% ind.heroPoints.forEach(function (point) { %><span><%= point %></span><% }); %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview" data-nav-label="Overview" class="ind-section ind-intro">
+    <div class="container">
+      <div class="ind-answer reveal">
+        <h2><%= ind.definition.heading %></h2>
+        <p class="ind-answer-lead"><%= ind.definition.lead %></p>
+        <% ind.definition.body.forEach(function (para) { %>
+        <p><%= para %></p>
+        <% }); %>
+
+        <div class="ind-facts">
+          <% ind.facts.forEach(function (fact) { %>
+          <div class="ind-fact">
+            <strong><%= fact.value %></strong>
+            <span><%= fact.label %></span>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="challenges" data-nav-label="Challenges" class="ind-section">
+    <div class="container">
+      <div class="ind-head reveal">
+        <h2><%= ind.challengesHeading %></h2>
+        <p><%= ind.challengesIntro %></p>
+      </div>
+      <div class="ind-challenge-grid">
+        <% ind.challenges.forEach(function (item) { %>
+        <article class="ind-challenge reveal">
+          <h3><%= item.title %></h3>
+          <p><%= item.body %></p>
+        </article>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section class="ind-section split-bg" id="industry-services" data-nav-label="What we do">
+    <div class="container">
+      <div class="ind-head reveal">
+        <h2><%= ind.servicesHeading %></h2>
+        <p><%= ind.servicesIntro %></p>
+      </div>
+      <p class="rail-hint" aria-hidden="true">Swipe for more</p>
+      <div class="ind-services-rail">
+        <% ind.services.forEach(function (service) { %>
+        <article class="ind-service reveal">
+          <span class="ind-service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <%- service.icon %>
+            </svg>
+          </span>
+          <h3><%= service.title %></h3>
+          <p><%= service.body %></p>
+          <div class="ind-service-tags">
+            <% service.tags.forEach(function (tag) { %><span><%= tag %></span><% }); %>
+          </div>
+        </article>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" data-nav-label="How we work" class="ind-section">
+    <div class="container">
+      <div class="ind-head reveal">
+        <h2>How an engagement runs</h2>
+        <p>The same four stages on every project, so you always know what is happening and what comes next.</p>
+      </div>
+      <div class="ind-process-grid">
+        <% ind.process.forEach(function (step, i) { %>
+        <article class="ind-step reveal">
+          <span class="ind-step-num"><%= String(i + 1).padStart(2, '0') %></span>
+          <h3><%= step.title %></h3>
+          <p><%= step.body %></p>
+          <span class="ind-step-when"><%= step.when %></span>
+        </article>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section id="compliance" data-nav-label="Compliance" class="ind-section ind-compliance">
+    <div class="container">
+      <div class="ind-compliance-card reveal">
+        <div class="ind-compliance-inner">
+          <div>
+            <h2><%= ind.compliance.heading %></h2>
+            <p><%= ind.compliance.body %></p>
+          </div>
+          <ul class="ind-compliance-list">
+            <% ind.compliance.points.forEach(function (point) { %>
+            <li><%= point %></li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="outcomes" data-nav-label="Outcomes" class="ind-section">
+    <div class="container">
+      <div class="ind-head reveal">
+        <h2>What this work is built to improve</h2>
+        <p>Targets we set and report against. Actual movement depends on your starting point, market, and budget.</p>
+      </div>
+      <div class="ind-outcome-grid">
+        <% ind.outcomes.forEach(function (outcome) { %>
+        <article class="ind-outcome reveal">
+          <strong><%= outcome.value %></strong>
+          <span><%= outcome.label %></span>
+        </article>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" data-nav-label="FAQ" class="ind-section split-bg">
+    <div class="container">
+      <div class="ind-head reveal">
+        <h2><%= ind.faqHeading %></h2>
+        <p>The questions we are asked most often before a project starts.</p>
+      </div>
+      <div class="ind-faq-list">
+        <% ind.faqs.forEach(function (faq) { %>
+        <details class="ind-faq-item">
+          <summary><%= faq.q %></summary>
+          <p><%= faq.a %></p>
+        </details>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section id="related-services" data-nav-label="Services" class="ind-section">
+    <div class="container">
+      <div class="ind-head reveal">
+        <h2>Services behind this work</h2>
+        <p>The capabilities we usually combine for <%= ind.shortName %> clients.</p>
+      </div>
+      <div class="ind-related-grid">
+        <% ind.related.forEach(function (link) { %>
+        <a href="<%= link.href %>"><span><%= link.label %></span></a>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-nav-label="Contact" class="section-gap final-cta">
+    <div class="container final-cta-inner reveal">
+      <div>
+        <span class="eyebrow"><%= ind.ctaKicker %></span>
+        <h2><%= ind.ctaHeading %></h2>
+        <p><%= ind.ctaBody %></p>
+      </div>
+      <a href="/contact" class="btn"><%= ind.ctaPrimary %></a>
+    </div>
+  </section>
+</section>

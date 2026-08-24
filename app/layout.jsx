@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="/css/style.css?v=1.0.5" />
+        <link rel="stylesheet" href="/css/style.css?v=1.0.6" />
         {/* next-blog.css is loaded by the /blog and /admin layouts only -- it
             is 47KB of blog- and CMS-scoped rules that marketing pages never
             use, and it was previously render-blocking on every page. */}

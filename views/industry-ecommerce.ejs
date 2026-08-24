@@ -1,144 +1,193 @@
-<section class="seo-concept-page">
-  <section class="seo-concept-hero">
-    <div class="seo-concept-hero-media" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1523474253046-2cd2c78a9db1?auto=format&fit=crop&w=1800&q=80"
-        alt=""
-        width="1800"
-        height="1200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      >
-    </div>
-    <div class="seo-concept-hero-overlay" aria-hidden="true"></div>
-    <div class="container seo-concept-breadcrumb reveal">
-      <a href="/">Home</a>
-      <span>/</span>
-      <a href="/industries">Industries</a>
-      <span>/</span>
-      <strong>Ecommerce Growth</strong>
-    </div>
+<%
+const industry = {
+  shortName: 'ecommerce',
+  breadcrumb: 'Ecommerce Growth',
+  kicker: 'Revenue & Retention',
+  h1Lead: 'Ecommerce marketing for',
+  h1Emphasis: 'D2C brands and online stores.',
+  heroIntro:
+    'Traffic is the easy part. We work on the numbers that decide whether a store is profitable — conversion rate, average order value, and what it actually costs you to acquire a paying customer.',
+  ctaPrimary: 'Request a store growth audit',
+  heroPoints: ['Product and category SEO', 'Paid media that pays back', 'Checkout and retention'],
+  heroImage: {
+    src: '/images/home/photo-1460925895917-afdab827c52f.jpg',
+    width: 1200,
+    height: 855,
+  },
 
-    <div class="container seo-concept-hero-grid">
-      <div class="seo-concept-copy reveal">
-        <span class="seo-concept-kicker">Revenue & Customer Lifetime Value</span>
-        <h1>Scale Your <em>Online Sales Empire.</em></h1>
-        <p>We help D2C brands and global retailers scale revenue through Shopify mastery, high-performance Meta/Google ads, and scientific CRO.</p>
-        <div class="seo-concept-actions">
-          <a href="/contact" class="btn">Get Ecom Growth Audit</a>
-          <a href="#industry-services" class="btn btn-secondary">See Ecommerce Stack</a>
-        </div>
-        <div class="seo-concept-hero-points">
-          <span>Shopify Plus Scaling</span>
-          <span>Performance Creative</span>
-          <span>Retention Automation</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  definition: {
+    heading: 'What is ecommerce marketing?',
+    lead:
+      'Ecommerce marketing is the work of bringing qualified buyers to a store and then removing every avoidable reason for them not to purchase — spanning search visibility, paid acquisition, product page quality, checkout friction, and repeat purchase.',
+    body: [
+      'The distinguishing feature is that everything is measurable, which cuts both ways. You can see exactly what a customer costs and what they are worth, so there is nowhere to hide a channel that is quietly losing money. Most stores that feel stuck are not short of traffic; they are converting too low, or paying too much per order, or never getting a second purchase.',
+      'That is why the work usually starts with arithmetic rather than campaigns. If your conversion rate is 0.8% and your acquisition cost is above your margin, more traffic makes the problem worse. Fixing the product page, the shipping message, or the checkout is often worth more than doubling ad spend.',
+    ],
+  },
 
-  <section class="seo-concept-metrics">
-    <div class="container seo-concept-metrics-grid">
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-              <path d="m7 10 5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Scaling</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="300">300</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Avg. Revenue Growth</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Stores</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="200">200</span><span class="seo-concept-metric-suffix">+</span></strong>
-        <span class="seo-concept-metric-label">Shopify Sites Built</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Value</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="5">5</span><span class="seo-concept-metric-suffix">x</span></strong>
-        <span class="seo-concept-metric-label">Avg. Blended ROAS</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
-              <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Speed</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="90">90</span><span class="seo-concept-metric-suffix">+</span></strong>
-        <span class="seo-concept-metric-label">Core Web Vitals Pass</span>
-      </article>
-    </div>
-  </section>
+  facts: [
+    { value: 'Measurable', label: 'Every rupee of spend traceable to revenue' },
+    { value: 'Margin-bound', label: 'Acquisition cost has to sit under contribution margin' },
+    { value: 'Mobile', label: 'Most sessions and most abandonment happen on phones' },
+    { value: 'Repeat-driven', label: 'Profitability usually arrives on the second order' },
+  ],
 
-  <section class="section-gap seo-concept-services" id="industry-services">
-    <div class="container">
-      <div class="seo-concept-services-head">
-        <div class="reveal">
-          <span class="seo-concept-process-kicker">Ecommerce Solutions</span>
-          <h2>A ecosystem of <span>high-performance retail.</span></h2>
-        </div>
-        <div class="seo-concept-services-intro reveal">
-          <p>We combine technical store architecture with creative growth engineering to deliver ecommerce experiences that convert visitors into repeat customers.</p>
-        </div>
-      </div>
+  challengesHeading: 'What usually holds a store back',
+  challengesIntro:
+    'Patterns we see repeatedly across Shopify, WooCommerce and custom storefronts.',
+  challenges: [
+    {
+      title: 'Category pages that cannot rank',
+      body: 'Thin category pages with no descriptive copy and duplicate title tags, so the store only ever ranks for its own brand name.',
+    },
+    {
+      title: 'Product pages that answer nothing',
+      body: 'Manufacturer descriptions copied verbatim, no sizing or materials detail, few images, and no reviews. Buyers leave to research elsewhere and buy there.',
+    },
+    {
+      title: 'Checkout friction',
+      body: 'Forced account creation, shipping costs revealed only at the last step, and too many fields. This is where most abandonment actually happens.',
+    },
+    {
+      title: 'Ad spend judged on ROAS alone',
+      body: 'Campaigns optimised to a platform-reported return that ignores returns, discounts and cost of goods, so apparent winners lose money.',
+    },
+    {
+      title: 'No second purchase',
+      body: 'No post-purchase email or WhatsApp flow, so every order costs full acquisition price and the store never compounds.',
+    },
+    {
+      title: 'Slow on mobile',
+      body: 'Heavy themes, unoptimised images and app bloat pushing load times past the point where a meaningful share of buyers give up.',
+    },
+  ],
 
-      <div class="seo-concept-card-grid">
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80" alt="Shopify Plus development and store optimization in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Shopify Mastery</h3>
-            <p>Custom theme development, app integrations, and checkout optimizations designed purely for store speed and conversion.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Performance ads for ecommerce and D2C brands in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>D2C Performance</h3>
-            <p>Aggressive Meta and Google Shopping campaigns that focus on scaled ROAS and customer acquisition efficiency.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=900&q=80" alt="Ecommerce retention automation and lifecycle email marketing in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Retention Flow</h3>
-            <p>Automated post-purchase flows and lifecycle marketing designed to skyrocket your customer lifetime value (LTV).</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  servicesHeading: 'What we do for ecommerce clients',
+  servicesIntro:
+    'Chosen against where your funnel is actually leaking, rather than a fixed package.',
+  services: [
+    {
+      title: 'Ecommerce SEO',
+      body: 'Category and product page architecture, indexation control over filters and variants, and content that captures buying intent rather than browsing traffic.',
+      tags: ['Category pages', 'Faceted navigation', 'Product schema'],
+      icon: '<circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>',
+    },
+    {
+      title: 'Shopify & WooCommerce builds',
+      body: 'Storefront builds and rebuilds focused on speed, clean product templates, and a checkout that removes steps rather than adding upsells.',
+      tags: ['Shopify', 'WooCommerce', 'Theme performance'],
+      icon: '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/>',
+    },
+    {
+      title: 'Performance advertising',
+      body: 'Google Shopping, Search and Meta campaigns structured by margin rather than by product count, with feed hygiene as the first fix.',
+      tags: ['Shopping feed', 'Meta Ads', 'Margin-aware bidding'],
+      icon: '<path d="M4 19h16"/><path d="M7 15V9M12 15V5M17 15v-3"/>',
+    },
+    {
+      title: 'Conversion rate optimisation',
+      body: 'Session recordings and funnel analysis to find where buyers stall, then structured tests on the product page, cart and checkout.',
+      tags: ['Funnel analysis', 'A/B testing', 'Checkout UX'],
+      icon: '<path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/>',
+    },
+    {
+      title: 'Retention & lifecycle',
+      body: 'Abandoned cart, post-purchase and win-back flows over email and WhatsApp, so the second order costs a fraction of the first.',
+      tags: ['Email flows', 'WhatsApp', 'Segmentation'],
+      icon: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    },
+    {
+      title: 'Profit reporting',
+      body: 'Reporting that nets out returns, discounts and cost of goods, so you are steering on contribution rather than platform-reported ROAS.',
+      tags: ['GA4', 'Contribution margin', 'Attribution'],
+      icon: '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+    },
+  ],
 
-  <section class="section-gap final-cta">
-    <div class="container final-cta-inner reveal">
-      <div>
-        <span class="eyebrow">Scale Your Store</span>
-        <h2>Ready for predictable, massive ecommerce growth?</h2>
-        <p>Book a sales-focused growth audit today and get a tailored roadmap for your brand scaling.</p>
-      </div>
-      <a href="/contact" class="btn">Request Ecom Growth Audit</a>
-    </div>
-  </section>
-</section>
+  process: [
+    {
+      title: 'Diagnose',
+      body: 'Conversion rate by device and channel, acquisition cost against margin, and where sessions drop out between product and payment.',
+      when: 'Week 1-2',
+    },
+    {
+      title: 'Fix the leaks',
+      body: 'Site speed, product page quality, and checkout friction. This comes before spending more, because it changes the maths on every channel.',
+      when: 'Week 2-6',
+    },
+    {
+      title: 'Scale acquisition',
+      body: 'Feed and campaign restructure, category SEO, and expansion into the products where the margin supports paid spend.',
+      when: 'Month 2-5',
+    },
+    {
+      title: 'Compound',
+      body: 'Lifecycle flows, repeat purchase rate, and reallocation of budget towards the products and channels producing real contribution.',
+      when: 'Ongoing',
+    },
+  ],
+
+  compliance: {
+    heading: 'Selling online in India, correctly',
+    body:
+      'Ecommerce carries real obligations in India. The Consumer Protection (E-Commerce) Rules 2020 require specific disclosures, the Legal Metrology rules govern how packaged goods are described, and the DPDP Act 2023 covers the customer data your store collects. Getting these wrong invites complaints that cost far more than the work of doing them properly.',
+    points: [
+      'Seller identity, contact details and grievance officer published as required',
+      'Country of origin, net quantity and MRP shown on packaged goods listings',
+      'Return, refund and shipping terms stated before payment, not after',
+      'No fake urgency, invented crossed-out pricing, or fabricated review counts',
+      'Customer data collected with consent and kept out of third-party tools that do not need it',
+    ],
+  },
+
+  outcomes: [
+    { value: 'Higher conversion', label: 'More orders from the traffic you already pay for' },
+    { value: 'Lower CAC', label: 'Acquisition cost brought under contribution margin' },
+    { value: 'Bigger baskets', label: 'Average order value lifted where it is credible' },
+    { value: 'Repeat revenue', label: 'A second purchase that costs far less than the first' },
+  ],
+
+  faqHeading: 'Ecommerce marketing questions',
+  faqs: [
+    {
+      q: 'Should we fix the store or spend more on ads first?',
+      a: 'Fix the store, in almost every case. Acquisition cost is fixed by the market but conversion rate is yours to change, and a lift from 1% to 1.5% improves the economics of every channel simultaneously. Spending more against a leaking funnel simply loses money faster.',
+    },
+    {
+      q: 'What conversion rate should we expect?',
+      a: 'It varies far too much by category, price point and traffic mix for a single benchmark to be useful. A considered purchase at a high price converts very differently from a repeat consumable. The number worth tracking is your own rate over time, segmented by device and channel, rather than an industry average.',
+    },
+    {
+      q: 'Is SEO worth it for ecommerce, or is it all paid?',
+      a: 'Both, and they do different jobs. Paid buys immediate, controllable volume but stops the moment you stop paying. Category and product SEO compounds and eventually lowers blended acquisition cost. Most stores that are profitable at scale run both, with organic covering the terms that would otherwise be expensive to buy forever.',
+    },
+    {
+      q: 'Shopify or WooCommerce?',
+      a: 'Shopify if you want speed to launch, managed hosting, and predictable checkout behaviour, and you can live within its constraints. WooCommerce if you need unusual catalogue logic, deep WordPress content integration, or full control of hosting and data. Both can perform well; the wrong one is the one that fights your actual requirements.',
+    },
+    {
+      q: 'How do you measure whether ads are actually working?',
+      a: 'By contribution, not platform ROAS. We net out returns, discounts and cost of goods, so a campaign showing a 4x return in the ad platform but negative contribution after returns is treated as the loss it is. Blended acquisition cost against margin is the number that matters.',
+    },
+    {
+      q: 'How long before we see a difference?',
+      a: 'Conversion and checkout fixes can move revenue within weeks because they apply to traffic already arriving. Paid restructuring usually needs three to four weeks of data before it settles. Category SEO is a three to six month horizon, and retention flows compound over a similar period as your customer base cycles.',
+    },
+  ],
+
+  related: [
+    { label: 'Shopify Development', href: '/services/shopify-development-services' },
+    { label: 'WordPress Development', href: '/services/wordpress-development-services' },
+    { label: 'SEO Services', href: '/services/seo-services' },
+    { label: 'Google Ads Management', href: '/services/google-ads-services' },
+    { label: 'Conversion Rate Optimization', href: '/services/conversion-rate-optimization-services' },
+    { label: 'Email Marketing & Automation', href: '/services/email-marketing-automation-services' },
+  ],
+
+  ctaKicker: 'Grow your store',
+  ctaHeading: 'Find out where your store is losing orders',
+  ctaBody:
+    'We will review your conversion path, product pages and acquisition cost, then send back the specific fixes worth making first.',
+};
+%>
+<%- await include('partials/industry-page', { industry }) %>

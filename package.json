@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:verify": "node scripts/build-verify.mjs",
+    "clean": "node scripts/clean.mjs"
   },
   "keywords": [],
   "author": "",

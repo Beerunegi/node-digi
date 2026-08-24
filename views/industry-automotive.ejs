@@ -1,145 +1,193 @@
-<section class="seo-concept-page">
-  <section class="seo-concept-hero">
-    <div class="seo-concept-hero-media" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=80"
-        alt=""
-        width="1800"
-        height="1200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      >
-    </div>
-    <div class="seo-concept-hero-overlay" aria-hidden="true"></div>
-    <div class="container seo-concept-breadcrumb reveal">
-      <a href="/">Home</a>
-      <span>/</span>
-      <a href="/industries">Industries</a>
-      <span>/</span>
-      <strong>Automotive Marketing</strong>
-    </div>
+<%
+const industry = {
+  shortName: 'automotive',
+  breadcrumb: 'Automotive Marketing',
+  kicker: 'Showroom & Service Demand',
+  h1Lead: 'Automotive marketing for',
+  h1Emphasis: 'dealerships, workshops and parts brands.',
+  heroIntro:
+    'Car buyers research online and buy locally. We make sure your showroom or workshop is the one they find, and that the enquiry reaches someone before the customer calls the next listing.',
+  ctaPrimary: 'Request a dealership audit',
+  heroPoints: ['Local and model search', 'Test drive enquiries', 'Service retention'],
+  heroImage: {
+    src: '/images/services/photo-1563986768609-322da13575f3.jpg',
+    width: 1200,
+    height: 800,
+  },
 
-    <div class="container seo-concept-hero-grid">
-      <div class="seo-concept-copy reveal">
-        <span class="seo-concept-kicker">Showroom Visits & Sales Velocity</span>
-        <h1>Drive More <em>Showroom Sales.</em></h1>
-        <p>We help car dealerships and automotive parts retailers dominate local search and drive high-intent showroom visits through performance marketing.</p>
-        <div class="seo-concept-actions">
-          <a href="/contact" class="btn">Get Sales Audit</a>
-          <a href="#industry-services" class="btn btn-secondary">Our Auto Solutions</a>
-        </div>
-        <div class="seo-concept-hero-points">
-          <span>Local Dealer SEO</span>
-          <span>Lead-to-Showroom Ads</span>
-          <span>Auto Parts Ecommerce</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  definition: {
+    heading: 'What is automotive digital marketing?',
+    lead:
+      'Automotive digital marketing is the work of capturing buyers and service customers during an online research phase that almost always ends at a physical location — a showroom visit, a test drive, or a workshop booking.',
+    body: [
+      'The sector has an unusual shape. Research is long and heavily online: a buyer compares models, reads reviews, and checks prices across weeks. But the purchase is local and physical, and the dealership that gets the visit is usually the one that was easy to find, quick to respond, and clear about price and availability.',
+      'Service is the other half, and it is where the durable margin lives. A workshop that captures its customers after the free-service period through reminders and local search visibility earns for years from a relationship that a single sale started. Most dealerships market the sale hard and the service almost not at all.',
+    ],
+  },
 
-  <section class="seo-concept-metrics">
-    <div class="container seo-concept-metrics-grid">
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-              <path d="m7 10 5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Drive</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="50">50</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">More Walk-in Inquiries</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle>
-              <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Local</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="1">1</span><span class="seo-concept-metric-suffix">st</span></strong>
-        <span class="seo-concept-metric-label">In Local 'Dealer' Search</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Sales</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="20">20</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Increase in Conversion</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
-              <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Service</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="200">200</span><span class="seo-concept-metric-suffix">+</span></strong>
-        <span class="seo-concept-metric-label">Service Bookings/Mo</span>
-      </article>
-    </div>
-  </section>
+  facts: [
+    { value: 'Research online', label: 'Comparison happens well before any visit' },
+    { value: 'Buy locally', label: 'The transaction ends at a physical location' },
+    { value: 'Response speed', label: 'The first dealership to call usually gets the test drive' },
+    { value: 'Service margin', label: 'Long-term profit sits in workshop retention' },
+  ],
 
-  <section class="section-gap seo-concept-services" id="industry-services">
-    <div class="container">
-      <div class="seo-concept-services-head">
-        <div class="reveal">
-          <span class="seo-concept-process-kicker">Automotive Solutions</span>
-          <h2>A ecosystem of <span>high-performance car sales.</span></h2>
-        </div>
-        <div class="seo-concept-services-intro reveal">
-          <p>We combine the thrill of the showroom with high-precision digital targeting to deliver car buyer journeys that start online and end in the driver's seat.</p>
-        </div>
-      </div>
+  challengesHeading: 'What usually holds a dealership or workshop back',
+  challengesIntro:
+    'Patterns across new and used vehicle dealers, multi-brand workshops and parts retailers.',
+  challenges: [
+    {
+      title: 'Outranked by aggregators',
+      body: 'Portals dominate model searches while the dealership ranks only for its own name, so every lead is bought rather than earned.',
+    },
+    {
+      title: 'Slow response to enquiries',
+      body: 'Test drive requests sitting unanswered for hours. Buyers contact several dealerships at once and commit to whoever calls back first.',
+    },
+    {
+      title: 'Service business left to chance',
+      body: 'No reminder system, no local visibility for service terms, so customers drift to independent garages after the free-service period ends.',
+    },
+    {
+      title: 'Used inventory that never surfaces',
+      body: 'Stock listed with poor photos, thin descriptions and no structured data, so it does not appear in the searches buyers actually run.',
+    },
+    {
+      title: 'Google Business Profile neglected',
+      body: 'Wrong service hours, no recent photos, unanswered reviews. For a business that depends on walk-ins this is the most visible asset there is.',
+    },
+    {
+      title: 'No link between spend and footfall',
+      body: 'Advertising judged on clicks and form fills, with no line connecting spend to a completed test drive or a booked service.',
+    },
+  ],
 
-      <div class="seo-concept-card-grid">
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80" alt="Local dealer SEO and car buyer search marketing in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Local Dealer SEO</h3>
-            <p>Dominating 'car dealer near me' and 'buy used cars' searches to ensure your showroom is the top local choice.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="Lead generation ads for automotive showrooms in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Showroom Ads</h3>
-            <p>Targeted Google Search and Meta campaigns designed to find local buyers and drive immediate test-drive bookings.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Parts ecommerce development and sales optimization in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Auto Parts Growth</h3>
-            <p>Scaling online sales for car parts and accessories retailers through technical ecommerce optimization and shopping ads.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  servicesHeading: 'What we do for automotive clients',
+  servicesIntro:
+    'Weighted to whether you need showroom footfall, service bay utilisation, or both.',
+  services: [
+    {
+      title: 'Local & model SEO',
+      body: 'Pages for the model, variant and location combinations buyers search, plus the service terms that bring in recurring workshop revenue.',
+      tags: ['Model pages', 'Service terms', 'Local schema'],
+      icon: '<circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>',
+    },
+    {
+      title: 'Google Business Profile',
+      body: 'Accurate hours, services and photos across every location, with review invitation and response, since this drives the map pack that produces walk-ins.',
+      tags: ['Map pack', 'Reviews', 'Multi-location'],
+      icon: '<path d="M12 20s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z"/><circle cx="12" cy="10" r="2.2"/>',
+    },
+    {
+      title: 'Inventory and offer pages',
+      body: 'Used stock and current offers presented with real photography, honest specifications and structured data so listings surface in search.',
+      tags: ['Vehicle schema', 'Stock pages', 'Offer clarity'],
+      icon: '<path d="M5 17h14l-1.5-6.5a2 2 0 0 0-2-1.5H8.5a2 2 0 0 0-2 1.5Z"/><circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/>',
+    },
+    {
+      title: 'Test drive campaigns',
+      body: 'Search and social campaigns geo-fenced to your catchment, optimised toward booked test drives rather than raw form submissions.',
+      tags: ['Google Ads', 'Meta Ads', 'Geo targeting'],
+      icon: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
+    },
+    {
+      title: 'Service retention',
+      body: 'Reminder flows over WhatsApp and email tied to service intervals, so the workshop keeps customers past the free-service window.',
+      tags: ['Service reminders', 'WhatsApp', 'Retention'],
+      icon: '<path d="M17 2v6h6"/><path d="M21 12a9 9 0 1 1-4-7.5"/>',
+    },
+    {
+      title: 'Footfall attribution',
+      body: 'Call tracking and offline conversion import so you can see which campaigns produced an actual visit rather than a click.',
+      tags: ['Call tracking', 'Offline conversions', 'GA4'],
+      icon: '<path d="M4 19h16"/><path d="M7 15V9M12 15V5M17 15v-3"/>',
+    },
+  ],
 
-  <section class="section-gap final-cta">
-    <div class="container final-cta-inner reveal">
-      <div>
-        <span class="eyebrow">Scale Your Dealership</span>
-        <h2>Ready for more test drives and closed car deals?</h2>
-        <p>Book a sales-focused automotive growth audit today and get a tailored strategy for your showroom.</p>
-      </div>
-      <a href="/contact" class="btn">Request Sales Audit</a>
-    </div>
-  </section>
-</section>
+  process: [
+    {
+      title: 'Audit',
+      body: 'Visibility for your models and service terms, profile health across locations, response times, and where enquiries are being lost.',
+      when: 'Week 1-2',
+    },
+    {
+      title: 'Fix the fundamentals',
+      body: 'Profile accuracy, site speed, inventory presentation, and tracking that connects an enquiry to a showroom or workshop visit.',
+      when: 'Week 2-5',
+    },
+    {
+      title: 'Drive demand',
+      body: 'Model and service pages, local visibility, and paid campaigns targeted to a realistic drive-time catchment.',
+      when: 'Month 2-5',
+    },
+    {
+      title: 'Retain and report',
+      body: 'Service reminder flows, monthly reporting on cost per test drive and per service booking, and reallocation toward what produces visits.',
+      when: 'Ongoing',
+    },
+  ],
+
+  compliance: {
+    heading: 'Advertising vehicles and offers accurately',
+    body:
+      'Automotive advertising in India is scrutinised on price and performance claims. The ASCI code applies to vehicle advertising, mileage figures are expected to reference the certified test standard, and finance offers carry their own disclosure obligations. Overstated claims invite complaints and erode trust with buyers who cross-check specifications.',
+    points: [
+      'On-road pricing shown with the components included and the city it applies to',
+      'Mileage and range quoted against the certified test standard, not internal figures',
+      'Finance offers stated with the rate, tenure and conditions that apply',
+      'Stock imagery distinguished from actual vehicle photographs on used listings',
+      'Customer data from enquiry forms handled under the DPDP Act 2023',
+    ],
+  },
+
+  outcomes: [
+    { value: 'More visible', label: 'Found for models and service, not just brand name' },
+    { value: 'Faster response', label: 'Enquiries routed before the buyer calls elsewhere' },
+    { value: 'Fuller service bays', label: 'Customers retained past the free-service period' },
+    { value: 'Traceable', label: 'Spend connected to visits, not just clicks' },
+  ],
+
+  faqHeading: 'Automotive marketing questions',
+  faqs: [
+    {
+      q: 'Can we compete with the big car portals in search?',
+      a: 'Not on generic model searches, in most cases, and that is rarely the right target. Portals have enormous domain authority. Where a dealership can win is local and combined intent — model plus city, service terms, and your specific catchment — where the portals are weaker and the buyer is closer to visiting.',
+    },
+    {
+      q: 'How much does response time actually matter?',
+      a: 'A great deal. Buyers typically enquire with several dealerships in one sitting, and the first credible response usually secures the test drive. Improving response time from hours to minutes often changes conversion more than any increase in advertising budget.',
+    },
+    {
+      q: 'Should we market the workshop separately from sales?',
+      a: 'Yes. They are different audiences with different search behaviour and different timing. Sales is a considered purchase every few years; service is recurring and driven by intervals and problems. Service also tends to be the more reliable margin, and it is usually the more neglected of the two.',
+    },
+    {
+      q: 'What is the best way to advertise used inventory?',
+      a: 'Real photographs of the actual vehicle, honest condition and ownership detail, and structured data so listings can appear in search results. Stock images and vague descriptions suppress enquiries because buyers assume something is being concealed.',
+    },
+    {
+      q: 'How do you connect advertising spend to actual footfall?',
+      a: 'Call tracking numbers per campaign, and importing showroom visits or service bookings back into the ad platforms as offline conversions. That lets campaigns optimise toward visits rather than form fills, which is where the disconnect usually sits.',
+    },
+    {
+      q: 'Do you work with multi-brand workshops and parts retailers?',
+      a: 'Yes. A multi-brand workshop competes almost entirely on local search and reviews, so profile quality and service-term visibility do most of the work. A parts retailer is closer to ecommerce, needing catalogue structure, fitment data and product-level search visibility.',
+    },
+  ],
+
+  related: [
+    { label: 'SEO Services', href: '/services/seo-services' },
+    { label: 'Google Ads Management', href: '/services/google-ads-services' },
+    { label: 'Meta Ads Management', href: '/services/meta-ads-management-services' },
+    { label: 'Website Design', href: '/services/website-design-services' },
+    { label: 'Email Marketing & Automation', href: '/services/email-marketing-automation-services' },
+    { label: 'Analytics & Reporting', href: '/services/analytics-reporting-services' },
+  ],
+
+  ctaKicker: 'Fill your showroom',
+  ctaHeading: 'See what buyers find when they search your models locally',
+  ctaBody:
+    'We will review your local visibility, enquiry response path and service retention, then send back what to fix first.',
+};
+%>
+<%- await include('partials/industry-page', { industry }) %>

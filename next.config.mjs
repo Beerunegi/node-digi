@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /**
+   * A build and a dev server cannot share one output directory. A build
+   * overwrites the dev server's webpack chunks, and the running dev server
+   * then dies with "Cannot find module './NNNN.js'" from webpack-runtime.
+   *
+   * Setting NEXT_DIST_DIR points a build at a different folder, so a
+   * verification build can run while "npm run dev" is live. See the
+   * build:verify script in package.json.
+   */
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   poweredByHeader: false,
   compress: true,
   trailingSlash: false,

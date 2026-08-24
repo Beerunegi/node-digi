@@ -9,7 +9,7 @@ export const metadata = {
 export default function AdminLayout({ children }) {
   return (
     <>
-      <link rel="stylesheet" href="/css/next-blog.css?v=1.0.5" precedence="default" />
+      <link rel="stylesheet" href="/css/next-blog.css?v=1.0.6" precedence="default" />
       {children}
     </>
   );

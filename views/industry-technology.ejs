@@ -1,145 +1,193 @@
-<section class="seo-concept-page">
-  <section class="seo-concept-hero">
-    <div class="seo-concept-hero-media" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80"
-        alt=""
-        width="1800"
-        height="1200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      >
-    </div>
-    <div class="seo-concept-hero-overlay" aria-hidden="true"></div>
-    <div class="container seo-concept-breadcrumb reveal">
-      <a href="/">Home</a>
-      <span>/</span>
-      <a href="/industries">Industries</a>
-      <span>/</span>
-      <strong>Technology & SaaS</strong>
-    </div>
+<%
+const industry = {
+  shortName: 'technology and SaaS',
+  breadcrumb: 'Technology & SaaS Marketing',
+  kicker: 'Pipeline & Product Growth',
+  h1Lead: 'Marketing for',
+  h1Emphasis: 'SaaS products and technology firms.',
+  heroIntro:
+    'Long sales cycles, technical buyers, and a committee that has to agree. We build the search visibility and content that gets a product shortlisted before anyone books a demo.',
+  ctaPrimary: 'Request a pipeline audit',
+  heroPoints: ['Category and comparison search', 'Demo-led funnels', 'Content that survives review'],
+  heroImage: {
+    src: '/images/services/photo-1517694712202-14dd9538aa97.jpg',
+    width: 1200,
+    height: 800,
+  },
 
-    <div class="container seo-concept-hero-grid">
-      <div class="seo-concept-copy reveal">
-        <span class="seo-concept-kicker">MRR Growth & Market Authority</span>
-        <h1>Growth Hacking for <em>Software Giants.</em></h1>
-        <p>We help SaaS companies and tech startups scale their Monthly Recurring Revenue (MRR) through product-led SEO, technical content, and data-driven performance marketing.</p>
-        <div class="seo-concept-actions">
-          <a href="/contact" class="btn">Get SaaS Audit</a>
-          <a href="#industry-services" class="btn btn-secondary">Explore Tech Stack</a>
-        </div>
-        <div class="seo-concept-hero-points">
-          <span>Product-Led SEO</span>
-          <span>Scaling PLG Loops</span>
-          <span>Technical Authority</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  definition: {
+    heading: 'What is SaaS and technology marketing?',
+    lead:
+      'SaaS and technology marketing is the work of building demand for a product with a long, considered sales cycle — reaching a technical evaluator early, surviving comparison against alternatives, and converting a researched shortlist into demos and trials.',
+    body: [
+      'What makes it different is the buyer. A developer, IT lead or operations head evaluating software is unusually resistant to marketing language and unusually good at finding the gaps in it. They read documentation, look for pricing before they will talk to sales, and check what people say on forums rather than on your testimonial page. Vague copy does not survive that scrutiny.',
+      'The other difference is that the decision is rarely one person. A champion inside the company has to be able to explain your product to a finance approver and a security reviewer. Content that helps the champion make that internal case is often worth more than content aimed at the champion themselves.',
+    ],
+  },
 
-  <section class="seo-concept-metrics">
-    <div class="container seo-concept-metrics-grid">
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-              <path d="m7 10 5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Revenue</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="3x">3x</span><span class="seo-concept-metric-suffix">x</span></strong>
-        <span class="seo-concept-metric-label">Avg. MRR Increase</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle>
-              <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">CAC</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="40">40</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Lower Acquisition Cost</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Churn</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="15">15</span><span class="seo-concept-metric-suffix">%</span></strong>
-        <span class="seo-concept-metric-label">Retention Improvement</span>
-      </article>
-      <article class="seo-concept-metric reveal">
-        <div class="seo-concept-metric-top">
-          <span class="seo-concept-metric-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
-              <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span class="seo-concept-metric-tag">Scale</span>
-        </div>
-        <strong class="seo-concept-metric-value"><span data-counter="50">50</span><span class="seo-concept-metric-suffix">+</span></strong>
-        <span class="seo-concept-metric-label">SaaS Brands Scaled</span>
-      </article>
-    </div>
-  </section>
+  facts: [
+    { value: 'Long cycle', label: 'Weeks to months between first visit and decision' },
+    { value: 'Technical buyer', label: 'Evaluators verify claims before they trust them' },
+    { value: 'Committee', label: 'Finance and security sign off alongside the champion' },
+    { value: 'Comparison-heavy', label: 'Alternatives researched before you are contacted' },
+  ],
 
-  <section class="section-gap seo-concept-services" id="industry-services">
-    <div class="container">
-      <div class="seo-concept-services-head">
-        <div class="reveal">
-          <span class="seo-concept-process-kicker">Tech Growth Solutions</span>
-          <h2>A system of <span>product-led market scale.</span></h2>
-        </div>
-        <div class="seo-concept-services-intro reveal">
-          <p>We combine deep technical understanding with creative growth loops to deliver marketing that feels like a feature of your product.</p>
-        </div>
-      </div>
+  challengesHeading: 'What usually holds a technology company back',
+  challengesIntro:
+    'Recurring across SaaS platforms, software services firms and technology startups.',
+  challenges: [
+    {
+      title: 'Marketing copy a technical buyer distrusts',
+      body: 'Abstract benefit language with no specifics on how the product works. Evaluators cannot tell what it does, so they move to a competitor whose docs are clearer.',
+    },
+    {
+      title: 'No presence on comparison terms',
+      body: 'Prospects search "alternative to X" and "X vs Y" and find review sites and competitors, never you. These are the highest-intent terms in the category.',
+    },
+    {
+      title: 'Pricing hidden behind a form',
+      body: 'Buyers who cannot find a price band assume it is unaffordable or that talking to sales is a trap, and disqualify you before contact.',
+    },
+    {
+      title: 'Demo requests from the wrong companies',
+      body: 'Broad targeting producing enquiries from firms too small to afford the product or too large to fit it, burning sales time.',
+    },
+    {
+      title: 'Content that stops at awareness',
+      body: 'Plenty of top-of-funnel blog posts and nothing that helps a champion justify the purchase internally on security, integration or cost.',
+    },
+    {
+      title: 'No signal from trial to revenue',
+      body: 'Marketing measured on demo requests, with no view of which sources produce trials that convert to paying accounts and stay.',
+    },
+  ],
 
-      <div class="seo-concept-card-grid">
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="SaaS SEO and product keyword strategy in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>Product-Led SEO</h3>
-            <p>Creating high-authority technical content and comparison pages that place your software at the center of your users' problems.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Tech performance marketing and subscription ads in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>SaaS Acquisition</h3>
-            <p>Precise Google Search and LinkedIn ads designed to reach CTOs, CMOs, and decision-makers in the tech world.</p>
-          </div>
-        </article>
-        <article class="seo-concept-service-card reveal tilt" data-tilt>
-          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80" alt="Tech identity and landing page optimization in Delhi NCR" loading="lazy" decoding="async" width="900" height="700">
-          <div class="seo-concept-service-body">
-            <h3>PLG Landing Pages</h3>
-            <p>Ultra-fast, conversion-focused landing pages designed to drive free-trial signups and immediate product adoption.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  servicesHeading: 'What we do for technology clients',
+  servicesIntro:
+    'Selected against where the funnel breaks: visibility, credibility, or conversion from interest to committed evaluation.',
+  services: [
+    {
+      title: 'Category & comparison SEO',
+      body: 'Pages for the category terms, alternatives and versus queries that carry real purchase intent, written honestly enough that a technical reader trusts them.',
+      tags: ['Category pages', 'Comparison content', 'Technical SEO'],
+      icon: '<circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>',
+    },
+    {
+      title: 'Product and documentation content',
+      body: 'Content that shows how the product actually works — integrations, data handling, limits — because that is what an evaluator reads before contacting anyone.',
+      tags: ['Use cases', 'Integration pages', 'Technical depth'],
+      icon: '<path d="m9 8-4 4 4 4M15 8l4 4-4 4"/>',
+    },
+    {
+      title: 'Demo and trial funnels',
+      body: 'Landing pages and forms that qualify by company size and use case, so sales time goes to prospects who can actually buy.',
+      tags: ['Landing pages', 'Qualification', 'Trial onboarding'],
+      icon: '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>',
+    },
+    {
+      title: 'Paid demand generation',
+      body: 'Search and LinkedIn campaigns targeted by role and firmographics rather than broad interest, with spend concentrated on high-intent terms.',
+      tags: ['Google Ads', 'LinkedIn', 'Intent targeting'],
+      icon: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
+    },
+    {
+      title: 'AI search visibility',
+      body: 'Making sure your product is described accurately when a buyer asks an AI assistant to compare tools in your category, through schema and consistent entity data.',
+      tags: ['GEO', 'Schema', 'Entity consistency'],
+      icon: '<path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
+    },
+    {
+      title: 'Funnel analytics',
+      body: 'Tracking from first visit through trial to paid account, so channel decisions are made on revenue retained rather than demos booked.',
+      tags: ['GA4', 'CRM integration', 'Cohort reporting'],
+      icon: '<path d="M4 19h16"/><path d="M7 15V9M12 15V5M17 15v-3"/>',
+    },
+  ],
 
-  <section class="section-gap final-cta">
-    <div class="container final-cta-inner reveal">
-      <div>
-        <span class="eyebrow">Scale Your Product</span>
-        <h2>Ready for a tech growth roadmap that actually scales MRR?</h2>
-        <p>Book a SaaS growth audit today and get a tailored strategy for your software enterprise.</p>
-      </div>
-      <a href="/contact" class="btn">Request SaaS Audit</a>
-    </div>
-  </section>
-</section>
+  process: [
+    {
+      title: 'Map the funnel',
+      body: 'Where visitors come from, where evaluation stalls, and which sources currently produce accounts that renew rather than churn.',
+      when: 'Week 1-3',
+    },
+    {
+      title: 'Fix credibility',
+      body: 'Product clarity, pricing transparency, technical depth, and the site performance and structure that search engines need.',
+      when: 'Week 3-7',
+    },
+    {
+      title: 'Build intent capture',
+      body: 'Category, comparison and use-case pages, plus paid campaigns on the terms where buyers are already close to a decision.',
+      when: 'Month 2-6',
+    },
+    {
+      title: 'Optimise to revenue',
+      body: 'Reporting on cost per qualified demo and per retained account, with budget moved toward what survives past the first invoice.',
+      when: 'Ongoing',
+    },
+  ],
+
+  compliance: {
+    heading: 'Claims a technical evaluator can verify',
+    body:
+      'Technology buyers check. Security posture, uptime figures, compliance certifications and customer logos are all verifiable, and an inflated claim discovered during evaluation ends the deal and damages the reference. We write marketing that a solutions engineer can stand behind in a technical review.',
+    points: [
+      'Certification claims stated with the standard, scope and audit date',
+      'Uptime and performance figures tied to a measurement window',
+      'Customer logos used only with written permission and current contracts',
+      'Integration and feature claims matched against what actually ships today',
+      'Personal data in forms and analytics handled under the DPDP Act 2023',
+    ],
+  },
+
+  outcomes: [
+    { value: 'Found in category', label: 'Visible on comparison and alternative searches' },
+    { value: 'Better qualified', label: 'Demos from companies that fit the product' },
+    { value: 'Shorter cycles', label: 'Buyers arriving already informed' },
+    { value: 'Revenue-linked', label: 'Channels judged on retained accounts' },
+  ],
+
+  faqHeading: 'SaaS and technology marketing questions',
+  faqs: [
+    {
+      q: 'Should we publish pricing on the website?',
+      a: 'A price band almost always outperforms hiding it entirely. Buyers who cannot find any indication of cost either assume the worst or disqualify you to avoid a sales conversation they expect to be uncomfortable. If your pricing genuinely varies by deployment, publishing a starting point and what drives the variation still filters far better than "contact us".',
+    },
+    {
+      q: 'Are comparison and alternative pages worth writing?',
+      a: 'They tend to be the highest-intent pages on a SaaS site, because someone searching "alternative to X" has already decided to change something. They work only if written honestly. A comparison that claims you win on every dimension reads as marketing and gets dismissed; one that concedes where a competitor is genuinely stronger is far more persuasive.',
+    },
+    {
+      q: 'How long does SaaS SEO take to produce pipeline?',
+      a: 'Category and comparison terms are competitive, so three to six months to establish visibility is realistic, and longer in a crowded category. Paid search on high-intent terms fills the gap and gives you data on which messages convert, which then informs what the organic content should say.',
+    },
+    {
+      q: 'We get demos but they do not close. Is that a marketing problem?',
+      a: 'Often partly, yes. If demos consistently fail at the same objection — price, a missing integration, security review — the site is attracting buyers whose requirements you do not meet. Tightening qualification and stating constraints openly reduces demo volume and usually raises close rate.',
+    },
+    {
+      q: 'Do you work with services firms as well as products?',
+      a: 'Yes, though the marketing differs. A product competes on category and comparison search, and content depth is the differentiator. A software services firm competes on credibility and specialism, where case evidence, technology-specific pages and a demonstrable track record carry more weight than volume of content.',
+    },
+    {
+      q: 'What should we measure?',
+      a: 'Cost per qualified demo and cost per retained account, segmented by source. Demo count alone rewards volume, and volume is usually what is already clogging the pipeline. Tracking through to renewal is what tells you which channel produces customers worth having.',
+    },
+  ],
+
+  related: [
+    { label: 'SEO Services', href: '/services/seo-services' },
+    { label: 'Content Marketing', href: '/services/content-marketing-services' },
+    { label: 'GEO Optimization', href: '/services/geo-optimization-services' },
+    { label: 'Google Ads Management', href: '/services/google-ads-services' },
+    { label: 'Website Development', href: '/services/website-development-services' },
+    { label: 'Analytics & Reporting', href: '/services/analytics-reporting-services' },
+  ],
+
+  ctaKicker: 'Build your pipeline',
+  ctaHeading: 'See how buyers find you when they compare your category',
+  ctaBody:
+    'We will review your visibility on category and comparison terms, your demo funnel, and where evaluation stalls.',
+};
+%>
+<%- await include('partials/industry-page', { industry }) %>

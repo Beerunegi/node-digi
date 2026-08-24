@@ -27,6 +27,17 @@ const dateFormatter = new Intl.DateTimeFormat('en-IN', {
 async function getLatestPosts() {
   const posts = await getPublishedPosts();
 
+  if (!posts.length) {
+    // Loud on purpose. The section hides itself when the blog backend is
+    // unreachable, which is the right runtime behaviour but means a build run
+    // during an outage silently ships a homepage with no blog strip.
+    console.warn(
+      '[Homepage] No blog posts returned - the "Latest from the blog" section ' +
+        'will be omitted from this build. Check the WordPress API is reachable, ' +
+        'then rebuild.',
+    );
+  }
+
   return posts.slice(0, 3).map((post) => ({
     title: post.title,
     slug: post.slug,
