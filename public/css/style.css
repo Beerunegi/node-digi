@@ -10801,147 +10801,6 @@ body {
 
 
 
-  /* ==========================================================================
-     SECTION NAVIGATOR
-     A phone-only jump menu. The page is long by nature -- this lets someone
-     reach any section in one tap instead of scrolling to find it. Injected by
-     main.js so no-JS visitors are not shown a control that cannot work.
-     ========================================================================== */
-
-  .section-nav-toggle {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    flex: 0 0 auto;
-    padding: 0 16px;
-    border: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.18);
-    background: #0a2540;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 0.78rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  .section-nav-toggle svg { flex-shrink: 0; }
-
-  .mobile-sticky-bar .section-nav-toggle { display: inline-flex !important; }
-
-  /* --- Sheet ---------------------------------------------------------------- */
-
-  .section-nav-sheet {
-    position: fixed;
-    inset: 0;
-    z-index: 1200;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-  .section-nav-sheet[data-open="true"] {
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .section-nav-scrim {
-    position: absolute;
-    inset: 0;
-    background: rgba(8, 20, 36, 0.55);
-    backdrop-filter: blur(2px);
-    opacity: 0;
-    transition: opacity 0.28s ease;
-  }
-
-  .section-nav-sheet[data-open="true"] .section-nav-scrim { opacity: 1; }
-
-  .section-nav-panel {
-    position: relative;
-    max-height: 74vh;
-    overflow-y: auto;
-    padding: 8px 14px calc(18px + env(safe-area-inset-bottom, 0px));
-    border-radius: 22px 22px 0 0;
-    background: #ffffff;
-    box-shadow: 0 -18px 50px rgba(8, 20, 36, 0.28);
-    transform: translateY(100%);
-    transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .section-nav-sheet[data-open="true"] .section-nav-panel { transform: translateY(0); }
-
-  .section-nav-grabber {
-    width: 40px;
-    height: 4px;
-    margin: 6px auto 12px;
-    border-radius: 999px;
-    background: rgba(10, 37, 64, 0.18);
-  }
-
-  .section-nav-title {
-    margin: 0 0 10px;
-    padding: 0 6px;
-    font-family: "Sora", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #7c8ba1;
-  }
-
-  .section-nav-list {
-    display: grid;
-    gap: 4px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .section-nav-list a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 12px;
-    border-radius: 13px;
-    color: #0a2540;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .section-nav-list a:hover { background: rgba(10, 37, 64, 0.04); }
-
-  .section-nav-num {
-    min-width: 22px;
-    font-family: "Sora", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #9aa8bb;
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* Current section, kept in sync by the scroll spy. */
-  .section-nav-list a[aria-current="true"] {
-    background: rgba(59, 130, 246, 0.1);
-    color: #1d4ed8;
-  }
-
-  .section-nav-list a[aria-current="true"] .section-nav-num { color: #1d4ed8; }
-
-  /* Matches the specificity of the .mobile-sticky-bar rule above, which
-     would otherwise keep winning at desktop widths. */
-  @media (min-width: 761px) {
-    .section-nav-sheet,
-    .section-nav-toggle,
-    .mobile-sticky-bar .section-nav-toggle { display: none !important; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .section-nav-panel,
-    .section-nav-scrim { transition: none; }
-  }
 
 /* ==========================================================================
    INDUSTRY PAGE TEMPLATE
@@ -11442,4 +11301,21 @@ body {
 
   .ind-faq-item > summary::after { transition: none; }
   .ind-services-rail { scroll-behavior: auto; }
+}
+
+
+/* Narrow-viewport corrections for the industry template. Below this width a
+   two-column grid leaves each cell under ~150px, which is not enough for a
+   heading plus a sentence. */
+@media (max-width: 420px) {
+  .ind-challenge-grid,
+  .ind-process-grid,
+  .ind-outcome-grid,
+  .ind-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ind-services-rail {
+    grid-auto-columns: 90%;
+  }
 }

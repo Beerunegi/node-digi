@@ -409,10 +409,10 @@ async function sendLeadToGoogleSheets(payload) {
 
 function getLeadFailureMessage(channel) {
   if (channel === 'audit') {
-    return 'Lead service is temporarily unavailable. Please contact us via WhatsApp on +91 98712 64699';
+    return 'Lead service is temporarily unavailable. Please contact us via WhatsApp on +91 88512 50846';
   }
 
-  return 'Something went wrong with our lead service. Please try again later or call us at +91 98712 64699';
+  return 'Something went wrong with our lead service. Please try again later or call us at +91 88512 50846';
 }
 
 const defaultMetaDescription =
@@ -574,8 +574,8 @@ app.post('/submit-audit', async (req, res) => {
                   </div>
 
                   <div style="margin-top:24px; text-align:center;">
-                    <a href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20requested%20a%20website%20audit%20for%20${encodeURIComponent(website)}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
-                    <a href="tel:+919871264699" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 98712 64699</a>
+                    <a href="https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20requested%20a%20website%20audit%20for%20${encodeURIComponent(website)}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
+                    <a href="tel:+918851250846" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 88512 50846</a>
                   </div>
 
                   <div style="margin-top:26px; padding-top:20px; border-top:1px solid #e7eef6; font-size:14px; line-height:1.8; color:#567089;">
@@ -609,7 +609,7 @@ app.post('/submit-audit', async (req, res) => {
     if (error.command) console.error('SMTP Command:', error.command);
     
     // Fallback: Notify user to use WhatsApp if mail fails
-    res.status(500).send('Mail service unavailable. Please contact us via WhatsApp on +91 98712 64699');
+    res.status(500).send('Mail service unavailable. Please contact us via WhatsApp on +91 88512 50846');
   }
 });
 
@@ -728,8 +728,8 @@ app.post('/submit-contact', async (req, res) => {
                   </div>
 
                   <div style="margin-top:24px; text-align:center;">
-                    <a href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20just%20submitted%20an%20enquiry%20about%20${encodeURIComponent(service || 'your services')}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
-                    <a href="tel:+919871264699" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 98712 64699</a>
+                    <a href="https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20just%20submitted%20an%20enquiry%20about%20${encodeURIComponent(service || 'your services')}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
+                    <a href="tel:+918851250846" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 88512 50846</a>
                   </div>
 
                   <div style="margin-top:26px; padding-top:20px; border-top:1px solid #e7eef6; font-size:14px; line-height:1.8; color:#567089;">
@@ -761,7 +761,7 @@ app.post('/submit-contact', async (req, res) => {
     console.error('Error Message:', error.message);
     if (error.code) console.error('Error Code:', error.code);
     
-    res.status(500).send('Something went wrong with our mail server. Please try again later or call us at +91 98712 64699');
+    res.status(500).send('Something went wrong with our mail server. Please try again later or call us at +91 88512 50846');
   }
 });
 app.get('/', (req, res) => {

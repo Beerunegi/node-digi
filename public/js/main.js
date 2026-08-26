@@ -210,7 +210,7 @@ if (typewriterWord) {
   }
 }
 
-const whatsappHref = 'https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services.';
+const whatsappHref = 'https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services.';
 const ctaGroups = document.querySelectorAll('.hero-actions, .final-cta-inner');
 
 ctaGroups.forEach((group) => {
@@ -380,112 +380,6 @@ if (
       card.style.removeProperty('--my');
     });
   });
-}
-
-/* ---------------------------------------------------------------------------
- * Section navigator
- *
- * Long marketing pages are tiring to scan on a phone. This adds a "Sections"
- * button to the existing mobile action bar which opens a sheet listing every
- * titled section, with the current one highlighted. Built here rather than in
- * markup so visitors without JS never see a control that cannot work.
- * ------------------------------------------------------------------------ */
-
-const stickyBar = document.querySelector('.mobile-sticky-bar');
-const navSections = stickyBar
-  ? [...document.querySelectorAll('main section[id]')].filter((section) => {
-      const heading = section.querySelector('h1, h2');
-      return heading && heading.textContent.trim().length > 0;
-    })
-  : [];
-
-if (stickyBar && navSections.length >= 4) {
-  const labelFor = (section) => {
-    const explicit = section.getAttribute('data-nav-label');
-    if (explicit) return explicit;
-    const eyebrow = section.querySelector('.eyebrow');
-    if (eyebrow && eyebrow.textContent.trim().length <= 26) {
-      return eyebrow.textContent.trim();
-    }
-    const heading = section.querySelector('h1, h2').textContent.trim();
-    return heading.length > 34 ? `${heading.slice(0, 32).trimEnd()}…` : heading;
-  };
-
-  const toggle = document.createElement('button');
-  toggle.type = 'button';
-  toggle.className = 'section-nav-toggle';
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-haspopup', 'dialog');
-  toggle.innerHTML =
-    '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">' +
-    '<path d="M4 7h16M4 12h16M4 17h10"/></svg><span>Sections</span>';
-
-  const sheet = document.createElement('div');
-  sheet.className = 'section-nav-sheet';
-  sheet.dataset.open = 'false';
-  sheet.setAttribute('role', 'dialog');
-  sheet.setAttribute('aria-modal', 'true');
-  sheet.setAttribute('aria-label', 'Jump to a section');
-  sheet.innerHTML =
-    '<div class="section-nav-scrim" data-nav-close></div>' +
-    '<div class="section-nav-panel">' +
-    '<div class="section-nav-grabber" aria-hidden="true"></div>' +
-    '<p class="section-nav-title">Jump to</p>' +
-    '<ul class="section-nav-list"></ul>' +
-    '</div>';
-
-  const list = sheet.querySelector('.section-nav-list');
-  navSections.forEach((section, index) => {
-    const item = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = `#${section.id}`;
-    link.innerHTML =
-      `<span class="section-nav-num">${String(index + 1).padStart(2, '0')}</span>` +
-      `<span>${labelFor(section)}</span>`;
-    item.appendChild(link);
-    list.appendChild(item);
-  });
-
-  stickyBar.prepend(toggle);
-  document.body.appendChild(sheet);
-
-  const links = [...list.querySelectorAll('a')];
-
-  const setOpen = (open) => {
-    sheet.dataset.open = String(open);
-    toggle.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (open) links[0]?.focus();
-  };
-
-  toggle.addEventListener('click', () => setOpen(sheet.dataset.open !== 'true'));
-  sheet.addEventListener('click', (event) => {
-    if (event.target.closest('[data-nav-close]') || event.target.closest('a')) setOpen(false);
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && sheet.dataset.open === 'true') {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-
-  // Scroll spy. rootMargin biases towards whichever section owns the upper
-  // third of the screen, which matches what the reader is actually looking at.
-  const spy = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const active = `#${entry.target.id}`;
-        links.forEach((link) => {
-          if (link.getAttribute('href') === active) link.setAttribute('aria-current', 'true');
-          else link.removeAttribute('aria-current');
-        });
-      });
-    },
-    { rootMargin: '-15% 0px -70% 0px' }
-  );
-
-  navSections.forEach((section) => spy.observe(section));
 }
 
 // On a phone the FAQ reads better as a closed, scannable index; an expanded

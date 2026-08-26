@@ -28,7 +28,7 @@
       <p class="reveal reveal-up">Helping businesses dominate Google, AI Overviews & ChatGPT.</p>
       <div class="hero-actions reveal reveal-up">
         <a href="#audit" class="btn">Get My Free Growth Strategy</a>
-        <a href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services." class="btn btn-outline-whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a href="https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services." class="btn btn-outline-whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
       </div>
       
       <a class="hero-scroll-cue" href="#home-about" aria-label="Scroll to page content">
@@ -2676,6 +2676,60 @@
     .insights-head-link:hover,
     .insights-head-link:hover span {
       transform: none;
+    }
+  }
+
+
+  /* ==========================================================================
+     NARROW-VIEWPORT CORRECTIONS
+     Two problems visible at 311px: .work-head never had a mobile override so
+     its auto-sized CTA column squeezed the heading to about 85px, and several
+     two-column grids stayed at two columns well past the width where they are
+     readable.
+     ========================================================================== */
+
+  @media (max-width: 760px) {
+    /* The CTA pill was taking 213px of a 311px screen. */
+    .work-head {
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .work-head-link {
+      justify-self: start;
+    }
+  }
+
+  /* Below this width a two-column grid gives each cell under ~150px, which is
+     not enough for a heading plus a sentence. */
+  @media (max-width: 420px) {
+    .why-stats-grid,
+    .intent-map,
+    .testimonials-proof,
+    .audit-features {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Chips are a flex row, not a grid: let them fill the width instead. */
+    .audit-features {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .audit-features li {
+      justify-content: flex-start;
+    }
+
+    /* Rails can take a little more of the screen when it is this narrow. */
+    .home-services-grid,
+    .testimonials-grid,
+    .work-stack,
+    .why-features-grid,
+    .insights-grid {
+      grid-auto-columns: 90%;
     }
   }
 

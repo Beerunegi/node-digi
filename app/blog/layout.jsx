@@ -6,7 +6,7 @@
 export default function BlogLayout({ children }) {
   return (
     <>
-      <link rel="stylesheet" href="/css/next-blog.css?v=1.0.6" precedence="default" />
+      <link rel="stylesheet" href="/css/next-blog.css?v=1.0.7" precedence="default" />
       {children}
     </>
   );
