@@ -322,6 +322,38 @@ a {
   padding: 32px;
 }
 
+/* The mega-menu is ~1000px wide but its toggle is ~70px, and the toggle sits
+   left of centre in the nav. Centring the panel on the toggle pushed its left
+   edge past the viewport and clipped the first column, so anchor it to the
+   header row and let it centre on the page instead. */
+@media (min-width: 761px) {
+  .nav-wrap {
+    position: relative;
+  }
+
+  .mega-menu-dropdown {
+    position: static;
+  }
+
+  /* Anchored to the header row, 100% now means the full header height, so the
+     panel sits flush under it rather than 14px lower. */
+  .mega-menu {
+    top: 100%;
+  }
+
+  /* Re-anchoring widened the gap between the toggle and the panel. The panel
+     is still a DOM child of the toggle's wrapper, so an invisible strip across
+     that gap keeps :hover alive while the pointer travels down to it. */
+  .mega-menu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -32px;
+    height: 32px;
+  }
+}
+
 .mega-menu-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -892,6 +924,7 @@ a {
     padding: 12px;
     flex-direction: column;
     align-items: stretch;
+    overflow-x: hidden;
   }
 
   .top-nav.open {
@@ -918,20 +951,35 @@ a {
     display: none;
   }
 
+  /* The desktop :hover/:focus-within rule re-applies translateX(-50%) with a
+     higher specificity than the mobile `transform: none` above. Tapping a
+     toggle gives it focus, which slid the panel half its width off-screen. */
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu,
+  .nav-dropdown:hover .mega-menu,
+  .nav-dropdown:focus-within .mega-menu {
+    transform: none;
+    left: auto;
+  }
+
   .nav-dropdown.active .nav-dropdown-menu,
   .nav-dropdown.active .mega-menu {
     display: grid;
     gap: 4px;
+    width: 100%;
+    transform: none;
   }
 
   .mega-menu-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
     padding: 10px 0;
+    width: 100%;
   }
 
   .mega-menu-col {
     gap: 12px;
+    min-width: 0;
   }
 
   .mega-menu-heading {
@@ -942,6 +990,22 @@ a {
 
   .mega-menu-list {
     padding-left: 10px;
+    min-width: 0;
+  }
+
+  /* translateX(4px) on hover/active nudged rows sideways inside a panel that
+     no longer has room for it. */
+  .mega-menu-list a {
+    display: block;
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 0.79rem;
+  }
+
+  .mega-menu-list a:hover,
+  .mega-menu-list a.active {
+    transform: none;
+    background: #eef4fb;
   }
 
   .mega-menu-footer {
@@ -991,6 +1055,13 @@ a {
   bottom: -8px;
   height: 2px;
   background: linear-gradient(120deg, var(--accent), #ff975d);
+}
+
+/* The underline marker is for plain text links. On a pill-styled nav link the
+   button already carries the active state, and the bar floats loose beneath
+   it. */
+.top-nav a.btn.active::after {
+  display: none;
 }
 
 .about-hero {

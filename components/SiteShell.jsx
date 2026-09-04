@@ -420,11 +420,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a className={activeClass(currentPath === '/pricing')} href="/pricing">
               Pricing
             </a>
-            <a className={activeClass(currentPath === '/free-website-audit')} href="/free-website-audit">
-              Free Audit
-            </a>
-            <a className={`btn btn-sm ${activeClass(currentPath === '/contact')}`} href="/contact">
+            <a className={activeClass(currentPath === '/contact')} href="/contact">
               Contact Us
+            </a>
+            <a className={`btn btn-sm ${activeClass(currentPath === '/free-website-audit')}`} href="/free-website-audit">
+              Free Audit
             </a>
           </nav>
         </div>
