@@ -17,10 +17,19 @@
   <link rel="canonical" href="https://digiwebtech.co.in<%= currentPath %>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="shortcut icon" href="/images/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=<%= Date.now() %>">
+  <% if (currentPath === '/') { %>
+  <link rel="preload" as="image" href="/images/home/photo-1542744094-3a31f272c490.webp" type="image/webp">
+  <% } %>
+  <style>
+    :root{--bg:#f4f7fb;--surface:rgba(255,255,255,.85);--text:#0f172a;--muted:#475569;--brand:#01a09d;--brand-strong:#0f172a;--accent:#ff512f;--accent-soft:rgba(255,81,47,.1);--line:rgba(148,163,184,.1);--radius:24px;--shadow:0 20px 45px rgba(15,23,42,.08);--glass:blur(14px)}*{box-sizing:border-box}html{overflow-x:hidden}body{margin:0;color:var(--text);line-height:1.6;font-family:"Poppins","Manrope",sans-serif;background:radial-gradient(circle at 0% 0%,#e3fffb 0%,transparent 28%),radial-gradient(circle at 100% 10%,#ffe9df 0%,transparent 24%),var(--bg);overflow-x:hidden}h1,h2,h3{font-family:"Sora",sans-serif;line-height:1.1;letter-spacing:-.04em;margin-top:0;color:var(--text)}h1{font-size:clamp(2.04rem,6.8vw,3.4rem)}h2{font-size:clamp(1.7rem,5.1vw,2.55rem);font-weight:600}p{color:var(--muted);font-size:clamp(1rem,1.7vw,1.0625rem);line-height:1.7}a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:0 auto}.site-header{position:sticky;top:0;z-index:100;background:rgba(244,247,251,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.nav-wrap{display:flex;justify-content:space-between;align-items:center;min-height:74px}.brand{font-family:"Sora",sans-serif;font-weight:600;font-size:1.054rem}.brand-logo{height:44px;width:auto}.top-nav{display:flex;align-items:center;gap:1.08rem}.top-nav a{color:var(--muted);font-weight:600}.section-gap{padding:82px 0}.reveal{opacity:1}
+  </style>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"></noscript>
+  <link rel="preload" href="/css/style.min.css?v=<%= Date.now() %>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.min.css?v=<%= Date.now() %>"></noscript>
   <% if (currentPath === '/') { %>
   <script type="application/ld+json">
   {
@@ -37,7 +46,7 @@
         },
         "contactPoint":{
           "@type":"ContactPoint",
-          "telephone":"+91-8851250846",
+          "telephone":"+91-9871234699",
           "contactType":"customer service",
           "areaServed":"IN",
           "availableLanguage":["English","Hindi"]
@@ -49,7 +58,7 @@
         "name":"Digi Web Tech",
         "url":"https://digiwebtech.co.in/",
         "image":"https://digiwebtech.co.in/images/favicon.svg",
-        "telephone":"+91-8851250846",
+        "telephone":"+91-9871234699",
         "priceRange":"\u20B9\u20B9",
         "address":{
           "@type":"PostalAddress",
@@ -173,10 +182,11 @@
       </a>
       <p>We are a results-first digital agency empowering brands with technical SEO, performance marketing, and high-converting web experiences.</p>
       <div class="footer-socials">
-        <a href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V12H8v3h2v6h3v-6h2.2l.8-3H13V9.5c0-.28.22-.5.5-.5z"/></svg></a>
-        <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.75 6.5a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg></a>
-        <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5a1.44 1.44 0 1 1 0-2.88 1.44 1.44 0 0 1 0 2.88zM5.5 9.75h2.88V18H5.5zm4.63 0h2.76v1.12h.04a3 3 0 0 1 2.7-1.48c2.88 0 3.41 1.9 3.41 4.37V18h-2.88v-3.77c0-.9-.02-2.06-1.26-2.06s-1.45.98-1.45 1.99V18h-2.88z"/></svg></a>
-        <a href="#" aria-label="Twitter" title="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+        <a href="https://www.facebook.com/digiwebtech.co.in/" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V12H8v3h2v6h3v-6h2.2l.8-3H13V9.5c0-.28.22-.5.5-.5z"/></svg></a>
+        <a href="https://www.instagram.com/digiwebtech/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.75 6.5a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg></a>
+        <a href="https://www.linkedin.com/company/digiwebtech/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5a1.44 1.44 0 1 1 0-2.88 1.44 1.44 0 0 1 0 2.88zM5.5 9.75h2.88V18H5.5zm4.63 0h2.76v1.12h.04a3 3 0 0 1 2.7-1.48c2.88 0 3.41 1.9 3.41 4.37V18h-2.88v-3.77c0-.9-.02-2.06-1.26-2.06s-1.45.98-1.45 1.99V18h-2.88z"/></svg></a>
+        <a href="https://x.com/digiwebtech" aria-label="X (Twitter)" title="X (Twitter)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.youtube.com/@digiwebtech" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12z"/></svg></a>
       </div>
     </div>
 
@@ -201,7 +211,7 @@
       <h4>Get in Touch</h4>
       <p>3rd Floor, A-303, Sector 5, Rajendra Nagar, Ghaziabad, Uttar Pradesh 201005</p>
       <p><a href="mailto:info@digiwebtech.co.in">info@digiwebtech.co.in</a></p>
-      <p><a href="tel:+918851250846" class="footer-phone">+91 88512 50846</a></p>
+      <p><a href="tel:+919871234699" class="footer-phone">+91 98712 34699</a></p>
     </div>
   </div>
 
@@ -217,11 +227,11 @@
 </footer>
 
 <div class="mobile-sticky-bar">
-  <a class="sticky-btn sticky-call" href="tel:+918851250846">Call Now</a>
-  <a class="sticky-btn sticky-whatsapp" href="https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="sticky-btn sticky-call" href="tel:+919871234699">Call Now</a>
+  <a class="sticky-btn sticky-whatsapp" href="https://wa.me/919871234699?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services." target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
-<script src="/js/main.js"></script>
+<script src="/js/main.js" defer></script>
 </body>
 </html>
 

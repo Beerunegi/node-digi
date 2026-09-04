@@ -23,6 +23,31 @@ app.use((req, res, next) => {
 
 app.use(compression());
 
+// Static files BEFORE session/body parsers — avoids unnecessary overhead on assets
+const fs = require('fs');
+const path = require('path');
+app.use('/images', (req, res, next) => {
+  const ext = path.extname(req.path).toLowerCase();
+  if (!['.jpg', '.jpeg', '.png'].includes(ext)) return next();
+  const accepts = req.headers.accept || '';
+  if (!accepts.includes('image/webp')) return next();
+  const webpPath = path.join(__dirname, 'public', 'images', req.path.replace(/\.(jpe?g|png)$/i, '.webp'));
+  if (fs.existsSync(webpPath)) {
+    res.type('image/webp');
+    return res.sendFile(webpPath);
+  }
+  next();
+});
+app.use(express.static('public', {
+  maxAge: '1y',
+  immutable: true,
+  setHeaders(res, filePath) {
+    if (filePath.endsWith('.css') || filePath.endsWith('.js')) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+  },
+}));
+
 // Request Body Parsers
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.json({ limit: '10mb' }));
@@ -433,8 +458,7 @@ function renderPage(res, view, title, metaTitle, metaDescription) {
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
-// Static files with 1 year cache configuration for better browser memory usage
-app.use(express.static('public', { maxAge: '1y' }));
+// (static files served earlier, before session middleware)
 
 // Current path for active menu link
 app.use((req, res, next) => {

@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "build:verify": "node scripts/build-verify.mjs",
-    "clean": "node scripts/clean.mjs"
+    "clean": "node scripts/clean.mjs",
+    "optimize": "node scripts/optimize-assets.mjs"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "slugify": "^1.6.9"
   },
   "devDependencies": {
+    "clean-css": "^5.3.3",
     "nodemon": "^3.1.11"
   }
 }

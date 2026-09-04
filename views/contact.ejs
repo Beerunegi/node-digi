@@ -6,7 +6,7 @@
       <h1>Let us discuss your digital growth goals.</h1>
       <p>Reach out to Digi Web Tech for strategy, campaign planning, website development, and full digital marketing support.</p>
       <div class="hero-actions">
-        <a href="tel:+918851250846" class="btn">Call: 8851250846</a>
+        <a href="tel:+919871234699" class="btn">Call: 9871234699</a>
         <a href="mailto:info@digiwebtech.co.in" class="btn btn-secondary">info@digiwebtech.co.in</a>
       </div>
     </div>
@@ -28,39 +28,51 @@
     </article>
     <article class="contact-card reveal">
       <h2>Mobile</h2>
-      <p><a href="tel:+918851250846">8851250846</a></p>
+      <p><a href="tel:+919871234699">9871234699</a></p>
     </article>
   </div>
 </section>
 
 <section class="section-gap">
-  <div class="container contact-form-wrap">
-    <div class="section-head">
-      <span class="eyebrow">Send Inquiry</span>
-      <h2>Tell us about your project</h2>
-    </div>
-    <form class="contact-form" action="/submit-contact" method="post">
-      <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
-      <input type="hidden" name="formRenderedAt" value="<%= contactLeadForm.renderedAt %>">
-      <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-        <label for="contact-company">Leave this field blank</label>
-        <input id="contact-company" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
+  <div class="container contact-form-map">
+    <div class="contact-form-wrap">
+      <div class="section-head">
+        <span class="eyebrow">Send Inquiry</span>
+        <h2>Tell us about your project</h2>
       </div>
-      <label class="visually-hidden" for="contact-name">Your Name</label>
-      <input type="text" id="contact-name" name="name" placeholder="Your Name" autocomplete="name" required>
+      <form class="contact-form" action="/submit-contact" method="post">
+        <input type="hidden" name="formToken" value="<%= contactLeadForm.token %>">
+        <input type="hidden" name="formRenderedAt" value="<%= contactLeadForm.renderedAt %>">
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="contact-company">Leave this field blank</label>
+          <input id="contact-company" type="text" name="bot_field_honey" tabindex="-1" autocomplete="off">
+        </div>
+        <label class="visually-hidden" for="contact-name">Your Name</label>
+        <input type="text" id="contact-name" name="name" placeholder="Your Name" autocomplete="name" required>
 
-      <label class="visually-hidden" for="contact-email">Your Email</label>
-      <input type="email" id="contact-email" name="email" placeholder="Your Email" autocomplete="email" required>
+        <label class="visually-hidden" for="contact-email">Your Email</label>
+        <input type="email" id="contact-email" name="email" placeholder="Your Email" autocomplete="email" required>
 
-      <label class="visually-hidden" for="contact-phone">Mobile Number</label>
-      <input type="tel" id="contact-phone" name="phone" placeholder="Mobile Number" autocomplete="tel" required>
+        <label class="visually-hidden" for="contact-phone">Mobile Number</label>
+        <input type="tel" id="contact-phone" name="phone" placeholder="Mobile Number" autocomplete="tel" required>
 
-      <label class="visually-hidden" for="contact-service">Service Needed</label>
-      <input type="text" id="contact-service" name="service" placeholder="Service Needed (SEO, Ads, Website, etc.)">
+        <label class="visually-hidden" for="contact-service">Service Needed</label>
+        <input type="text" id="contact-service" name="service" placeholder="Service Needed (SEO, Ads, Website, etc.)">
 
-      <label class="visually-hidden" for="contact-message">Tell us about your goals</label>
-      <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your goals" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
+        <label class="visually-hidden" for="contact-message">Tell us about your goals</label>
+        <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your goals" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-map-side reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501!2d77.3567569!3d28.6786807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb0544ecfebf%3A0x77cbb4c29e82615!2sDigi%20Web%20Tech!5e0!3m2!1sen!2sin"
+        width="100%" height="100%" style="border:0;display:block;min-height:450px;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Digi Web Tech Office Location on Google Maps">
+      </iframe>
+      <a href="https://maps.app.goo.gl/PnZMASf3iNXDbmaN7" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top:12px;display:inline-block;">Get Directions</a>
+    </div>
   </div>
 </section>
