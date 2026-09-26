@@ -432,12 +432,44 @@ async function sendLeadToGoogleSheets(payload) {
   }
 }
 
+async function saveLeadLocally(payload) {
+  try {
+    const dataDir = path.join(process.cwd(), 'data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    const leadsFile = path.join(dataDir, 'leads.json');
+    let leads = [];
+    if (fs.existsSync(leadsFile)) {
+      try {
+        const raw = fs.readFileSync(leadsFile, 'utf8');
+        leads = JSON.parse(raw);
+        if (!Array.isArray(leads)) leads = [];
+      } catch {
+        leads = [];
+      }
+    }
+    const leadRecord = {
+      id: Date.now().toString(36) + Math.random().toString(36).substring(2, 7),
+      ...payload,
+      recordedAt: new Date().toISOString(),
+    };
+    leads.push(leadRecord);
+    fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2), 'utf8');
+    console.log(`[LEAD BACKUP] Successfully saved ${payload.formType} lead from ${payload.name} (${payload.email}) to data/leads.json`);
+    return true;
+  } catch (err) {
+    console.error('[LEAD BACKUP] Could not write to data/leads.json:', err.message);
+    return false;
+  }
+}
+
 function getLeadFailureMessage(channel) {
   if (channel === 'audit') {
-    return 'Lead service is temporarily unavailable. Please contact us via WhatsApp on +91 88512 50846';
+    return 'Lead service is temporarily unavailable. Please contact us via WhatsApp on +91 98712 64699';
   }
 
-  return 'Something went wrong with our lead service. Please try again later or call us at +91 88512 50846';
+  return 'Something went wrong with our lead service. Please try again later or call us at +91 98712 64699';
 }
 
 const defaultMetaDescription =
@@ -521,18 +553,22 @@ app.post('/submit-audit', async (req, res) => {
     return res.status(400).send('We could not verify this submission. Please refresh the page and try again.');
   }
 
+  const auditPayload = {
+    formType: 'Free Website Audit',
+    name,
+    email,
+    phone,
+    website,
+    service: serviceText,
+    message: finalMessage,
+    source: req.originalUrl,
+    submittedAt: new Date().toISOString()
+  };
+
+  const localSaved = await saveLeadLocally(auditPayload);
+
   try {
-    const sheetsSaved = await sendLeadToGoogleSheets({
-      formType: 'Free Website Audit',
-      name,
-      email,
-      phone,
-      website,
-      service: serviceText,
-      message: finalMessage,
-      source: req.originalUrl,
-      submittedAt: new Date().toISOString()
-    });
+    const sheetsSaved = await sendLeadToGoogleSheets(auditPayload);
 
     let emailDelivered = false;
     if (transporter) {
@@ -598,8 +634,8 @@ app.post('/submit-audit', async (req, res) => {
                   </div>
 
                   <div style="margin-top:24px; text-align:center;">
-                    <a href="https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20requested%20a%20website%20audit%20for%20${encodeURIComponent(website)}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
-                    <a href="tel:+918851250846" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 88512 50846</a>
+                    <a href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20requested%20a%20website%20audit%20for%20${encodeURIComponent(website)}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
+                    <a href="tel:+919871264699" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 98712 64699</a>
                   </div>
 
                   <div style="margin-top:26px; padding-top:20px; border-top:1px solid #e7eef6; font-size:14px; line-height:1.8; color:#567089;">
@@ -617,23 +653,23 @@ app.post('/submit-audit', async (req, res) => {
       }
     }
 
-    if (!sheetsSaved && !emailDelivered) {
+    if (!sheetsSaved && !emailDelivered && !localSaved) {
       return res.status(500).send(getLeadFailureMessage('audit'));
     }
 
     clearLeadFormState(req, 'audit');
-    console.log('--- AUDIT SUBMISSION EMAILS SENT ---');
+    console.log('--- AUDIT SUBMISSION EMAILS/BACKUP HANDLED ---');
     res.redirect('/thank-you');
 
   } catch (error) {
-    console.error('--- CRITICAL SMTP ERROR (AUDIT FORM) ---');
-    console.error('Error Name:', error.name);
-    console.error('Error Message:', error.message);
-    if (error.code) console.error('Error Code:', error.code);
-    if (error.command) console.error('SMTP Command:', error.command);
+    console.error('--- AUDIT FORM ERROR ---', error.message);
+    if (localSaved) {
+      clearLeadFormState(req, 'audit');
+      return res.redirect('/thank-you');
+    }
     
     // Fallback: Notify user to use WhatsApp if mail fails
-    res.status(500).send('Mail service unavailable. Please contact us via WhatsApp on +91 88512 50846');
+    res.status(500).send('Mail service unavailable. Please contact us via WhatsApp on +91 98712 64699');
   }
 });
 
@@ -667,18 +703,22 @@ app.post('/submit-contact', async (req, res) => {
     return res.status(400).send('We could not verify this submission. Please refresh the page and try again.');
   }
 
+  const contactPayload = {
+    formType: 'Contact Form',
+    name,
+    email,
+    phone: phone || '',
+    website: website || '',
+    service: service || '',
+    message,
+    source: sourcePage,
+    submittedAt: new Date().toISOString()
+  };
+
+  const localSaved = await saveLeadLocally(contactPayload);
+
   try {
-    const sheetsSaved = await sendLeadToGoogleSheets({
-      formType: 'Contact Form',
-      name,
-      email,
-      phone: phone || '',
-      website: website || '',
-      service: service || '',
-      message,
-      source: sourcePage,
-      submittedAt: new Date().toISOString()
-    });
+    const sheetsSaved = await sendLeadToGoogleSheets(contactPayload);
 
     let emailDelivered = false;
     if (transporter) {
@@ -752,8 +792,8 @@ app.post('/submit-contact', async (req, res) => {
                   </div>
 
                   <div style="margin-top:24px; text-align:center;">
-                    <a href="https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20just%20submitted%20an%20enquiry%20about%20${encodeURIComponent(service || 'your services')}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
-                    <a href="tel:+918851250846" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 88512 50846</a>
+                    <a href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20just%20submitted%20an%20enquiry%20about%20${encodeURIComponent(service || 'your services')}." style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#25D366; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">WhatsApp Us</a>
+                    <a href="tel:+919871264699" style="display:inline-block; padding:14px 22px; margin:0 8px 10px; border-radius:999px; background:#0f2f57; color:#ffffff; text-decoration:none; font-weight:700; font-size:14px;">Call +91 98712 64699</a>
                   </div>
 
                   <div style="margin-top:26px; padding-top:20px; border-top:1px solid #e7eef6; font-size:14px; line-height:1.8; color:#567089;">
@@ -771,21 +811,22 @@ app.post('/submit-contact', async (req, res) => {
       }
     }
 
-    if (!sheetsSaved && !emailDelivered) {
+    if (!sheetsSaved && !emailDelivered && !localSaved) {
       return res.status(500).send(getLeadFailureMessage('contact'));
     }
 
     clearLeadFormState(req, 'contact');
-    console.log('--- CONTACT SUBMISSION EMAILS SENT ---');
+    console.log('--- CONTACT SUBMISSION EMAILS/BACKUP HANDLED ---');
     res.redirect('/thank-you');
 
   } catch (error) {
-    console.error('--- CRITICAL SMTP ERROR (CONTACT FORM) ---');
-    console.error('Error Name:', error.name);
-    console.error('Error Message:', error.message);
-    if (error.code) console.error('Error Code:', error.code);
+    console.error('--- CONTACT FORM ERROR ---', error.message);
+    if (localSaved) {
+      clearLeadFormState(req, 'contact');
+      return res.redirect('/thank-you');
+    }
     
-    res.status(500).send('Something went wrong with our mail server. Please try again later or call us at +91 88512 50846');
+    res.status(500).send('Something went wrong with our mail server. Please try again later or call us at +91 98712 64699');
   }
 });
 app.get('/', (req, res) => {

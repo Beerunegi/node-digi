@@ -13,3 +13,4 @@ package-lock.json
 
 # Last-known-good WordPress responses (see lib/blog.js)
 .wp-cache
+data/

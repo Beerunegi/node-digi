@@ -210,7 +210,7 @@ if (typewriterWord) {
   }
 }
 
-const whatsappHref = 'https://wa.me/918851250846?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services.';
+const whatsappHref = 'https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services.';
 const ctaGroups = document.querySelectorAll('.hero-actions, .final-cta-inner');
 
 ctaGroups.forEach((group) => {
@@ -308,6 +308,57 @@ sliderRoots.forEach((sliderRoot) => {
   window.addEventListener('resize', startAutoSlide);
 
   startAutoSlide();
+});
+
+
+/* Service-page card carousel controls.
+ *
+ * Each service section contains a `[data-slider-track]` rail plus two icon
+ * buttons (`[data-slider-prev]`, `[data-slider-next]`). The buttons live
+ * outside the rail, so we scope the lookup to the enclosing section rather
+ * than to the rail itself.
+ *
+ * Behaviour:
+ *   - Buttons scroll by one card width (measured live so it stays right
+ *     across viewport changes).
+ *   - Prev/Next disable at the ends of the rail so the user can see when
+ *     there is no more content to move to.
+ *   - Native swipe and trackpad scroll still work — the buttons are an
+ *     addition, not a replacement.
+ */
+document.querySelectorAll('[data-slider-track]').forEach((track) => {
+  const section = track.closest('section') || track.parentElement;
+  if (!section) return;
+  const prev = section.querySelector('[data-slider-prev]');
+  const next = section.querySelector('[data-slider-next]');
+  const stage = track.parentElement;
+  if (!prev || !next) return;
+
+  const gap = () => parseFloat(getComputedStyle(track).columnGap || '0') || 16;
+  const step = () => {
+    const first = track.querySelector('[data-slider-card]') || track.firstElementChild;
+    return first ? first.getBoundingClientRect().width + gap() : 320;
+  };
+
+  const updateState = () => {
+    const max = track.scrollWidth - track.clientWidth - 1;
+    const atStart = track.scrollLeft <= 0;
+    const atEnd = track.scrollLeft >= max;
+    prev.disabled = atStart;
+    next.disabled = atEnd;
+    if (stage) stage.classList.toggle('is-at-end', atEnd);
+  };
+
+  prev.addEventListener('click', () => {
+    track.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+  next.addEventListener('click', () => {
+    track.scrollBy({ left: step(), behavior: 'smooth' });
+  });
+  track.addEventListener('scroll', updateState, { passive: true });
+  window.addEventListener('resize', updateState);
+
+  updateState();
 });
 
 

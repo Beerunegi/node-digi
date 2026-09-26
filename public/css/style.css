@@ -6288,25 +6288,25 @@ body {
   padding: 14px 0 20px;
 }
 
-.seo-concept-carousel-stage::before,
+/* Right-edge fade hints that more cards sit beyond the visible rail. Kept
+   on the right only so it doesn't clip the first card at rest, and made
+   pointer-transparent so it never blocks clicks on the underlying card. */
 .seo-concept-carousel-stage::after {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 44px;
+  top: 12px;
+  bottom: 18px;
+  right: 0;
+  width: 36px;
   pointer-events: none;
   z-index: 2;
-}
-
-.seo-concept-carousel-stage::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(237, 246, 251, 0.98), rgba(237, 246, 251, 0));
-}
-
-.seo-concept-carousel-stage::after {
-  right: 0;
   background: linear-gradient(270deg, rgba(237, 246, 251, 0.98), rgba(237, 246, 251, 0));
+  transition: opacity 0.2s ease;
+}
+
+/* Once the reader has scrolled to the end the hint is a lie — hide it. */
+.seo-concept-carousel-stage.is-at-end::after {
+  opacity: 0;
 }
 
 .seo-concept-services-head h2,
@@ -6340,15 +6340,19 @@ body {
   line-height: 1.8;
 }
 
+/* Horizontal-scroll card rail. Driven by native touch/trackpad swipe and by
+   the Prev/Next icon buttons in .seo-concept-carousel-controls, which
+   main.js wires up per section. Snap-align keeps cards flush to the visible
+   edge after both interactions. */
 .seo-concept-card-grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: clamp(340px, 31vw, 410px);
-  gap: 24px;
+  grid-auto-columns: clamp(280px, 30vw, 360px);
+  gap: 20px;
   overflow-x: auto;
-  padding: 12px 18px 18px;
+  padding: 12px 4px 18px;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 18px;
+  scroll-padding-inline: 4px;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
 }
@@ -6357,34 +6361,63 @@ body {
   display: none;
 }
 
+/* Modern icon-only Prev/Next controls: pill container with two circular
+   buttons. Sits next to the intro copy in the section head. */
 .seo-concept-carousel-controls {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
+  margin-top: 18px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(1, 91, 88, 0.12);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 28px rgba(16, 29, 52, 0.06);
 }
 
 .seo-concept-carousel-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 78px;
-  min-height: 42px;
-  padding: 10px 14px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border-radius: 999px;
-  border: 1px solid rgba(0, 127, 122, 0.14);
-  background: rgba(255, 255, 255, 0.74);
-  color: var(--brand-strong);
-  font-family: "Sora", sans-serif;
-  font-size: 0.697rem;
-  font-weight: 600;
+  border: 0;
+  background: linear-gradient(135deg, #0a2540, #3b82f6);
+  color: #fff;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.28);
 }
 
-.seo-concept-carousel-btn:hover {
-  transform: translateY(-2px);
-  background: #ffffff;
-  border-color: rgba(0, 127, 122, 0.24);
+.seo-concept-carousel-btn:hover:not([disabled]) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.35);
+}
+
+.seo-concept-carousel-btn:active:not([disabled]) {
+  transform: translateY(0);
+}
+
+.seo-concept-carousel-btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+/* End-of-rail state — the button visibly deadens instead of vanishing so the
+   pair keeps its shape and position. */
+.seo-concept-carousel-btn[disabled] {
+  cursor: default;
+  opacity: 0.35;
+  background: #d5dbe2;
+  color: #0a2540;
+  box-shadow: none;
+}
+
+.seo-concept-card-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .seo-concept-service-card {
@@ -7322,10 +7355,6 @@ body {
     align-items: start;
   }
 
-  .seo-concept-card-grid {
-    grid-auto-columns: minmax(320px, 360px);
-  }
-
   .seo-concept-testimonial-grid {
     grid-template-columns: 1fr;
   }
@@ -7509,9 +7538,23 @@ body {
   }
 
   .seo-concept-card-grid {
-    grid-auto-columns: minmax(300px, 82vw);
-    gap: 18px;
-    padding: 10px 14px 14px;
+    grid-auto-columns: minmax(280px, 84vw);
+    gap: 16px;
+    padding: 10px 4px 14px;
+  }
+
+  /* On phones the pill and its buttons deserve a bit more presence — they
+     are now the primary way to advance through cards. */
+  .seo-concept-carousel-controls {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 14px;
+  }
+
+  .seo-concept-carousel-btn {
+    width: 46px;
+    height: 46px;
   }
 
   .seo-concept-pricing-stage {
@@ -7605,11 +7648,6 @@ body {
   .seo-concept-carousel-stage {
     margin: 0 -6px;
     padding: 10px 0 14px;
-  }
-
-  .seo-concept-carousel-stage::before,
-  .seo-concept-carousel-stage::after {
-    width: 26px;
   }
 
   .seo-concept-tool-list article {
@@ -7764,10 +7802,6 @@ body {
     font-size: 0.765rem;
   }
 
-  .seo-concept-card-grid {
-    grid-auto-columns: minmax(270px, 86vw);
-  }
-
   .seo-concept-metrics-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -7874,14 +7908,6 @@ body {
 
   .seo-concept-testimonial-proof span {
     font-size: 0.663rem;
-  }
-
-  .seo-concept-carousel-controls {
-    width: 100%;
-  }
-
-  .seo-concept-carousel-btn {
-    flex: 1;
   }
 
   .seo-concept-case-stats {

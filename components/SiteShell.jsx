@@ -537,7 +537,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <h2 className="footer-col-title">Get in Touch</h2>
             <p>3rd Floor, A-303, Sector 5, Rajendra Nagar, Ghaziabad, Uttar Pradesh 201005</p>
             <p><a href="mailto:info@digiwebtech.co.in">info@digiwebtech.co.in</a></p>
-            <p><a href="tel:+919871234699" className="footer-phone">+91 98712 34699</a></p>
+            <p><a href="tel:+919871264699" className="footer-phone">+91 98712 64699</a></p>
           </div>
         </div>
 
@@ -553,12 +553,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </footer>
 
       <div className="mobile-sticky-bar">
-        <a className="sticky-btn sticky-call" href="tel:+919871234699">
+        <a className="sticky-btn sticky-call" href="tel:+919871264699">
           Call Now
         </a>
         <a
           className="sticky-btn sticky-whatsapp"
-          href="https://wa.me/919871234699?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services."
+          href="https://wa.me/919871264699?text=Hello%20Digi%20Web%20Tech%2C%20I%20need%20digital%20marketing%20services."
           target="_blank"
           rel="noopener noreferrer"
         >

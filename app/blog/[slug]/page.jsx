@@ -169,7 +169,7 @@ function getCategoryFaqs(categories = [], title = '') {
       },
       {
         question: 'How do I get started with a project or request a digital audit?',
-        answer: 'You can initiate a project by clicking "Contact Us" or calling us directly at +91 88512 50846. Our technical specialists will perform an initial audit of your current digital assets and set up a free 30-minute discovery consultation to discuss the path forward.',
+        answer: 'You can initiate a project by clicking "Contact Us" or calling us directly at +91 98712 64699. Our technical specialists will perform an initial audit of your current digital assets and set up a free 30-minute discovery consultation to discuss the path forward.',
       },
     ];
   }
@@ -514,7 +514,7 @@ export default async function BlogPostPage({ params }) {
               <p>Get a comprehensive search engine and technical SEO audit for your website. No obligation, just pure actionable advice from our growth specialists.</p>
               <div className="footer-cta-actions">
                 <a href="/contact" className="btn-primary">Claim Your Free Audit</a>
-                <a href="tel:+918851250846" className="btn-secondary">Talk to an Expert</a>
+                <a href="tel:+919871264699" className="btn-secondary">Talk to an Expert</a>
               </div>
             </div>
           </div>
